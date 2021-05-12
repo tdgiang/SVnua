@@ -51,6 +51,7 @@ const images = {
   iconImg: require('./images/iconImg.png'),
   iconTeams: require('./images/iconTeams.png'),
   iconSend: require('./images/iconSend.png'),
+  iconVoice: require('./images/iconVoice.png'),
 };
 
 export default images;

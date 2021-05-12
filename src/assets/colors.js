@@ -53,7 +53,7 @@ const colors = {
   rgbaBtn: 'rgba(127, 127, 191, 0.2)',
   yellow: '#e6e600',
   red: '#E3434F',
-  red1: '#e2e8eb',
+  red1: '#FA1E1E',
 };
 
 export default colors;
