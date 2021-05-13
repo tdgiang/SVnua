@@ -6,21 +6,116 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {getFontXD} from '../../../Config/Functions';
+import { FlatList } from 'react-native';
 
-const EvaluteTeacher = (props) => {
+const DATA = [
+  {
+    id: '1',
+    term:'Học kỳ 1',
+    selfRate:'70',
+    teachRate:'68',
+    studyBonus:'75',
+    total:'80',
+    rank:'Khá',
+    status:'Hoàn thành'
+  },
+  {
+    id: '2',
+    term:'Học kỳ 2',
+    selfRate:'70',
+    teachRate:'68',
+    studyBonus:'75',
+    total:'80',
+    rank:'Khá',
+    status:'Hoàn thành'
+  },
+  {
+    id: '3',
+    term:'Học kỳ 3',
+    selfRate:'70',
+    teachRate:'68',
+    studyBonus:'75',
+    total:'80',
+    rank:'Khá',
+    status:'Hoàn thành'
+  },
+];
+const Item = (props) => {
+  const {term, selfRate, teachRate, studyBonus,total, rank, status} = props.item;
   return (
-    <View style={{flex: 1, backgroundColor: R.colors.white}}>
-      <Header isBack={true} title={'Kết quả đánh giá'} />
-      <View
-        style={{
-          flex: 1,
-        }}>
-        <Text>dsad</Text>
+    <TouchableOpacity style={styles.container}>
+      <View style={styles.title}>
+        <Text style={{fontSize:getFontXD(52)}}>{term}</Text>
       </View>
-    </View>
+      <View style={{margin:10}}>
+        <View style={styles.item}>
+          <Text style={styles.list}>Điểm tự đánh giá</Text>
+          <Text style={styles.score}>{selfRate}</Text>
+        </View>
+        <View style={styles.item}>
+          <Text style={styles.list}>Điểm chủ nhiệm lớp đánh giá</Text>
+          <Text style={styles.score}>{teachRate}</Text>
+        </View>
+        <View style={styles.item}>
+          <Text style={styles.list}>Điểm cộng học tập</Text>
+          <Text style={styles.score}>{studyBonus}</Text>
+        </View>
+        <View style={styles.item}>
+          <Text style={styles.list}>Tổng diểm</Text>
+          <Text style={styles.score}>{total}</Text>
+        </View>
+        <View style={styles.item}>
+          <Text style={styles.list}>Xếp loại</Text>
+          <Text style={styles.list}>{rank}</Text>
+        </View>
+        <View style={styles.item}>
+          <Text style={styles.list}>Trạng thái</Text>
+          <Text style={styles.list}>{status}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({});
-
-export default EvaluteTeacher;
+const EvaluteResult = (props) => {
+  return (
+    <View style={{flex: 1,backgroundColor:R.colors.colorBackground}}>
+      <Header isBack={true} title={'Kết quả đánh giá'} />
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={DATA}
+        renderItem={({item}) => <Item item={item} />}
+        keyExtractor={(item) => item.id}
+      />
+    </View>
+  );
+};
+const styles = StyleSheet.create({
+  container: {
+   borderRadius:10,
+   marginHorizontal:10,
+   marginVertical:10,
+   backgroundColor:R.colors.white
+  },
+  title:{
+    alignItems:'center',
+    borderColor:'gray',
+    borderBottomWidth:2,
+    padding:10,
+    marginHorizontal:10
+  },
+  item:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    marginVertical:2
+  },
+  score:{
+    color:'red',
+    fontSize:getFontXD(42)
+  },
+  list:{
+    fontSize:getFontXD(40),
+    opacity:0.8
+  }
+});
+export default EvaluteResult;
