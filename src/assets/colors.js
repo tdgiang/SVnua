@@ -30,8 +30,6 @@ const colors = {
   unfilledColor: 'rgba(255, 255, 255, 0.5)',
   bgActive: '#DDEEFF',
   contentComment: '#DAE9FF',
-  txtMain: '#3F4E91',
-  txtMain2: '#6981EC',
 
   accent: '#A60014',
   primary: '#0AC4BA',
@@ -50,7 +48,7 @@ const colors = {
   lightBlue1: '#008ae6',
   lightBlue2: '#22AEFB',
 
-  rgbaBtn: 'rgba(127, 127, 191, 0.2)',
+  rgbaBtn: '#79F8B5',
   yellow: '#e6e600',
   red: '#E3434F',
   red1: '#FA1E1E',

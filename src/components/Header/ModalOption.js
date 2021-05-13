@@ -1,26 +1,19 @@
 import React, {useState} from 'react';
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {
   getFontXD,
   HEIGHTXD,
   WIDTH,
   HEIGHT,
   WIDTHXD,
-} from '../../config/Functions';
+} from '../../Config/Functions';
 import R from '../../assets/R';
 import Block from '../Block';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 import I18n from '../../helper/i18/i18n';
 import AppText from '../AppText';
-// import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import Modal from 'react-native-modal';
 
 const ModalOption = (props) => {
   const {isOpen, closeModal, onChangePicker, onClick} = props;
@@ -30,7 +23,15 @@ const ModalOption = (props) => {
 
   return (
     <View style={styles.centeredView}>
-      <Modal animationType="slide" transparent={true} visible={isOpen}>
+      <Modal
+        style={{
+          flex: 1,
+          backgroundColor: 'rgba(0, 0, 0, 0.4)',
+          margin: 0,
+        }}
+        animationType="slide"
+        transparent={true}
+        visible={isOpen}>
         <View style={styles.centeredView}>
           <View style={styles.container}>
             <View
@@ -45,63 +46,9 @@ const ModalOption = (props) => {
                 <Icon name={'close-outline'} size={22} />
               </TouchableOpacity>
             </View>
-
-            <View style={{flex: 1, paddingVertical: 10}}>
-              <AppText style={styles.txtTitle} i18nKey={'Status'} />
-              <DropDownPicker
-                zIndex={5}
-                items={[
-                  {label: I18n.t('Waiting'), value: 1},
-                  {label: I18n.t('Success'), value: 2},
-                  {label: I18n.t('Failed'), value: 3},
-                ]}
-                selectedLabelStyle={{
-                  color: R.colors.black,
-                  fontSize: getFontXD(42),
-                }}
-                containerStyle={{height: HEIGHT(40)}}
-                placeholder={I18n.t('SelectRequestStatus')}
-                style={{backgroundColor: '#fafafa', marginTop: 4}}
-                itemStyle={{
-                  justifyContent: 'flex-start',
-                  color: R.colors.black,
-                }}
-                placeholderStyle={{color: 'black'}}
-                dropDownStyle={{
-                  backgroundColor: '#fafafa',
-                }}
-                onChangeItem={(item) => onChangePicker(item.value)}
-              />
-              <View style={{marginTop: 10}}>
-                <Block row>
-                  <Block>
-                    <AppText style={styles.txtTitle} i18nKey={'FromDate'} />
-                    <TouchableOpacity
-                      onPress={() => setDatePickerVisibility(true)}
-                      style={styles.datePicker}>
-                      <Text>20/01/2020</Text>
-                    </TouchableOpacity>
-                  </Block>
-                  <Block>
-                    <AppText style={styles.txtTitle} i18nKey={'ToDate'} />
-                    <TouchableOpacity
-                      onPress={() => setDatePickerVisibility(true)}
-                      style={styles.datePicker}>
-                      <Text>20/01/2020</Text>
-                    </TouchableOpacity>
-                  </Block>
-                </Block>
-              </View>
+            <View>
+              <Text>Container</Text>
             </View>
-
-            {/*<DateTimePickerModal*/}
-            {/*  isVisible={isDatePickerVisible}*/}
-            {/*  mode="date"*/}
-            {/*  maximumDate={new Date()}*/}
-            {/*  onConfirm={dateConfirm}*/}
-            {/*  onCancel={() => setDatePickerVisibility(false)}*/}
-            {/*/>*/}
-
             <View
               style={{
                 flexDirection: 'row',
@@ -122,7 +69,7 @@ const ModalOption = (props) => {
 const styles = StyleSheet.create({
   container: {
     width: WIDTHXD(800),
-    height: HEIGHTXD(800),
+    paddingVertical: 20,
     backgroundColor: 'white',
     padding: 10,
     shadowColor: '#000',
@@ -133,13 +80,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 3,
-    borderRadius: 5,
+    borderRadius: 10,
   },
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    backgroundColor: 'rgba(0, 0, 0, 0.0)',
   },
   modalView: {
     margin: 20,

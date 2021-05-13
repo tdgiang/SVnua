@@ -15,10 +15,22 @@ import {connect} from 'react-redux';
 import {HEIGHTXD} from '../../Config/Functions';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import ModalOption from './ModalOption';
 // import SnackBar from '../SnackBar';
 // import AppText from '../AppText';
 
 const HeaderFillter = (props) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const onClick = () => {
+    console.log('Click ok');
+    setIsOpen(false);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   const {title} = props;
   const navigate = useNavigation();
   return (
@@ -35,11 +47,15 @@ const HeaderFillter = (props) => {
         </TouchableOpacity>
         <Text style={styles.txtTitle}>{title}</Text>
         <TouchableOpacity
-          style={{width: 35, height: 30, alignItems: 'flex-end'}}
-          onPress={() => console.log('Hello')}>
+          onPress={() => {
+            console.log(isOpen);
+            setIsOpen(true);
+          }}
+          style={{width: 35, height: 30, alignItems: 'flex-end'}}>
           <Icon color={'white'} name={'filter'} size={22} />
         </TouchableOpacity>
       </View>
+      <ModalOption onClick={onClick} isOpen={isOpen} closeModal={closeModal} />
     </ImageBackground>
   );
 };
