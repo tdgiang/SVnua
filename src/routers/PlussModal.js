@@ -3,10 +3,14 @@ import {View, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import R from '../assets/R';
 import {HEIGHTXD, WIDTHXD, getFontXD} from '../Config/Functions';
+import {useNavigation} from '@react-navigation/native';
+
+import {HOMETEAM} from '../routers/ScreenNames';
 
 const PlussModal = (props) => {
+  const navation = useNavigation();
   const toggleModal = () => {
-    console.log('Hello');
+    navation.navigate(HOMETEAM);
   };
 
   return (

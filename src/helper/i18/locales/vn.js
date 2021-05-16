@@ -117,7 +117,7 @@ export default {
   Re_send: 'Gửi lại',
   Copied: 'Đã sao chép!',
   Please_fill_in: 'Vui lòng điền ',
-  RequestFilter: 'Lọc yêu cầu',
+  RequestFilter: 'Lọc môn học',
   FromDate: 'Từ ngày:',
   ToDate: 'Đến ngày:',
   Failed: 'Thất bại',

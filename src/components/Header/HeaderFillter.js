@@ -20,7 +20,7 @@ import ModalOption from './ModalOption';
 // import AppText from '../AppText';
 
 const HeaderFillter = (props) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const onClick = () => {
     console.log('Click ok');

@@ -6,7 +6,7 @@ import {getFontXD} from '../../Config/Functions';
 const renderColor = (status) => {
   if (status == 0) return R.colors.gray2;
   if (status == 1) return R.colors.main;
-  if (status == 2) return R.colors.red;
+  if (status == 2) return R.colors.orange;
 };
 
 const Item = (props) => {

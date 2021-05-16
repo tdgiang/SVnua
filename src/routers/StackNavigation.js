@@ -48,6 +48,9 @@ import DetailServey from '../Screens/Menu/Servey/DetailServey';
 import HistoryTransfer from '../Screens/FinaceChildren/HistoryTransfer';
 import PayDebt from '../Screens/FinaceChildren/PayDebt';
 import Pays from '../Screens/FinaceChildren/Pays';
+import HomeTeam from '../Screens/MSTeam/Home/HomeTeam';
+import DetailTeam from '../Screens/MSTeam/DetailTeam/DetailTeam';
+import WritePost from '../Screens/MSTeam/DetailTeam/WritePost';
 
 import * as ScreenName from './ScreenNames';
 
@@ -70,13 +73,14 @@ function MyStack(props) {
         component={EvaluateTeacher}
       />
       <Stack.Screen name={ScreenName.EVALUATEUSER} component={EvaluateUser} />
-
+      <Stack.Screen name={ScreenName.DETAILTEAM} component={DetailTeam} />
       <Stack.Screen
         name={ScreenName.HISTORYTRANSFER}
         component={HistoryTransfer}
       />
       <Stack.Screen name={ScreenName.PAYDEBT} component={PayDebt} />
       <Stack.Screen name={ScreenName.PAYS} component={Pays} />
+      <Stack.Screen name={ScreenName.WRITEPOST} component={WritePost} />
 
       <Stack.Screen
         name={ScreenName.QUESTIONSERVEY}
@@ -121,6 +125,7 @@ function MyStack(props) {
       <Stack.Screen name={ScreenName.PROFILE} component={Profile} />
       <Stack.Screen name={ScreenName.QUESTION} component={Question} />
       <Stack.Screen name={ScreenName.SETTING} component={Setting} />
+      <Stack.Screen name={ScreenName.HOMETEAM} component={HomeTeam} />
     </Stack.Navigator>
   );
 }

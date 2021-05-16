@@ -38,7 +38,9 @@ const Header = (props) => {
           <View style={{width: 35, height: 30}} />
         )}
 
-        <Text style={styles.txtTitle}>{title}</Text>
+        <Text numberOfLines={1} style={styles.txtTitle}>
+          {title}
+        </Text>
         <View style={{width: 35, height: 30}} />
       </View>
     </ImageBackground>

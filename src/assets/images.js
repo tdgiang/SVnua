@@ -49,9 +49,16 @@ const images = {
   barchart: require('./images/bar-chart.png'),
   iconCamera: require('./images/iconCamera.png'),
   iconImg: require('./images/iconImg.png'),
-  iconTeams: require('./images/iconTeams.png'),
+  iconTeams: require('./images/iconMsTeam1.png'),
   iconSend: require('./images/iconSend.png'),
   iconVoice: require('./images/iconVoice.png'),
+  iconLike: require('./images/iconLike.png'),
+  iconHeart: require('./images/iconHeart.png'),
+  iconSad: require('./images/iconSad.png'),
+
+  powerpoint: require('./images/powerpoint.png'),
+  excel: require('./images/excel.png'),
+  word: require('./images/word.png'),
 };
 
 export default images;
