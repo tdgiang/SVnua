@@ -59,6 +59,10 @@ const images = {
   powerpoint: require('./images/powerpoint.png'),
   excel: require('./images/excel.png'),
   word: require('./images/word.png'),
+  folder: require('./images/folder.png'),
+  gallery: require('./images/gallery.png'),
+  pdf: require('./images/pdf.png'),
+  assignment: require('./images/assignment.png'),
 };
 
 export default images;

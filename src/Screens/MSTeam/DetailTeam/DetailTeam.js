@@ -23,7 +23,6 @@ const GraduationView = (props) => {
           indicatorStyle: {backgroundColor: R.colors.main},
         }}>
         <Tab.Screen name="Bảng tin" component={Posts} />
-
         <Tab.Screen name="Bài tập" component={Assignment} />
         <Tab.Screen name="Files" component={Files} />
       </Tab.Navigator>

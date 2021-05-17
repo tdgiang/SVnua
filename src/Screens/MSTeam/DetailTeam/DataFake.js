@@ -30,6 +30,11 @@ export const DATA = [
             'K62CNPM, Chào các em, hôm nay Học viện gửi về danh sách sv đã tham gia đánh giá về chất lượng dịch vụ, cơ sở vật chất và môi trường của Nhà trường, lớp mình mới có rất ít bạn tham gia đánh giá. Vậy cô yêu cầu thêm một lần nữa các bạn bắt buộc phải tham gia đánh giá (việc này mất một chút thời gian thôi, không chiếm mất quỹ thời gian hẹn hò, tà tữa lắm đâu ) Nếu bạn nào trong tuần này vẫn không tham gia đánh giá sẽ bị Nhà trường trừ điểm rèn luyện (trừ rất nặng nhé - Cô không dọa đâu nhé).',
           file: null,
         },
+        feedback: {
+          like: 2,
+          heart: 0,
+          sad: 0,
+        },
       },
     ],
     feedback: {
@@ -67,6 +72,11 @@ export const DATA = [
             'K62CNPM, Chào các em, hôm nay Học viện gửi về danh sách sv đã tham gia đánh giá về chất lượng dịch vụ, cơ sở vật chất và môi trường của Nhà trường, lớp mình mới có rất ít bạn tham gia đánh giá. Vậy cô yêu cầu thêm một lần nữa các bạn bắt buộc phải tham gia đánh giá (việc này mất một chút thời gian thôi, không chiếm mất quỹ thời gian hẹn hò, tà tữa lắm đâu ) Nếu bạn nào trong tuần này vẫn không tham gia đánh giá sẽ bị Nhà trường trừ điểm rèn luyện (trừ rất nặng nhé - Cô không dọa đâu nhé).',
           file: null,
         },
+        feedback: {
+          like: 2,
+          heart: 0,
+          sad: 0,
+        },
       },
     ],
     feedback: {
@@ -102,10 +112,75 @@ export const DATA = [
         },
         time: '15/05,9:30 AM',
         content: {
-          image: R.images.barchart,
+          image: null,
           text:
             'K62CNPM, Chào các em, hôm nay Học viện gửi về danh sách sv đã tham gia đánh giá về chất lượng dịch vụ, cơ sở vật chất và môi trường của Nhà trường, lớp mình mới có rất ít bạn tham gia đánh giá. Vậy cô yêu cầu thêm một lần nữa các bạn bắt buộc phải tham gia đánh giá (việc này mất một chút thời gian thôi, không chiếm mất quỹ thời gian hẹn hò, tà tữa lắm đâu ) Nếu bạn nào trong tuần này vẫn không tham gia đánh giá sẽ bị Nhà trường trừ điểm rèn luyện (trừ rất nặng nhé - Cô không dọa đâu nhé).',
           file: null,
+        },
+        feedback: {
+          like: 2,
+          heart: 0,
+          sad: 0,
+        },
+      },
+      {
+        id: '12',
+        user: {
+          id: '1',
+          name: 'Đỗ Thị Nhâm',
+          avatart: R.images.avatar,
+        },
+        time: '15/05,9:30 AM',
+        content: {
+          image: null,
+          text:
+            'K62CNPM, Chào các em, hôm nay Học viện gửi về danh sách sv đã tham gia đánh giá về chất lượng dịch vụ, cơ sở vật chất và môi trường của Nhà trường, lớp mình mới có rất ít bạn tham gia đánh giá. Vậy cô yêu cầu thêm một lần nữa các bạn bắt buộc phải tham gia đánh giá (việc này mất một chút thời gian thôi, không chiếm mất quỹ thời gian hẹn hò, tà tữa lắm đâu ) Nếu bạn nào trong tuần này vẫn không tham gia đánh giá sẽ bị Nhà trường trừ điểm rèn luyện (trừ rất nặng nhé - Cô không dọa đâu nhé).',
+          file: null,
+        },
+        feedback: {
+          like: 2,
+          heart: 0,
+          sad: 0,
+        },
+      },
+      {
+        id: '13',
+        user: {
+          id: '1',
+          name: 'Đỗ Thị Nhâm',
+          avatart: R.images.avatar,
+        },
+        time: '15/05,9:30 AM',
+        content: {
+          image: null,
+          text:
+            'K62CNPM, Chào các em, hôm nay Học viện gửi về danh sách sv đã tham gia đánh giá về chất lượng dịch vụ, cơ sở vật chất và môi trường của Nhà trường, lớp mình mới có rất ít bạn tham gia đánh giá. Vậy cô yêu cầu thêm một lần nữa các bạn bắt buộc phải tham gia đánh giá (việc này mất một chút thời gian thôi, không chiếm mất quỹ thời gian hẹn hò, tà tữa lắm đâu ) Nếu bạn nào trong tuần này vẫn không tham gia đánh giá sẽ bị Nhà trường trừ điểm rèn luyện (trừ rất nặng nhé - Cô không dọa đâu nhé).',
+          file: null,
+        },
+        feedback: {
+          like: 0,
+          heart: 0,
+          sad: 0,
+        },
+      },
+      {
+        id: '14',
+        user: {
+          id: '1',
+          name: 'Đỗ Thị Nhâm',
+          avatart: R.images.avatar,
+        },
+        time: '15/05,9:30 AM',
+        content: {
+          image: R.images.header,
+          text:
+            'K62CNPM, Chào các em, hôm nay Học viện gửi về danh sách sv đã tham gia đánh giá về chất lượng dịch vụ, cơ sở vật chất và môi trường của Nhà trường, lớp mình mới có rất ít bạn tham gia đánh giá. Vậy cô yêu cầu thêm một lần nữa các bạn bắt buộc phải tham gia đánh giá (việc này mất một chút thời gian thôi, không chiếm mất quỹ thời gian hẹn hò, tà tữa lắm đâu ) Nếu bạn nào trong tuần này vẫn không tham gia đánh giá sẽ bị Nhà trường trừ điểm rèn luyện (trừ rất nặng nhé - Cô không dọa đâu nhé).',
+          file: null,
+        },
+        feedback: {
+          like: 2,
+          heart: 0,
+          sad: 0,
         },
       },
     ],
@@ -139,10 +214,15 @@ export const DATA = [
         },
         time: '15/05,9:30 AM',
         content: {
-          image: R.images.barchart,
+          image: null,
           text:
             'K62CNPM, Chào các em, hôm nay Học viện gửi về danh sách sv đã tham gia đánh giá về chất lượng dịch vụ, cơ sở vật chất và môi trường của Nhà trường, lớp mình mới có rất ít bạn tham gia đánh giá. Vậy cô yêu cầu thêm một lần nữa các bạn bắt buộc phải tham gia đánh giá (việc này mất một chút thời gian thôi, không chiếm mất quỹ thời gian hẹn hò, tà tữa lắm đâu ) Nếu bạn nào trong tuần này vẫn không tham gia đánh giá sẽ bị Nhà trường trừ điểm rèn luyện (trừ rất nặng nhé - Cô không dọa đâu nhé).',
           file: null,
+        },
+        feedback: {
+          like: 2,
+          heart: 0,
+          sad: 0,
         },
       },
     ],
@@ -151,5 +231,50 @@ export const DATA = [
       heart: 30,
       sad: 5,
     },
+  },
+];
+
+export const DATAFILE = [
+  {
+    id: '1',
+    icon: R.images.excel,
+    name: 'DS_K62CNPM.xlsx',
+    poster: 'Đỗ Thị Nhâm',
+    time: '15/05/2021',
+  },
+  {
+    id: '2',
+    icon: R.images.pdf,
+    name: '14062021_TB-HVN.pdf',
+    poster: 'Đỗ Thị Nhâm',
+    time: '15/05/2021',
+  },
+  {
+    id: '3',
+    icon: R.images.excel,
+    name: 'Khoa CNTT danh sach sv duoc HB.xlsx',
+    poster: 'Đỗ Thị Nhâm',
+    time: '13/05/2021',
+  },
+  {
+    id: '4',
+    icon: R.images.excel,
+    name: 'DRL sv tu danh gia_Khoa_CNTT',
+    poster: 'Đỗ Thị Nhâm',
+    time: '15/05/2021',
+  },
+  {
+    id: '5',
+    icon: R.images.excel,
+    name: 'Phieu danh gia_Diem_Ren_Luyen_2020',
+    poster: 'Đỗ Thị Nhâm',
+    time: '15/05/2021',
+  },
+  {
+    id: '6',
+    icon: R.images.excel,
+    name: 'DS_SV vang mat.xlsx',
+    poster: 'Đỗ Thị Nhâm',
+    time: '15/05/2021',
   },
 ];

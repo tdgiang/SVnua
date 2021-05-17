@@ -32,13 +32,11 @@ const FeedBack = (props) => {
   );
 };
 
-const Item = (props) => {
-  const navigation = useNavigation();
-  const {time, poster, content, feedback} = props.item;
+const ItemComment = (props) => {
+  const {user, time, content, feedback} = props.item;
   const [like, setLike] = useState(feedback.like);
   const [heart, setHeart] = useState(feedback.heart);
   const [sad, setSad] = useState(feedback.sad);
-
   const onClickLike = () => setLike(feedback.like + 1);
   const onClickHeart = () => setHeart(feedback.heart + 1);
   const onClickSad = () => setSad(feedback.sad + 1);
@@ -46,34 +44,32 @@ const Item = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Image source={poster.avatart} style={styles.imgAvatart} />
+        <Image source={R.images.avatar} style={styles.imgAvatart} />
         <View style={{flex: 1, marginLeft: 10}}>
-          <Text style={styles.txtName}>{poster.name}</Text>
+          <Text style={styles.txtName}>{user.name}</Text>
           <Text style={styles.txtTime}>{time}</Text>
         </View>
       </View>
-      <View style={styles.wrapContent}>
-        <Text numberOfLines={5}>{content.text}</Text>
+      <View>
+        <Text>{content.text}</Text>
       </View>
       {content.image ? (
         <Image source={content.image} style={styles.imgContent} />
       ) : null}
-
       {content.file ? (
         <View style={styles.wrapFile}>
           <Image source={content.file.icon} style={{width: 35, height: 35}} />
           <View style={{flex: 1}}>
             <Text numberOfLines={1} style={{marginLeft: 5, fontWeight: '600'}}>
-              {content.file.name}
+              dasdas
             </Text>
           </View>
         </View>
       ) : null}
-
       <View style={styles.wrapFeedback}>
         <Tooltip
-          // pointerColor={'red'}
-          // backgroundColor={'white'}
+          pointerColor={'red'}
+          backgroundColor={'white'}
           popover={
             <FeedBack
               onClickSad={onClickSad}
@@ -105,39 +101,6 @@ const Item = (props) => {
           </View>
         </Tooltip>
       </View>
-      <Divider />
-      <TouchableOpacity
-        onPress={() => navigation.navigate(DETAILPOST, {data: props.item})}
-        style={{flexDirection: 'row', alignItems: 'center', marginTop: 5}}>
-        <Icon name={'back'} size={20} color={R.colors.lightBlue1} />
-        <Text style={styles.seeMore}>Reply</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-const Posts = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const onClose = () => setIsOpen(false);
-  return (
-    <View style={{flex: 1}}>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        keyExtractor={(item) => item.id}
-        data={DATA}
-        renderItem={({item}) => <Item item={item} />}
-      />
-      <View style={styles.wrapWrite}>
-        <TouchableOpacity
-          onPress={() => setIsOpen(true)}
-          style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <Icon name={'edit'} size={25} color={R.colors.white} />
-        </TouchableOpacity>
-      </View>
-      <Modal isVisible={isOpen}>
-        <WirtePost onClose={onClose} />
-      </Modal>
     </View>
   );
 };
@@ -147,16 +110,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    backgroundColor: R.colors.white,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 3,
-    marginTop: 2,
   },
   header: {
     flexDirection: 'row',
@@ -177,9 +130,7 @@ const styles = StyleSheet.create({
     color: R.colors.black,
     fontWeight: '600',
   },
-  wrapContent: {
-    maxHeight: 100,
-  },
+
   imgContent: {
     height: 100,
     width: '100%',
@@ -223,15 +174,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 40,
     right: 20,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 3,
   },
 });
 
-export default Posts;
+export default ItemComment;

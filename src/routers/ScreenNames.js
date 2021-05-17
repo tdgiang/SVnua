@@ -56,4 +56,4 @@ export const PAYS = 'PAY';
 export const HOMETEAM = 'HOMETEAM';
 
 export const DETAILTEAM = 'DETAILTEAM';
-export const WRITEPOST = 'WRITEPOST';
+export const DETAILPOST = 'DETAILPOST';
