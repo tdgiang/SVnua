@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {
   TextInput,
   View,
@@ -21,12 +21,26 @@ import Button from '../../components/Button';
 const {width, height} = Dimensions.get('window');
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
-import {TABBAR} from '../../routers/ScreenNames';
-import {CONFIRMEMAIL} from '../../routers/ScreenNames';
+import {CONFIRMPASS} from '../../routers/ScreenNames';
 
-const Login = (props) => {
+import {
+  CodeField,
+  Cursor,
+  useBlurOnFulfill,
+  useClearByFocusCell,
+} from 'react-native-confirmation-code-field';
+
+const CELL_COUNT = 4;
+
+const ConfirmOTP = (propsa) => {
   const navigation = useNavigation();
+  const [value, setValue] = useState('');
 
+  const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
+  const [props, getCellOnLayoutHandler] = useClearByFocusCell({
+    value,
+    setValue,
+  });
   return (
     <KeyboardAvoidingView
       behavior={Platform.Os === 'ios' ? 'padding' : 'height'}
@@ -49,27 +63,29 @@ const Login = (props) => {
                 }}>
                 <Image source={R.images.logo} style={styles.imgLogo} />
                 <View style={styles.container}>
-                  <View style={styles.wrapInput}>
-                    <Icon
-                      name={'infocirlceo'}
-                      size={18}
-                      color={R.colors.white}
-                    />
-                    <TextInput
-                      style={styles.txtInput}
-                      placeholder="Nhập mã sinh viên"
-                      placeholderTextColor={R.colors.white}
-                      keyboardType={'number-pad'}
-                    />
-                  </View>
-
-                  <View style={styles.wrapInput}>
-                    <Icon name={'lock1'} size={18} color={R.colors.white} />
-                    <TextInput
-                      style={styles.txtInput}
-                      placeholder="Nhập mật khẩu"
-                      placeholderTextColor={R.colors.white}
-                      secureTextEntry={true}
+                  <View style={styles.containerCode}>
+                    <CodeField
+                      ref={ref}
+                      {...props}
+                      value={value}
+                      onChangeText={setValue}
+                      cellCount={CELL_COUNT}
+                      rootStyle={styles.codeFieldRoot}
+                      keyboardType="number-pad"
+                      textContentType="oneTimeCode"
+                      renderCell={({index, symbol, isFocused}) => (
+                        <View
+                          onLayout={getCellOnLayoutHandler(index)}
+                          key={index}
+                          style={[
+                            styles.cellRoot,
+                            isFocused && styles.focusCell,
+                          ]}>
+                          <Text style={styles.cellText}>
+                            {symbol || (isFocused ? <Cursor /> : null)}
+                          </Text>
+                        </View>
+                      )}
                     />
                   </View>
 
@@ -78,32 +94,26 @@ const Login = (props) => {
                       justifyContent: 'flex-end',
                       alignItems: 'flex-end',
                       width: '100%',
-                      marginTop: 20,
+                      marginTop: 50,
                     }}>
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate(CONFIRMEMAIL)}>
+                    <TouchableOpacity onPress={() => console.log('Hello')}>
                       <Text
                         style={{
                           fontSize: getFontXD(42),
                           color: R.colors.txtMain,
                         }}>
-                        Quên mật khẩu?
+                        Gửi lại OTP
                       </Text>
                     </TouchableOpacity>
                   </View>
-                  <View style={{height: 50}} />
 
                   <Button
-                    title={'Đăng nhập'}
-                    onClick={() =>
-                      navigation.reset({
-                        index: 1,
-                        routes: [{name: TABBAR}],
-                      })
-                    }
+                    title={'Tiếp tục'}
+                    onClick={() => navigation.navigate(CONFIRMPASS)}
                     containerStyle={{
+                      backgroundColor: '#36BB75',
                       borderRadius: 20,
-
+                      marginTop: 50,
                       height: 45,
                       width: '100%',
                       justifyContent: 'center',
@@ -145,6 +155,36 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: 'center',
   },
+  containerCode: {
+    height: 50,
+    paddingHorizontal: 20,
+    width: '100%',
+    marginTop: 30,
+  },
+  codeFieldRoot: {
+    marginTop: 20,
+  },
+
+  focusCell: {
+    borderColor: '#000',
+  },
+  cellRoot: {
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomColor: R.colors.white,
+    borderBottomWidth: 1,
+  },
+  cellText: {
+    color: 'white',
+    fontSize: 42,
+    textAlign: 'center',
+  },
+  focusCell: {
+    borderBottomColor: '#36bb75',
+    borderBottomWidth: 2,
+  },
 });
 
-export default Login;
+export default ConfirmOTP;

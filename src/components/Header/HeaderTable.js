@@ -19,40 +19,10 @@ import Icon from 'react-native-vector-icons/AntDesign';
 // import AppText from '../AppText';
 const week = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
 
-const ListDate = [
-  {
-    date: '10',
-    active: false,
-  },
-  {
-    date: '11',
-    active: false,
-  },
-  {
-    date: '12',
-    active: false,
-  },
-  {
-    date: '13',
-    active: true,
-  },
-  {
-    date: '14',
-    active: false,
-  },
-  {
-    date: '15',
-    active: false,
-  },
-  {
-    date: '16',
-    active: false,
-  },
-];
-
 const HeaderTable = (props) => {
-  const {title} = props;
+  const {title, DATA, activeIndex, decreaseWeek, increaseWeek} = props;
   const navigate = useNavigation();
+
   return (
     <ImageBackground
       imageStyle={{resizeMode: 'stretch'}}
@@ -70,7 +40,7 @@ const HeaderTable = (props) => {
       </View>
       <View style={{flex: 1, paddingVertical: 10}}>
         <View style={styles.wrapPicker}>
-          <TouchableOpacity style={styles.containerIcon}>
+          <TouchableOpacity onPress={decreaseWeek} style={styles.containerIcon}>
             <Icon name={'left'} size={20} color={R.colors.white} />
           </TouchableOpacity>
 
@@ -78,7 +48,7 @@ const HeaderTable = (props) => {
             <Icon name={'calendar'} color={R.colors.white} size={20} />
             <Text style={styles.txtDate}>08/2021</Text>
           </View>
-          <TouchableOpacity style={styles.containerIcon}>
+          <TouchableOpacity onPress={increaseWeek} style={styles.containerIcon}>
             <Icon name={'right'} size={20} color={R.colors.white} />
           </TouchableOpacity>
         </View>
@@ -96,17 +66,17 @@ const HeaderTable = (props) => {
           ))}
         </View>
         <View style={styles.wrapDate}>
-          {ListDate.map((e) => (
+          {DATA.map((e, index) => (
             <View
               style={[
                 {
                   borderRadius: 20,
                   padding: 5,
                 },
-                e.active ? {backgroundColor: R.colors.orange} : {},
+                index == activeIndex ? {backgroundColor: R.colors.orange} : {},
               ]}>
               <Text key={e.date} style={styles.txtWeek}>
-                {e.date}
+                {e.date.slice(0, 2)}
               </Text>
             </View>
           ))}

@@ -51,6 +51,9 @@ import Pays from '../Screens/FinaceChildren/Pays';
 import HomeTeam from '../Screens/MSTeam/Home/HomeTeam';
 import DetailTeam from '../Screens/MSTeam/DetailTeam/DetailTeam';
 import DetailPost from '../Screens/MSTeam/DetailTeam/DetailPost';
+import CofirmEmail from '../Screens/Authen/ConfirmEmail';
+import ConfirmOTP from '../Screens/Authen/ConfirmOTP';
+import ConfirmPass from '../Screens/Authen/ConfirmPass';
 
 import * as ScreenName from './ScreenNames';
 
@@ -80,8 +83,11 @@ function MyStack(props) {
       />
       <Stack.Screen name={ScreenName.PAYDEBT} component={PayDebt} />
       <Stack.Screen name={ScreenName.PAYS} component={Pays} />
-
       <Stack.Screen name={ScreenName.DETAILPOST} component={DetailPost} />
+
+      <Stack.Screen name={ScreenName.CONFIRMEMAIL} component={CofirmEmail} />
+      <Stack.Screen name={ScreenName.CONFIRMOTP} component={ConfirmOTP} />
+      <Stack.Screen name={ScreenName.CONFIRMPASS} component={ConfirmPass} />
 
       <Stack.Screen
         name={ScreenName.QUESTIONSERVEY}

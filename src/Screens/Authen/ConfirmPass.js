@@ -21,10 +21,9 @@ import Button from '../../components/Button';
 const {width, height} = Dimensions.get('window');
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
-import {TABBAR} from '../../routers/ScreenNames';
-import {CONFIRMEMAIL} from '../../routers/ScreenNames';
+import {LOGINSCREEN} from '../../routers/ScreenNames';
 
-const Login = (props) => {
+const ConfirmPass = (props) => {
   const navigation = useNavigation();
 
   return (
@@ -50,60 +49,37 @@ const Login = (props) => {
                 <Image source={R.images.logo} style={styles.imgLogo} />
                 <View style={styles.container}>
                   <View style={styles.wrapInput}>
-                    <Icon
-                      name={'infocirlceo'}
-                      size={18}
-                      color={R.colors.white}
-                    />
+                    <Icon name={'lock1'} size={18} color={R.colors.white} />
                     <TextInput
                       style={styles.txtInput}
-                      placeholder="Nhập mã sinh viên"
+                      placeholder="Mật khẩu mới"
                       placeholderTextColor={R.colors.white}
                       keyboardType={'number-pad'}
                     />
                   </View>
 
                   <View style={styles.wrapInput}>
-                    <Icon name={'lock1'} size={18} color={R.colors.white} />
+                    <Icon name={'reload1'} size={18} color={R.colors.white} />
                     <TextInput
                       style={styles.txtInput}
-                      placeholder="Nhập mật khẩu"
+                      placeholder="Xác nhận lại mật khẩu"
                       placeholderTextColor={R.colors.white}
                       secureTextEntry={true}
                     />
                   </View>
 
-                  <View
-                    style={{
-                      justifyContent: 'flex-end',
-                      alignItems: 'flex-end',
-                      width: '100%',
-                      marginTop: 20,
-                    }}>
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate(CONFIRMEMAIL)}>
-                      <Text
-                        style={{
-                          fontSize: getFontXD(42),
-                          color: R.colors.txtMain,
-                        }}>
-                        Quên mật khẩu?
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                  <View style={{height: 50}} />
-
                   <Button
-                    title={'Đăng nhập'}
+                    title={'Cập nhật'}
                     onClick={() =>
                       navigation.reset({
                         index: 1,
-                        routes: [{name: TABBAR}],
+                        routes: [{name: LOGINSCREEN}],
                       })
                     }
                     containerStyle={{
+                      backgroundColor: '#36BB75',
                       borderRadius: 20,
-
+                      marginTop: 50,
                       height: 45,
                       width: '100%',
                       justifyContent: 'center',
@@ -147,4 +123,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default ConfirmPass;
