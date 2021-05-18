@@ -16,70 +16,88 @@ const ListQuestion = [
     id: '1',
     question: 'Bạn có thấy xuất hiện dấu hiệu sau đây không?',
     listSelect: [
-      {id: '1', content: 'Sốt'},
-      {id: '2', content: 'Ho'},
-      {id: '3', content: 'Nôn,buồn nôn'},
-      {id: '4', content: 'Khó thở'},
-      {id: '5', content: 'Đau họng'},
-      {id: '6', content: 'Tiêu chảy'},
-      {id: '7', content: 'Xuất huyết ngoài da'},
-      {id: '8', content: 'Nổi bạn ngoài da'},
-      {id: '9', content: 'Không'},
+      {id: '1', content: 'Sốt', selected: false},
+      {id: '2', content: 'Ho', selected: false},
+      {id: '3', content: 'Nôn,buồn nôn', selected: false},
+      {id: '4', content: 'Khó thở', selected: false},
+      {id: '5', content: 'Đau họng', selected: false},
+      {id: '6', content: 'Tiêu chảy', selected: false},
+      {id: '7', content: 'Xuất huyết ngoài da', selected: false},
+      {id: '8', content: 'Nổi bạn ngoài da', selected: false},
+      {id: '9', content: 'Không', selected: false},
     ],
   },
   {
     id: '1',
     question: 'Bạn và người thân có tiếp xúc với ?',
     listSelect: [
-      {id: '1', content: 'Người bệnh hoặc nghi ngờ mắc bệnh Covid 19'},
-      {id: '2', content: 'Người có biểu hiện(sốt,ho,khó thở,viêm phổi)'},
-      {id: '3', content: 'Không'},
+      {
+        id: '1',
+        content: 'Người bệnh hoặc nghi ngờ mắc bệnh Covid 19',
+        selected: false,
+      },
+      {
+        id: '2',
+        content: 'Người có biểu hiện(sốt,ho,khó thở,viêm phổi)',
+        selected: false,
+      },
+      {id: '3', content: 'Không', selected: false},
     ],
   },
   {
     id: '1',
     question: 'Bạn có thấy xuất hiện dấu hiệu sau đây không?',
     listSelect: [
-      {id: '1', content: 'Sốt'},
-      {id: '2', content: 'Ho'},
-      {id: '3', content: 'Nôn,buồn nôn'},
-      {id: '4', content: 'Khó thở'},
-      {id: '5', content: 'Đau họng'},
-      {id: '6', content: 'Tiêu chảy'},
-      {id: '7', content: 'Xuất huyết ngoài da'},
-      {id: '8', content: 'Nổi bạn ngoài da'},
-      {id: '9', content: 'Không'},
+      {id: '1', content: 'Sốt', selected: false},
+      {id: '2', content: 'Ho', selected: false},
+      {id: '3', content: 'Nôn,buồn nôn', selected: false},
+      {id: '4', content: 'Khó thở', selected: false},
+      {id: '5', content: 'Đau họng', selected: false},
+      {id: '6', content: 'Tiêu chảy', selected: false},
+      {id: '7', content: 'Xuất huyết ngoài da', selected: false},
+      {id: '8', content: 'Nổi bạn ngoài da', selected: false},
+      {id: '9', content: 'Không', selected: false},
     ],
   },
   {
     id: '1',
     question: 'Bạn và người thân có tiếp xúc với ?',
     listSelect: [
-      {id: '1', content: 'Người bệnh hoặc nghi ngờ mắc bệnh Covid 19'},
-      {id: '2', content: 'Người có biểu hiện(sốt,ho,khó thở,viêm phổi)'},
-      {id: '3', content: 'Không'},
+      {
+        id: '1',
+        content: 'Người bệnh hoặc nghi ngờ mắc bệnh Covid 19',
+        selected: false,
+      },
+      {
+        id: '2',
+        content: 'Người có biểu hiện(sốt,ho,khó thở,viêm phổi)',
+        selected: false,
+      },
+      {id: '3', content: 'Không', selected: false},
     ],
   },
   {
     id: '1',
     question: 'Bạn có thấy xuất hiện dấu hiệu sau đây không?',
     listSelect: [
-      {id: '1', content: 'Sốt'},
-      {id: '2', content: 'Ho'},
-      {id: '3', content: 'Nôn,buồn nôn'},
-      {id: '4', content: 'Khó thở'},
-      {id: '5', content: 'Đau họng'},
-      {id: '6', content: 'Tiêu chảy'},
-      {id: '7', content: 'Xuất huyết ngoài da'},
-      {id: '8', content: 'Nổi bạn ngoài da'},
-      {id: '9', content: 'Không'},
+      {id: '1', content: 'Sốt', selected: false},
+      {id: '2', content: 'Ho', selected: false},
+      {id: '3', content: 'Nôn,buồn nôn', selected: false},
+      {id: '4', content: 'Khó thở', selected: false},
+      {id: '5', content: 'Đau họng', selected: false},
+      {id: '6', content: 'Tiêu chảy', selected: false},
+      {id: '7', content: 'Xuất huyết ngoài da', selected: false},
+      {id: '8', content: 'Nổi bạn ngoài da', selected: false},
+      {id: '9', content: 'Không', selected: false},
     ],
   },
 ];
 
 const QuestionServey = (props) => {
   const [index, setIndex] = useState(0);
-  const [isSelected, setSelection] = useState(false);
+
+  const [listSelected, setListSelected] = useState([]);
+
   const [process, setProcess] = useState(0);
 
   useEffect(() => {
@@ -120,12 +138,14 @@ const QuestionServey = (props) => {
                     </Text>
                   </View>
                   <View style={styles.wrapSelected}>
-                    {ListQuestion[index].listSelect.map((e) => (
+                    {ListQuestion[index].listSelect.map((e, index) => (
                       <CheckBox
                         key={e.id}
                         title={e.content}
-                        onPress={() => setSelection(!isSelected)}
-                        checked={isSelected}
+                        onPress={() =>
+                          setListSelected(listSelected.concat(index))
+                        }
+                        checked={listSelected.includes(index)}
                       />
                     ))}
                   </View>
@@ -163,7 +183,10 @@ const QuestionServey = (props) => {
             }}>
             {index + 1 < ListData.length ? (
               <Button
-                onClick={() => setIndex(index + 1)}
+                onClick={() => {
+                  setListSelected([]);
+                  setIndex(index + 1);
+                }}
                 containerStyle={styles.btn}
                 title={'Tiếp theo'}
               />

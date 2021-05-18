@@ -14,18 +14,36 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 const DATA = [
   {
+    id: '11',
+    date: '10/02/2021',
+    subject: 'Lập trình JAVA',
+    timebegin: '08:00',
+    timefinish: '10:00',
+    sbd: 'TH0001',
+    over: '1',
+  },
+  {
+    id: '12',
+    date: '17/02/2021',
+    subject: 'Tiếng anh 1',
+    timebegin: '14:30',
+    timefinish: '16:00',
+    sbd: 'ND109',
+    over: '0',
+  },
+  {
     id: '1',
     date: '20/02/2021',
     subject: 'Lập trình hướng đối tượng.',
     timebegin: '12:45',
     timefinish: '15:30',
-    sbd: 'E207',
+    sbd: 'TH0006',
     over: '1',
   },
   {
     id: '2',
-    date: '20/02/2021',
-    subject: 'Lập trình hướng đối tượng',
+    date: '22/02/2021',
+    subject: 'Phân tích thiết kế hệ thống',
     timebegin: '12:45',
     timefinish: '15:30',
     sbd: 'B106',
@@ -33,20 +51,20 @@ const DATA = [
   },
   {
     id: '3',
-    date: '20/02/2021',
-    subject: 'Lập trình hướng đối tượng',
+    date: '28/02/2021',
+    subject: 'Cơ sở dữ liệu',
     timebegin: '12:45',
     timefinish: '15:30',
-    sbd: 'ND002',
+    sbd: 'ND102',
     over: '1',
   },
   {
     id: '4',
-    date: '20/02/2021',
-    subject: 'Lập trình hướng đối tượng',
+    date: '03/03/2021',
+    subject: 'Mạng máy tính',
     timebegin: '12:45',
     timefinish: '15:30',
-    sbd: 'ND001',
+    sbd: 'A101',
     over: '0',
   },
 ];
@@ -55,10 +73,15 @@ const Item = (props) => {
   return (
     <TouchableOpacity style={styles.containerItem}>
       <View style={styles.containTime}>
-        <Text style={{fontSize: getFontXD(52), marginBottom: 10}}>
+        <Text
+          style={{
+            fontSize: getFontXD(52),
+            fontWeight: '600',
+            marginBottom: 10,
+          }}>
           {date.slice(0, 2)}
         </Text>
-        <Text style={{fontSize: getFontXD(36)}}>{date.slice(3, 12)}</Text>
+        <Text style={{fontSize: getFontXD(42)}}>{date.slice(3, 12)}</Text>
       </View>
       <View style={styles.strike}></View>
       <View style={styles.containContent}>
@@ -82,17 +105,10 @@ const ExamCalendarView = (props) => {
       <Header isBack={true} title={'Lịch thi'} />
       <View style={{flex: 1}}>
         <View style={styles.wrapPicker}>
-          <TouchableOpacity style={styles.containerIcon}>
-            <Icon name={'left'} size={20} color={R.colors.white} />
-          </TouchableOpacity>
-
           <View style={styles.wrapRow}>
             <Icon name={'calendar'} color={R.colors.white} size={20} />
             <Text style={styles.txtDate}>Kỳ 1 2020-2021</Text>
           </View>
-          <TouchableOpacity style={styles.containerIcon}>
-            <Icon name={'right'} size={20} color={R.colors.white} />
-          </TouchableOpacity>
         </View>
         <FlatList
           showsVerticalScrollIndicator={false}
@@ -107,15 +123,16 @@ const ExamCalendarView = (props) => {
 const styles = StyleSheet.create({
   wrapPicker: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 30,
     marginVertical: 10,
   },
   txtDate: {
     color: R.colors.white,
-    fontSize: getFontXD(42),
+    fontSize: getFontXD(46),
     marginLeft: 10,
+    fontWeight: '600',
   },
   containerIcon: {
     width: 35,
@@ -167,10 +184,11 @@ const styles = StyleSheet.create({
     color: R.colors.black,
     fontSize: getFontXD(42),
     marginBottom: 5,
+    fontWeight: '600',
   },
   detail: {
     color: R.colors.main,
-    fontSize: getFontXD(36),
+    fontSize: getFontXD(42),
   },
   image: {
     justifyContent: 'center',
