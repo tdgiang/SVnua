@@ -28,3 +28,4 @@ const RecruitDetail = (props) => {
 };
 
 export default RecruitDetail;
+
