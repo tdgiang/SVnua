@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Text, FlatList, StyleSheet, ScrollView} from 'react-native';
 import R from '../../../assets/R';
 import Note from '../../../components/Note';
 import {Divider} from 'react-native-elements';
@@ -41,7 +41,7 @@ const DATA = [
 const Item = (props) => {
   const {id, name, counst} = props.item;
   return (
-    <View style={styles.container}>
+    <View key={id} style={styles.container}>
       <View
         style={{
           width: 30,
@@ -75,20 +75,19 @@ const Item = (props) => {
 const Tab1 = (props) => {
   return (
     <View style={{flex: 1}}>
-      <View style={{flex: 1}}>
-        <Note
-          style={{marginHorizontal: 10, marginTop: 10}}
-          content={
-            '- Sinh viên hoàn thành đầy đủ các giấy tờ mới có thể xét tốt nghiệp.\n- Địa chỉ tiếp nhận giấy tờ phòng hành chính bản quản lý đào tạo.'
-          }
-        />
-        <FlatList
-          data={DATA}
-          showsVerticalScrollIndicator={false}
-          renderItem={({item}) => <Item item={item} />}
-          keyExtractor={(item) => item.id}
-        />
-      </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{flex: 1}}>
+          <Note
+            style={{marginHorizontal: 10, marginTop: 10}}
+            content={
+              '- Sinh viên hoàn thành đầy đủ các giấy tờ mới có thể xét tốt nghiệp.\n- Địa chỉ tiếp nhận giấy tờ phòng hành chính bản quản lý đào tạo.'
+            }
+          />
+          {DATA.map((item) => (
+            <Item item={item} />
+          ))}
+        </View>
+      </ScrollView>
       <Button
         containerStyle={{
           height: 40,

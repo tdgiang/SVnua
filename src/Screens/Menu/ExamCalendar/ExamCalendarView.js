@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: R.colors.white,
     borderRadius: 5,
-    marginTop: 10,
+    marginVertical: 5,
   },
   container: {
     flexDirection: 'row',

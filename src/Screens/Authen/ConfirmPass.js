@@ -32,65 +32,62 @@ const ConfirmPass = (props) => {
       style={{flex: 1}}
       keyboardVerticalOffset={-50}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ImageBackground
+          source={R.images.bgLogin}
+          resizeMode={'stretch'}
+          style={{width: '100%', height: '100%'}}>
           <StatusBar backgroundColor="transparent" translucent={true} />
-          <ImageBackground
-            source={R.images.bgLogin}
-            resizeMode={'stretch'}
-            imageStyle={{width, height}}
-            style={{width, height}}>
-            <View style={{flex: 1}}>
-              <View
-                style={{
-                  marginTop: 60,
-                  flex: 1,
-                  alignItems: 'center',
-                }}>
-                <Image source={R.images.logo} style={styles.imgLogo} />
-                <View style={styles.container}>
-                  <View style={styles.wrapInput}>
-                    <Icon name={'lock1'} size={18} color={R.colors.white} />
-                    <TextInput
-                      style={styles.txtInput}
-                      placeholder="Mật khẩu mới"
-                      placeholderTextColor={R.colors.white}
-                      keyboardType={'number-pad'}
-                    />
-                  </View>
-
-                  <View style={styles.wrapInput}>
-                    <Icon name={'reload1'} size={18} color={R.colors.white} />
-                    <TextInput
-                      style={styles.txtInput}
-                      placeholder="Xác nhận lại mật khẩu"
-                      placeholderTextColor={R.colors.white}
-                      secureTextEntry={true}
-                    />
-                  </View>
-
-                  <Button
-                    title={'Cập nhật'}
-                    onClick={() =>
-                      navigation.reset({
-                        index: 1,
-                        routes: [{name: LOGINSCREEN}],
-                      })
-                    }
-                    containerStyle={{
-                      backgroundColor: '#36BB75',
-                      borderRadius: 20,
-                      marginTop: 50,
-                      height: 45,
-                      width: '100%',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
+          <View style={{flex: 1}}>
+            <View
+              style={{
+                marginTop: 60,
+                flex: 1,
+                alignItems: 'center',
+              }}>
+              <Image source={R.images.logo} style={styles.imgLogo} />
+              <View style={styles.container}>
+                <View style={styles.wrapInput}>
+                  <Icon name={'lock1'} size={18} color={R.colors.white} />
+                  <TextInput
+                    style={styles.txtInput}
+                    placeholder="Mật khẩu mới"
+                    placeholderTextColor={R.colors.white}
+                    keyboardType={'number-pad'}
                   />
                 </View>
+
+                <View style={styles.wrapInput}>
+                  <Icon name={'reload1'} size={18} color={R.colors.white} />
+                  <TextInput
+                    style={styles.txtInput}
+                    placeholder="Xác nhận lại mật khẩu"
+                    placeholderTextColor={R.colors.white}
+                    secureTextEntry={true}
+                  />
+                </View>
+
+                <Button
+                  title={'Cập nhật'}
+                  onClick={() =>
+                    navigation.reset({
+                      index: 1,
+                      routes: [{name: LOGINSCREEN}],
+                    })
+                  }
+                  containerStyle={{
+                    backgroundColor: '#36BB75',
+                    borderRadius: 20,
+                    marginTop: 50,
+                    height: 45,
+                    width: '100%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                />
               </View>
             </View>
-          </ImageBackground>
-        </ScrollView>
+          </View>
+        </ImageBackground>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );

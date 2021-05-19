@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   containerItem: {
-    marginTop: 10,
+    marginVertical: 5,
     marginHorizontal: 10,
     borderWidth: 1,
     borderColor: R.colors.borderGray,

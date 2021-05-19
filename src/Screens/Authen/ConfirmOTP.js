@@ -47,84 +47,81 @@ const ConfirmOTP = (propsa) => {
       style={{flex: 1}}
       keyboardVerticalOffset={-50}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ImageBackground
+          source={R.images.bgLogin}
+          resizeMode={'stretch'}
+          style={{width: '100%', height: '100%'}}>
           <StatusBar backgroundColor="transparent" translucent={true} />
-          <ImageBackground
-            source={R.images.bgLogin}
-            resizeMode={'stretch'}
-            imageStyle={{width, height}}
-            style={{width, height}}>
-            <View style={{flex: 1}}>
-              <View
-                style={{
-                  marginTop: 60,
-                  flex: 1,
-                  alignItems: 'center',
-                }}>
-                <Image source={R.images.logo} style={styles.imgLogo} />
-                <View style={styles.container}>
-                  <View style={styles.containerCode}>
-                    <CodeField
-                      ref={ref}
-                      {...props}
-                      value={value}
-                      onChangeText={setValue}
-                      cellCount={CELL_COUNT}
-                      rootStyle={styles.codeFieldRoot}
-                      keyboardType="number-pad"
-                      textContentType="oneTimeCode"
-                      renderCell={({index, symbol, isFocused}) => (
-                        <View
-                          onLayout={getCellOnLayoutHandler(index)}
-                          key={index}
-                          style={[
-                            styles.cellRoot,
-                            isFocused && styles.focusCell,
-                          ]}>
-                          <Text style={styles.cellText}>
-                            {symbol || (isFocused ? <Cursor /> : null)}
-                          </Text>
-                        </View>
-                      )}
-                    />
-                  </View>
-
-                  <View
-                    style={{
-                      justifyContent: 'flex-end',
-                      alignItems: 'flex-end',
-                      width: '100%',
-                      marginTop: 50,
-                    }}>
-                    <TouchableOpacity onPress={() => console.log('Hello')}>
-                      <Text
-                        style={{
-                          fontSize: getFontXD(42),
-                          color: R.colors.txtMain,
-                        }}>
-                        Gửi lại OTP
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-
-                  <Button
-                    title={'Tiếp tục'}
-                    onClick={() => navigation.navigate(CONFIRMPASS)}
-                    containerStyle={{
-                      backgroundColor: '#36BB75',
-                      borderRadius: 20,
-                      marginTop: 50,
-                      height: 45,
-                      width: '100%',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
+          <View style={{flex: 1}}>
+            <View
+              style={{
+                marginTop: 60,
+                flex: 1,
+                alignItems: 'center',
+              }}>
+              <Image source={R.images.logo} style={styles.imgLogo} />
+              <View style={styles.container}>
+                <View style={styles.containerCode}>
+                  <CodeField
+                    ref={ref}
+                    {...props}
+                    value={value}
+                    onChangeText={setValue}
+                    cellCount={CELL_COUNT}
+                    rootStyle={styles.codeFieldRoot}
+                    keyboardType="number-pad"
+                    textContentType="oneTimeCode"
+                    renderCell={({index, symbol, isFocused}) => (
+                      <View
+                        onLayout={getCellOnLayoutHandler(index)}
+                        key={index}
+                        style={[
+                          styles.cellRoot,
+                          isFocused && styles.focusCell,
+                        ]}>
+                        <Text style={styles.cellText}>
+                          {symbol || (isFocused ? <Cursor /> : null)}
+                        </Text>
+                      </View>
+                    )}
                   />
                 </View>
+
+                <View
+                  style={{
+                    justifyContent: 'flex-end',
+                    alignItems: 'flex-end',
+                    width: '100%',
+                    marginTop: 50,
+                  }}>
+                  <TouchableOpacity onPress={() => console.log('Hello')}>
+                    <Text
+                      style={{
+                        fontSize: getFontXD(42),
+                        color: R.colors.txtMain,
+                      }}>
+                      Gửi lại OTP
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+
+                <Button
+                  title={'Tiếp tục'}
+                  onClick={() => navigation.navigate(CONFIRMPASS)}
+                  containerStyle={{
+                    backgroundColor: '#36BB75',
+                    borderRadius: 20,
+                    marginTop: 50,
+                    height: 45,
+                    width: '100%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                />
               </View>
             </View>
-          </ImageBackground>
-        </ScrollView>
+          </View>
+        </ImageBackground>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );

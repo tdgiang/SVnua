@@ -33,88 +33,82 @@ const Login = (props) => {
       style={{flex: 1}}
       keyboardVerticalOffset={-50}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ImageBackground
+          source={R.images.bgLogin}
+          resizeMode={'stretch'}
+          style={{width: '100%', height: '100%'}}>
           <StatusBar backgroundColor="transparent" translucent={true} />
-          <ImageBackground
-            source={R.images.bgLogin}
-            resizeMode={'stretch'}
-            imageStyle={{width, height}}
-            style={{width, height}}>
-            <View style={{flex: 1}}>
-              <View
-                style={{
-                  marginTop: 60,
-                  flex: 1,
-                  alignItems: 'center',
-                }}>
-                <Image source={R.images.logo} style={styles.imgLogo} />
-                <View style={styles.container}>
-                  <View style={styles.wrapInput}>
-                    <Icon
-                      name={'infocirlceo'}
-                      size={18}
-                      color={R.colors.white}
-                    />
-                    <TextInput
-                      style={styles.txtInput}
-                      placeholder="Nhập mã sinh viên"
-                      placeholderTextColor={R.colors.white}
-                      keyboardType={'number-pad'}
-                    />
-                  </View>
 
-                  <View style={styles.wrapInput}>
-                    <Icon name={'lock1'} size={18} color={R.colors.white} />
-                    <TextInput
-                      style={styles.txtInput}
-                      placeholder="Nhập mật khẩu"
-                      placeholderTextColor={R.colors.white}
-                      secureTextEntry={true}
-                    />
-                  </View>
-
-                  <View
-                    style={{
-                      justifyContent: 'flex-end',
-                      alignItems: 'flex-end',
-                      width: '100%',
-                      marginTop: 20,
-                    }}>
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate(CONFIRMEMAIL)}>
-                      <Text
-                        style={{
-                          fontSize: getFontXD(42),
-                          color: R.colors.txtMain,
-                        }}>
-                        Quên mật khẩu?
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                  <View style={{height: 50}} />
-
-                  <Button
-                    title={'Đăng nhập'}
-                    onClick={() =>
-                      navigation.reset({
-                        index: 1,
-                        routes: [{name: TABBAR}],
-                      })
-                    }
-                    containerStyle={{
-                      borderRadius: 20,
-
-                      height: 45,
-                      width: '100%',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
+          <View style={{flex: 1}}>
+            <View
+              style={{
+                marginTop: 60,
+                flex: 1,
+                alignItems: 'center',
+              }}>
+              <Image source={R.images.logo} style={styles.imgLogo} />
+              <View style={styles.container}>
+                <View style={styles.wrapInput}>
+                  <Icon name={'infocirlceo'} size={18} color={R.colors.white} />
+                  <TextInput
+                    style={styles.txtInput}
+                    placeholder="Nhập mã sinh viên"
+                    placeholderTextColor={R.colors.white}
+                    keyboardType={'number-pad'}
                   />
                 </View>
+
+                <View style={styles.wrapInput}>
+                  <Icon name={'lock1'} size={18} color={R.colors.white} />
+                  <TextInput
+                    style={styles.txtInput}
+                    placeholder="Nhập mật khẩu"
+                    placeholderTextColor={R.colors.white}
+                    secureTextEntry={true}
+                  />
+                </View>
+
+                <View
+                  style={{
+                    justifyContent: 'flex-end',
+                    alignItems: 'flex-end',
+                    width: '100%',
+                    marginTop: 20,
+                  }}>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate(CONFIRMEMAIL)}>
+                    <Text
+                      style={{
+                        fontSize: getFontXD(42),
+                        color: R.colors.txtMain,
+                      }}>
+                      Quên mật khẩu?
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={{height: 50}} />
+
+                <Button
+                  title={'Đăng nhập'}
+                  onClick={() =>
+                    navigation.reset({
+                      index: 1,
+                      routes: [{name: TABBAR}],
+                    })
+                  }
+                  containerStyle={{
+                    borderRadius: 20,
+
+                    height: 45,
+                    width: '100%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                />
               </View>
             </View>
-          </ImageBackground>
-        </ScrollView>
+          </View>
+        </ImageBackground>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );

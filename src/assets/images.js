@@ -6,7 +6,7 @@ const images = {
   logo: require('./images/logo.png'),
   header: require('./images/header.png'),
   headerHome: require('./images/headerHome.png'),
-  avatar: require('./images/avatar.png'),
+  avatar: require('./images/iconAvatar.png'),
   avatar1: require('./images/avatar.jpg'),
 
   //Home

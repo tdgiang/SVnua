@@ -10,6 +10,7 @@ import {CheckBox} from 'react-native-elements';
 import * as Progress from 'react-native-progress';
 import {ListData} from '../TimeTable/FakeData';
 import {TABBAR} from '../../../routers/ScreenNames';
+import {ScrollView} from 'react-native';
 
 const ListQuestion = [
   {
@@ -108,103 +109,107 @@ const QuestionServey = (props) => {
   return (
     <View style={{flex: 1, backgroundColor: R.colors.white}}>
       <Header isBack={true} title={'Phiếu khảo sát'} />
-      <View style={{flex: 1, paddingHorizontal: 20}}>
-        <View style={{flex: 1}}>
-          <View style={styles.container}>
-            <View style={styles.wrapTop}>
-              <Text style={styles.txtTitle}>Danh sách câu hỏi</Text>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{flex: 1, paddingHorizontal: 20}}>
+          <View style={{flex: 1}}>
+            <View style={styles.container}>
+              <View style={styles.wrapTop}>
+                <Text style={styles.txtTitle}>Danh sách câu hỏi</Text>
+              </View>
+
+              <View
+                style={{
+                  height: 1,
+                  backgroundColor: R.colors.borderGray,
+                  marginTop: 10,
+                }}
+              />
+              <View style={styles.wrapProcess}>
+                <Progress.Bar
+                  progress={process}
+                  color={R.colors.main}
+                  width={300}
+                  height={10}
+                />
+              </View>
+              <View>
+                {index + 1 < ListData.length ? (
+                  <View>
+                    <View style={styles.wrapBody}>
+                      <Text style={styles.txtLink}>
+                        {ListQuestion[index].question}
+                      </Text>
+                    </View>
+
+                    <View style={styles.wrapSelected}>
+                      {ListQuestion[index].listSelect.map((e, index) => (
+                        <CheckBox
+                          key={e.id}
+                          title={e.content}
+                          onPress={() =>
+                            setListSelected(listSelected.concat(index))
+                          }
+                          checked={listSelected.includes(index)}
+                        />
+                      ))}
+                    </View>
+                  </View>
+                ) : (
+                  <View
+                    style={{
+                      paddingVertical: 20,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}>
+                    <Text style={styles.txtLink}>
+                      Cảm ơn bạn đã tham gia cuộc khảo sát!
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: getFontXD(42),
+                        marginTop: 20,
+                        textAlign: 'center',
+                      }}>
+                      Khi có dấu hiệu sốt, ho, khó thở hãy gọi điện cho đường
+                      dây nóng của Bộ Y tế 19009095 hoặc đường dây nóng của y tế
+                      địa phương để được tư vấn, hỗ trợ, hướng dẫn đi khám bệnh
+                      đảm bảo an toàn.
+                    </Text>
+                  </View>
+                )}
+              </View>
             </View>
             <View
               style={{
-                height: 1,
-                backgroundColor: R.colors.borderGray,
-                marginTop: 10,
-              }}
-            />
-            <View style={styles.wrapProcess}>
-              <Progress.Bar
-                progress={process}
-                color={R.colors.main}
-                width={300}
-                height={10}
-              />
-            </View>
-            <View>
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginVertical: 20,
+              }}>
               {index + 1 < ListData.length ? (
-                <View>
-                  <View style={styles.wrapBody}>
-                    <Text style={styles.txtLink}>
-                      {ListQuestion[index].question}
-                    </Text>
-                  </View>
-                  <View style={styles.wrapSelected}>
-                    {ListQuestion[index].listSelect.map((e, index) => (
-                      <CheckBox
-                        key={e.id}
-                        title={e.content}
-                        onPress={() =>
-                          setListSelected(listSelected.concat(index))
-                        }
-                        checked={listSelected.includes(index)}
-                      />
-                    ))}
-                  </View>
-                </View>
+                <Button
+                  onClick={() => {
+                    setListSelected([]);
+                    setIndex(index + 1);
+                  }}
+                  containerStyle={styles.btn}
+                  title={'Tiếp theo'}
+                />
               ) : (
-                <View
-                  style={{
-                    paddingVertical: 20,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
-                  <Text style={styles.txtLink}>
-                    Cảm ơn bạn đã tham gia cuộc khảo sát!
-                  </Text>
-                  <Text
-                    style={{
-                      fontSize: getFontXD(42),
-                      marginTop: 20,
-                      textAlign: 'center',
-                    }}>
-                    Khi có dấu hiệu sốt, ho, khó thở hãy gọi điện cho đường dây
-                    nóng của Bộ Y tế 19009095 hoặc đường dây nóng của y tế địa
-                    phương để được tư vấn, hỗ trợ, hướng dẫn đi khám bệnh đảm
-                    bảo an toàn.
-                  </Text>
-                </View>
+                <Button
+                  onClick={() =>
+                    navigation.reset({
+                      index: 1,
+                      routes: [{name: TABBAR}],
+                    })
+                  }
+                  containerStyle={styles.btn}
+                  title={'Quay lại'}
+                />
               )}
             </View>
           </View>
-          <View
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginVertical: 20,
-            }}>
-            {index + 1 < ListData.length ? (
-              <Button
-                onClick={() => {
-                  setListSelected([]);
-                  setIndex(index + 1);
-                }}
-                containerStyle={styles.btn}
-                title={'Tiếp theo'}
-              />
-            ) : (
-              <Button
-                onClick={() =>
-                  navigation.reset({
-                    index: 1,
-                    routes: [{name: TABBAR}],
-                  })
-                }
-                containerStyle={styles.btn}
-                title={'Quay lại'}
-              />
-            )}
-          </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };

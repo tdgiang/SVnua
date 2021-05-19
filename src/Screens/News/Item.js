@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 1.84,
     elevation: 2,
-    marginTop: 15,
+    marginVertical: 10,
   },
   imgIcon: {
     width: 70,

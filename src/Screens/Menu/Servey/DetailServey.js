@@ -14,7 +14,9 @@ const DetailServey = (props) => {
       <Header isBack={true} title={'Khảo sát'} />
       <View style={{flex: 1, paddingHorizontal: 20}}>
         <View style={{flex: 1}}>
-          <ScrollView style={styles.container}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={styles.container}>
             <View style={styles.wrapBody}>
               <Text style={styles.txtLink}>
                 Phiếu khảo sát thông tin phục vụ công tác phòng trống dịch bệnh

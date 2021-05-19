@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   },
   containerItem: {
     paddingHorizontal: 10,
-    marginTop: 10,
+    marginVertical: 5,
   },
   wrapInput: {
     padding: 10,

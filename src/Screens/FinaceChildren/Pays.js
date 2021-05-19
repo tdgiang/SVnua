@@ -96,7 +96,7 @@ const Pays = (props) => {
 const styles = StyleSheet.create({
   containerItem: {
     marginHorizontal: 10,
-    marginTop: 10,
+    marginVertical: 5,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -131,5 +131,3 @@ const styles = StyleSheet.create({
 });
 
 export default Pays;
-
- 
