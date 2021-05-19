@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, FlatList, Image, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import Header from '../../components/Header/Header';
 import Item from './Item';
 import R from '../../assets/R';
@@ -11,7 +18,9 @@ import {
   QUESTION,
   FEEDBACK,
   SETTING,
+  LOGINSCREEN,
 } from '../../routers/ScreenNames';
+import {useNavigation} from '@react-navigation/native';
 
 const listItem1 = [
   {
@@ -62,6 +71,8 @@ const listItem2 = [
 ];
 
 const AccountView = (props) => {
+  const navigation = useNavigation();
+
   return (
     <View style={{flex: 1}}>
       <Header title={'Tài khoản'} />
@@ -77,7 +88,14 @@ const AccountView = (props) => {
         ))}
         <View style={{height: 10}} />
 
-        <View style={styles.containerItem}>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.reset({
+              index: 1,
+              routes: [{name: LOGINSCREEN}],
+            })
+          }
+          style={styles.containerItem}>
           <Image
             style={styles.imgIcon}
             source={R.images.logout}
@@ -86,7 +104,7 @@ const AccountView = (props) => {
           <View style={styles.wrapContent}>
             <Text style={styles.title}>Đăng xuất</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

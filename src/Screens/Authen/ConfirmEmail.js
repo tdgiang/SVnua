@@ -19,12 +19,11 @@ import R from '../../assets/R';
 import {getFontXD, HEIGHTXD} from '../../Config/Functions';
 import Button from '../../components/Button';
 const {width, height} = Dimensions.get('window');
-import Icon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/Feather';
 import {useNavigation} from '@react-navigation/native';
-import {TABBAR} from '../../routers/ScreenNames';
-import {CONFIRMEMAIL} from '../../routers/ScreenNames';
+import {CONFIRMOTP} from '../../routers/ScreenNames';
 
-const Login = (props) => {
+const ConfirmEmail = (props) => {
   const navigation = useNavigation();
 
   return (
@@ -51,23 +50,13 @@ const Login = (props) => {
                 <View style={styles.container}>
                   <View style={styles.wrapInput}>
                     <Icon
-                      name={'infocirlceo'}
+                      name={'phone-incoming'}
                       size={18}
                       color={R.colors.white}
                     />
                     <TextInput
                       style={styles.txtInput}
-                      placeholder="Nhập mã sinh viên"
-                      placeholderTextColor={R.colors.white}
-                      keyboardType={'number-pad'}
-                    />
-                  </View>
-
-                  <View style={styles.wrapInput}>
-                    <Icon name={'lock1'} size={18} color={R.colors.white} />
-                    <TextInput
-                      style={styles.txtInput}
-                      placeholder="Nhập mật khẩu"
+                      placeholder="Nhập số điện thoại"
                       placeholderTextColor={R.colors.white}
                       secureTextEntry={true}
                     />
@@ -80,30 +69,24 @@ const Login = (props) => {
                       width: '100%',
                       marginTop: 20,
                     }}>
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate(CONFIRMEMAIL)}>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
                       <Text
                         style={{
                           fontSize: getFontXD(42),
                           color: R.colors.txtMain,
                         }}>
-                        Quên mật khẩu?
+                        Quay lại đăng nhập
                       </Text>
                     </TouchableOpacity>
                   </View>
-                  <View style={{height: 50}} />
 
                   <Button
-                    title={'Đăng nhập'}
-                    onClick={() =>
-                      navigation.reset({
-                        index: 1,
-                        routes: [{name: TABBAR}],
-                      })
-                    }
+                    title={'Lấy mã xác thực'}
+                    onClick={() => navigation.navigate(CONFIRMOTP)}
                     containerStyle={{
+                      backgroundColor: '#36BB75',
                       borderRadius: 20,
-
+                      marginTop: 50,
                       height: 45,
                       width: '100%',
                       justifyContent: 'center',
@@ -128,7 +111,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     flex: 1,
-    marginTop: 20,
+    marginTop: 50,
     paddingHorizontal: 30,
   },
   txtInput: {
@@ -147,4 +130,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default ConfirmEmail;

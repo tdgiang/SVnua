@@ -57,3 +57,7 @@ export const HOMETEAM = 'HOMETEAM';
 
 export const DETAILTEAM = 'DETAILTEAM';
 export const DETAILPOST = 'DETAILPOST';
+
+export const CONFIRMEMAIL = 'CONFIRMEMAIL';
+export const CONFIRMOTP = 'CONFIRMOTP';
+export const CONFIRMPASS = 'CONFIRMPASS';
