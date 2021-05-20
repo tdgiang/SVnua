@@ -1,6 +1,6 @@
-import React, {Fragment, useRef, useEffect, useState} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import React, { Fragment, useRef, useEffect, useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import TabNavigator from './TabNavigation';
 import Login from '../Screens/Authen/Login';
@@ -30,6 +30,7 @@ import Profile from '../Screens/MenuAccount/Profile/Profile';
 import Question from '../Screens/MenuAccount/Question/Question';
 import Setting from '../Screens/MenuAccount/Setting/Setting';
 
+import InterJob from '../Screens/MenuNews/Job/InterJob'
 import Intership from '../Screens/MenuNews/Job/Intership';
 import JobNow from '../Screens/MenuNews/Job/JobNow';
 import OverTime from '../Screens/MenuNews/Job/OverTime';
@@ -54,6 +55,9 @@ import DetailPost from '../Screens/MSTeam/DetailTeam/DetailPost';
 import CofirmEmail from '../Screens/Authen/ConfirmEmail';
 import ConfirmOTP from '../Screens/Authen/ConfirmOTP';
 import ConfirmPass from '../Screens/Authen/ConfirmPass';
+
+//Job
+import RecruitDetail from '../Screens/MenuNews/Job/RecruitDetail'
 
 import * as ScreenName from './ScreenNames';
 
@@ -118,6 +122,7 @@ function MyStack(props) {
       <Stack.Screen name={ScreenName.SCHOLARSHIP} component={Scholarship} />
       <Stack.Screen name={ScreenName.TABLENEWS} component={TableNews} />
 
+      <Stack.Screen name={ScreenName.INTERJOB} component={InterJob} />
       <Stack.Screen name={ScreenName.INTERSHIP} component={Intership} />
       <Stack.Screen name={ScreenName.JOBNOW} component={JobNow} />
       <Stack.Screen name={ScreenName.OVERTIME} component={OverTime} />
@@ -133,6 +138,8 @@ function MyStack(props) {
       <Stack.Screen name={ScreenName.QUESTION} component={Question} />
       <Stack.Screen name={ScreenName.SETTING} component={Setting} />
       <Stack.Screen name={ScreenName.HOMETEAM} component={HomeTeam} />
+
+      <Stack.Screen name={ScreenName.RECRUITDETAIL} component={RecruitDetail} />
     </Stack.Navigator>
   );
 }

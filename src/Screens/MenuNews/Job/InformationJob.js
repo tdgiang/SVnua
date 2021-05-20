@@ -1,127 +1,189 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  SafeAreaView,
   View,
   FlatList,
   StyleSheet,
   Text,
+  ScrollView,
   StatusBar,
   TouchableOpacity,
 } from 'react-native';
+
 import R from '../../../assets/R';
-import {getFontXD} from '../../../Config/Functions';
-const DATA = [
-  {
-    id: '1',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông Nghiệp Hoàng Gia -VNuaRunning',
-  },
-  {
-    id: '2',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông Nghiệp Hoàng Gia -VNuaRunning',
-  },
-  {
-    id: '3',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông Nghiệp Hoàng Gia -VNuaRunning',
-  },
-  {
-    id: '4',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông Nghiệp Hoàng Gia -VNuaRunning',
-  },
-  {
-    id: '5',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông',
-  },
-  {
-    id: '6',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông  ',
-  },
-];
-
-const Item = (props) => {
-  const {title, timestart, timefinish} = props.item;
-
-  const {index, length} = props;
-
-  return (
-    <TouchableOpacity style={styles.container}>
-      <View style={styles.containTime}>
-        <Text style={styles.title}>TH{timestart.slice(9, 11)}</Text>
-        <Text style={styles.date}>{timestart.slice(5, 8)}</Text>
-      </View>
-      <View
-        style={[
-          styles.containContent,
-          index == props.length - 1 ? {borderBottomWidth: 0} : null,
-        ]}>
-        <Text numberOfLines={1} style={[styles.title, {fontWeight: 'bold'}]}>
-          {title}
-        </Text>
-        <Text style={styles.time}>
-          {timestart}- {timefinish}
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
-};
+import { getFontXD } from '../../../Config/Functions';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { get } from 'lodash';
 
 const InformationJob = (props) => {
-  const length = DATA.length;
+  const [isDetalDescribe, setIsDetalDescribe] = useState(false);
+  const [isDetalRequire, setIsDetalRequire] = useState(false);
   return (
-    <View style={{flex: 1}}>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={DATA}
-        renderItem={({item, index}) => (
-          <Item item={item} index={index} length={length} />
-        )}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+    >
+      <View style={{ flex: 1, backgroundColor: R.colors.colorBackground }}>
+        <View style={styles.containerItem}>
+          <View style={styles.row}>
+            <Icon name="calendar" size={20} color={R.colors.gray} />
+            <View style={styles.contentext}>
+              <Text style={styles.subtitle}>NGÀY ĐĂNG TUYỂN</Text>
+              <Text style={styles.detail}>17/15/2021</Text>
+            </View>
+          </View>
+          <View style={styles.row}>
+            <Ionicons name="layers" size={20} color={R.colors.gray} />
+            <View style={styles.contentext}>
+              <Text style={styles.subtitle}>CẤP BẬC</Text>
+              <Text style={styles.detail}>Nhân viên</Text>
+            </View>
+          </View>
+          <View style={styles.row}>
+            <Icon name="industry" size={20} color={R.colors.gray} />
+            <View style={styles.contentext}>
+              <Text style={styles.subtitle}>NGÀNH NGHỀ</Text>
+              <Text style={styles.detail}>Y tế/Chăm sóc sức khỏe</Text>
+            </View>
+          </View>
+          <View style={styles.row}>
+            <Icon name="flag-o" size={20} color={R.colors.gray} />
+            <View style={styles.contentext}>
+              <Text style={styles.subtitle}>KỸ NĂNG</Text>
+              <Text style={styles.detail}>Có kỹ năng là một lợi thế</Text>
+            </View>
+          </View>
+          <View style={styles.row}>
+            <Icon name="language" size={20} color={R.colors.gray} />
+            <View style={styles.contentext}>
+              <Text style={styles.subtitle}>NGÔN NGỮ TRÌNH BÀY HỒ SƠ</Text>
+              <Text style={styles.detail}>Biết tiếng anh là một lợi thế</Text>
+            </View>
+          </View>
+        </View>
+        <View>
+          <View style={styles.containerItem}>
+            <Text style={styles.title}>CÁC PHÚC LỢI DÀNH CHO BẠN</Text>
+            <View style={styles.item}>
+              <Icon name="money" size={20} color={R.colors.gray} />
+              <View style={styles.contentext}>
+                <Text style={styles.detail}>Thưởng không giới hạn: thưởng quý, năm, doanh số</Text>
+              </View>
+            </View>
+            <View style={styles.item}>
+              <Ionicons name="timer-outline" size={20} color={R.colors.gray} />
+              <View style={styles.contentext}>
+                <Text style={styles.detail}>Làm việc từ thứ 2 đến thứ 6(thứ 6 nghỉ từ 3h chiều)</Text>
+              </View>
+            </View>
+            <View style={styles.item}>
+              <Icon name="money" size={20} color={R.colors.gray} />
+              <View style={styles.contentext}>
+                <Text style={styles.detail}>Bảo hiểm chăm sóc sức khỏe toàn diện,</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View style={styles.containerItem}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <Text style={styles.title}>MÔ TẢ CÔNG VIỆC</Text>
+            <TouchableOpacity onPress={() => { console.log(isDetalDescribe); setIsDetalDescribe(!isDetalDescribe) }}>
+              <Icon
+                name={isDetalDescribe ? 'angle-up' : 'angle-down'}
+                size={20}
+                color={R.colors.color777}
+              />
+            </TouchableOpacity>
+          </View>
+
+          {isDetalDescribe ? <View style={styles.contentext} >
+            <Text style={styles.detail}>Hiện nay Công ty chúng tôi đang cần tuyển nhân viên</Text>
+          </View> : null}
+        </View>
+
+        <View style={styles.containerItem}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <Text style={styles.title}>YÊU CẦU CÔNG VIỆC</Text>
+            <TouchableOpacity onPress={() => { console.log(isDetalRequire); setIsDetalRequire(!isDetalRequire) }}>
+              <Icon
+                name={isDetalRequire ? 'angle-up' : 'angle-down'}
+                size={20}
+                color={R.colors.color777}
+              />
+            </TouchableOpacity>
+          </View>
+
+          {isDetalRequire ? <View style={styles.contentext} >
+            <Text>Nắng mưa biết chạy vào nhà là một lợi thế!</Text>
+          </View> : null}
+        </View>
+
+        <View style={styles.containerItem}>
+          <View>
+            <Text style={styles.title}>ĐỊA ĐIỂM LÀM VIỆC</Text>
+          </View>
+          <View style={styles.item}>
+            <Ionicons name="location-outline" size={20} color={R.colors.gray} />
+            <View style={styles.contentext}>
+              <Text style={styles.detail}>Tầng 3, Tòa BITEXCO Hà Nội</Text>
+            </View>
+          </View>
+          <View style={styles.item}>
+            <Ionicons name="location-outline" size={20} color={R.colors.gray} />
+            <View style={styles.contentext}>
+              <Text style={styles.detail}>Tầng 81 LandMart TP.HCM</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    paddingHorizontal: 10,
+  containerItem: {
+    borderRadius: 5,
+    marginHorizontal: 5,
+    marginVertical: 10,
     backgroundColor: 'white',
+    padding: 10,
+    shadowColor: R.colors.black,
+    paddingHorizontal: 10,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 1.84,
+    elevation: 2,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: R.colors.borderGray
+  },
+  item: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10
+
   },
   title: {
-    color: 'black',
+    fontSize: getFontXD(52),
+    padding: 10
+  },
+  subtitle: {
     fontSize: getFontXD(42),
+    color: R.colors.label,
+    marginVertical: 5
   },
-  time: {
-    color: R.colors.color777,
+  detail: {
     fontSize: getFontXD(36),
-    marginTop: 5,
+
   },
-  date: {
-    color: R.colors.main,
-    fontSize: getFontXD(62),
-    marginTop: 5,
-  },
-  containTime: {
-    justifyContent: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 5,
-  },
-  containContent: {
-    flex: 1,
-    borderBottomWidth: 0.7,
-    borderBottomColor: R.colors.color777,
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-  },
+  contentext: {
+    marginHorizontal: 10
+  }
+
 });
 export default InformationJob;

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   View,
+  ScrollView,
   FlatList,
   StyleSheet,
   Text,
@@ -9,119 +10,111 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import R from '../../../assets/R';
-import {getFontXD} from '../../../Config/Functions';
-const DATA = [
-  {
-    id: '1',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông Nghiệp Hoàng Gia -VNuaRunning',
-  },
-  {
-    id: '2',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông Nghiệp Hoàng Gia -VNuaRunning',
-  },
-  {
-    id: '3',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông Nghiệp Hoàng Gia -VNuaRunning',
-  },
-  {
-    id: '4',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông Nghiệp Hoàng Gia -VNuaRunning',
-  },
-  {
-    id: '5',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông',
-  },
-  {
-    id: '6',
-    timestart: '00:00 28/04/21',
-    timefinish: '00:00 22/05/21',
-    title: 'Giải chạy Sinh Viên Học Viện Nông  ',
-  },
-];
-
-const Item = (props) => {
-  const {title, timestart, timefinish} = props.item;
-
-  const {index, length} = props;
-
-  return (
-    <TouchableOpacity style={styles.container}>
-      <View style={styles.containTime}>
-        <Text style={styles.title}>TH{timestart.slice(9, 11)}</Text>
-        <Text style={styles.date}>{timestart.slice(5, 8)}</Text>
-      </View>
-      <View
-        style={[
-          styles.containContent,
-          index == props.length - 1 ? {borderBottomWidth: 0} : null,
-        ]}>
-        <Text numberOfLines={1} style={[styles.title, {fontWeight: 'bold'}]}>
-          {title}
-        </Text>
-        <Text style={styles.time}>
-          {timestart}- {timefinish}
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
-};
+import { getFontXD } from '../../../Config/Functions';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Company = (props) => {
-  const length = DATA.length;
+  const [isDetalDescribe, setIsDetalDescribe] = useState(false);
+  const [isDetalRequire, setIsDetalRequire] = useState(false);
   return (
-    <View style={{flex: 1}}>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={DATA}
-        renderItem={({item, index}) => (
-          <Item item={item} index={index} length={length} />
-        )}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+    >
+      <View style={{ flex: 1, backgroundColor: R.colors.colorBackground }}>
+        <View style={styles.containerItem}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <Text style={styles.title}>THÔNG TIN VỀ CÔNG TY CHÚNG TÔI</Text>
+            <TouchableOpacity onPress={() => { console.log(isDetalRequire); setIsDetalRequire(!isDetalRequire) }}>
+              <Icon
+                name={isDetalRequire ? 'angle-up' : 'angle-down'}
+                size={20}
+                color={R.colors.color777}
+              />
+            </TouchableOpacity>
+          </View>
+
+
+          {isDetalRequire ? <View style={styles.contentext}>
+            <Text style={styles.detail}>Thành lập năm 2000, Công Ty chúng tôi tiên phong trong lĩnh vực mà chúng tôi phát triển</Text>
+          </View> : null}
+        </View>
+        <View style={styles.containerItem}>
+          <View>
+            <Text style={styles.title}>ĐỊA ĐIỂM LÀM VIỆC</Text>
+          </View>
+          <View style={styles.row}>
+            <Ionicons name="location-outline" size={20} color={R.colors.gray} />
+            <View style={styles.contentext}>
+              <Text style={styles.subtitle}>ĐỊA  ĐIỂM</Text>
+              <Text style={styles.detail}>Tại Hà Nội: Lô CN2 tòa nhà Thạch Kim KĐT Định Công, Hoàng Mai. Tại Đà Nẵng: 385 Trần Cao Vân , P Xuân Hà, Q.Thanh Khê</Text>
+            </View>
+          </View>
+          <View style={styles.row}>
+            <Icon name="group" size={20} color={R.colors.gray} />
+            <View style={styles.contentext}>
+              <Text style={styles.subtitle}>QUY MÔ CÔNG TY</Text>
+              <Text style={styles.detail}>100-500 nhân viên</Text>
+            </View>
+          </View>
+          <View style={{ backgroundColor: 'white', alignItems: 'stretch', flexDirection: 'row' }}>
+            <View style={{ marginRight: 6, justifyContent: 'center' }}>
+              <Icon name="phone" size={20} color={R.colors.gray} />
+            </View>
+            <View style={styles.contentext}>
+              <Text style={styles.subtitle}>LIÊN HỆ</Text>
+              <Text style={styles.detail}>HR: Mrs Hang (099887766)</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    paddingHorizontal: 10,
+  containerItem: {
+    borderRadius: 5,
+    marginHorizontal: 5,
+    marginVertical: 5,
     backgroundColor: 'white',
+    padding: 10,
+    shadowColor: R.colors.black,
+    paddingHorizontal: 10,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 1.84,
+    elevation: 2,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: R.colors.borderGray
+  },
+  item: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10
+
   },
   title: {
-    color: 'black',
+    fontSize: getFontXD(52),
+    padding: 10
+  },
+  subtitle: {
     fontSize: getFontXD(42),
+    color: R.colors.label,
+    marginVertical: 5
   },
-  time: {
-    color: R.colors.color777,
+  detail: {
     fontSize: getFontXD(36),
-    marginTop: 5,
+    marginVertical: 5
   },
-  date: {
-    color: R.colors.main,
-    fontSize: getFontXD(62),
-    marginTop: 5,
-  },
-  containTime: {
-    justifyContent: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 5,
-  },
-  containContent: {
-    flex: 1,
-    borderBottomWidth: 0.7,
-    borderBottomColor: R.colors.color777,
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-  },
+  contentext: {
+    marginHorizontal: 10,
+  }
 });
 export default Company;
