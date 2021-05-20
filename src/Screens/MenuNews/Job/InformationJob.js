@@ -52,8 +52,8 @@ const InformationJob = (props) => {
               <Text style={styles.detail}>Có kỹ năng là một lợi thế</Text>
             </View>
           </View>
-          <View style={styles.row}>
-            <Icon name="language" size={20} color={R.colors.gray} />
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ marginLeft: 5 }}><Icon name="language" size={20} color={R.colors.gray} /></View>
             <View style={styles.contentext}>
               <Text style={styles.subtitle}>NGÔN NGỮ TRÌNH BÀY HỒ SƠ</Text>
               <Text style={styles.detail}>Biết tiếng anh là một lợi thế</Text>
@@ -84,7 +84,7 @@ const InformationJob = (props) => {
           </View>
         </View>
         <View style={styles.containerItem}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
             <Text style={styles.title}>MÔ TẢ CÔNG VIỆC</Text>
             <TouchableOpacity onPress={() => { console.log(isDetalDescribe); setIsDetalDescribe(!isDetalDescribe) }}>
               <Icon
@@ -101,7 +101,7 @@ const InformationJob = (props) => {
         </View>
 
         <View style={styles.containerItem}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
             <Text style={styles.title}>YÊU CẦU CÔNG VIỆC</Text>
             <TouchableOpacity onPress={() => { console.log(isDetalRequire); setIsDetalRequire(!isDetalRequire) }}>
               <Icon
@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
 
   },
   title: {
-    fontSize: getFontXD(52),
-    padding: 10
+    fontSize: getFontXD(42),
+    padding: 5
   },
   subtitle: {
     fontSize: getFontXD(42),

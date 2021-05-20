@@ -23,7 +23,7 @@ const Company = (props) => {
     >
       <View style={{ flex: 1, backgroundColor: R.colors.colorBackground }}>
         <View style={styles.containerItem}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
             <Text style={styles.title}>THÔNG TIN VỀ CÔNG TY CHÚNG TÔI</Text>
             <TouchableOpacity onPress={() => { console.log(isDetalRequire); setIsDetalRequire(!isDetalRequire) }}>
               <Icon
@@ -101,8 +101,8 @@ const styles = StyleSheet.create({
 
   },
   title: {
-    fontSize: getFontXD(52),
-    padding: 10
+    fontSize: getFontXD(42),
+    padding: 5
   },
   subtitle: {
     fontSize: getFontXD(42),
