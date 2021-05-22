@@ -63,6 +63,9 @@ const images = {
   gallery: require('./images/gallery.png'),
   pdf: require('./images/pdf.png'),
   assignment: require('./images/assignment.png'),
+  iconWarn: require('./images/iconWarn.png'),
+  iconSuccess: require('./images/iconSuccess.png'),
+  iconError: require('./images/iconError.png'),
 };
 
 export default images;

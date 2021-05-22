@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {
   TextInput,
   View,
@@ -16,16 +16,49 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import R from '../../assets/R';
-import {getFontXD, HEIGHTXD} from '../../Config/Functions';
+import {checkFormatArray, getFontXD, HEIGHTXD} from '../../Config/Functions';
 import Button from '../../components/Button';
 const {width, height} = Dimensions.get('window');
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import {TABBAR} from '../../routers/ScreenNames';
 import {CONFIRMEMAIL} from '../../routers/ScreenNames';
-
+import I18n from '../../helper/i18/i18n';
+import {showAlert, TYPE} from '../../components/DropdownAlert';
+import {loginApi} from '../../apis/Functions/users';
+import {showLoading, hideLoading} from '../../actions/loadingAction';
+import {saveUserToRedux} from '../../actions/users';
+import {connect} from 'react-redux';
 const Login = (props) => {
   const navigation = useNavigation();
+  const [id_St, setIDSt] = useState();
+  const [password, setPassword] = useState();
+
+  const onClickLogin = async () => {
+    const titles = ['mã sinh viên', 'mật khẩu'];
+    const index = checkFormatArray([id_St, password]);
+
+    if (index === true) {
+      props.showLoading();
+      const res = await loginApi({
+        id_St,
+        password,
+      });
+      props.hideLoading();
+      console.log(res.data);
+      if (res.data.code == 200 && res.data.data) {
+        props.saveUserToRedux(res.data.data);
+        navigation.reset({
+          index: 1,
+          routes: [{name: TABBAR}],
+        });
+      } else {
+        showAlert(TYPE.ERROR, 'Thông báo!', res.data.message);
+      }
+    } else {
+      showAlert(TYPE.WARN, 'Thông báo!', 'Vui lòng nhập ' + titles[index]);
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -38,7 +71,6 @@ const Login = (props) => {
           resizeMode={'stretch'}
           style={{width: '100%', height: '100%'}}>
           <StatusBar backgroundColor="transparent" translucent={true} />
-
           <View style={{flex: 1}}>
             <View
               style={{
@@ -51,6 +83,7 @@ const Login = (props) => {
                 <View style={styles.wrapInput}>
                   <Icon name={'infocirlceo'} size={18} color={R.colors.white} />
                   <TextInput
+                    onChangeText={(val) => setIDSt(val)}
                     style={styles.txtInput}
                     placeholder="Nhập mã sinh viên"
                     placeholderTextColor={R.colors.white}
@@ -61,6 +94,7 @@ const Login = (props) => {
                 <View style={styles.wrapInput}>
                   <Icon name={'lock1'} size={18} color={R.colors.white} />
                   <TextInput
+                    onChangeText={(val) => setPassword(val)}
                     style={styles.txtInput}
                     placeholder="Nhập mật khẩu"
                     placeholderTextColor={R.colors.white}
@@ -90,12 +124,7 @@ const Login = (props) => {
 
                 <Button
                   title={'Đăng nhập'}
-                  onClick={() =>
-                    navigation.reset({
-                      index: 1,
-                      routes: [{name: TABBAR}],
-                    })
-                  }
+                  onClick={onClickLogin}
                   containerStyle={{
                     borderRadius: 20,
 
@@ -141,4 +170,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    loadingModal: state.ModalLoadingReducer,
+  };
+};
+
+export default connect(mapStateToProps, {
+  saveUserToRedux,
+  showLoading,
+  hideLoading,
+})(Login);

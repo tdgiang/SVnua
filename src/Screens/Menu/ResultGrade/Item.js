@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 3,
     backgroundColor: R.colors.white,
-    paddingVertical: 10,
+    paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 5,
   },
@@ -132,7 +132,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 3,
   },
   txtName: {
     fontSize: getFontXD(42),

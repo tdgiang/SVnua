@@ -22,6 +22,7 @@ import {NOTIFICATION, PROFILE} from '../../routers/ScreenNames';
 
 const Header = (props) => {
   const {title, isBack} = props;
+  const {name, id_St} = props.user;
   const navigate = useNavigation();
   return (
     <ImageBackground
@@ -33,7 +34,7 @@ const Header = (props) => {
         <View style={{width: 35, height: 30}} />
         <View style={{flexDirection: 'row'}}>
           <Text style={styles.txt}>Xin chào,</Text>
-          <Text style={styles.txtBig}>Trần Đức Giang</Text>
+          <Text style={styles.txtBig}>{name}</Text>
         </View>
         <TouchableOpacity
           style={{width: 35, height: 30}}
@@ -62,7 +63,7 @@ const Header = (props) => {
                 <Text style={styles.txtTile}>Số dư TK:</Text>
               </View>
               <View style={{flex: 4}}>
-                <Text style={styles.txtContent}>621070</Text>
+                <Text style={styles.txtContent}>{id_St}</Text>
                 <Text style={styles.txtContent}>K62CNPM</Text>
                 <Text style={styles.txtContent}>Công nghệ thông tin</Text>
                 <Text style={styles.txtContent}>{toPriceVnd(10000)}</Text>

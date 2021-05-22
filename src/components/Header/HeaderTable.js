@@ -70,10 +70,15 @@ const HeaderTable = (props) => {
             <View
               style={[
                 {
-                  borderRadius: 20,
-                  padding: 5,
+                  borderRadius: 40,
+                  width: 30,
+                  height: 30,
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 },
-                index == activeIndex ? {backgroundColor: R.colors.orange} : {},
+                index == activeIndex
+                  ? {backgroundColor: R.colors.orange, borderRadius: 40}
+                  : {},
               ]}>
               <Text key={e.date} style={styles.txtWeek}>
                 {e.date.slice(0, 2)}
@@ -157,11 +162,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 15,
-    marginTop: 10,
+    marginTop: 8,
   },
   txtWeek: {
     fontSize: getFontXD(42),
     color: R.colors.white,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
 });

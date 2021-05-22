@@ -104,6 +104,7 @@ class BarChartScreen extends React.Component {
           drawBarShadow={false}
           drawValueAboveBar={true}
           drawHighlightArrow={true}
+          chartDescription={''}
           onSelect={this.handleSelect.bind(this)}
           highlights={this.state.highlights}
           onChange={(event) => console.log(event.nativeEvent)}

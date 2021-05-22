@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import {View, Text} from 'react-native';
 import R from '../../assets/R';
 import HomeView from './HomeView';
+import {showAlert, TYPE} from '../../components/DropdownAlert/index';
 import {
   TIMETABLE,
   RESULTGRADE,
@@ -28,6 +29,12 @@ const listItem = [
     icon: R.images.grade,
   },
   {
+    id: '5',
+    title: 'Đăng ký tín chỉ',
+    screen: REGISTERSUBJECT,
+    icon: R.images.addEvent,
+  },
+  {
     id: '3',
     title: 'Lịch thi',
     screen: EXAMCALENDAR,
@@ -39,12 +46,7 @@ const listItem = [
     screen: FINACE,
     icon: R.images.receipt,
   },
-  {
-    id: '5',
-    title: 'Đăng ký tín chỉ',
-    screen: REGISTERSUBJECT,
-    icon: R.images.addEvent,
-  },
+
   {
     id: '6',
     title: 'Đánh giá',
