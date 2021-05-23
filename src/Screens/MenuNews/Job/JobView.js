@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 import Header from '../../../components/Header/Header';
 import Item from './Item';
 import R from '../../../assets/R';
@@ -42,7 +42,7 @@ const listItem = [
 
 const JobView = (props) => {
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <Header isBack={true} title={'Việc làm'} />
       {listItem.map((item) => (
         <Item key={item.id} item={item} />

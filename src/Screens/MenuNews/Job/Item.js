@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import R from '../../../assets/R';
-import {getFontXD} from '../../../Config/Functions';
+import { getFontXD } from '../../../Config/Functions';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 const Item = (props) => {
   const navigation = useNavigation();
-  const {title, icon, id, screen} = props.item;
+  const { title, icon, id, screen } = props.item;
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate(screen)}

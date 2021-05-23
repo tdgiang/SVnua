@@ -32,6 +32,7 @@ export const PROFILE = 'PROFILE';
 export const QUESTION = 'QUESTION';
 export const SETTING = 'SETTING';
 
+export const INTERJOB = 'INTERJOB';
 export const INTERSHIP = 'INTERSHIP';
 export const JOBNOW = 'JOBNOW';
 
@@ -61,3 +62,6 @@ export const DETAILPOST = 'DETAILPOST';
 export const CONFIRMEMAIL = 'CONFIRMEMAIL';
 export const CONFIRMOTP = 'CONFIRMOTP';
 export const CONFIRMPASS = 'CONFIRMPASS';
+
+//Job
+export const RECRUITDETAIL = 'RECRUITDETAIL'
