@@ -120,12 +120,11 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     alignContent: 'center',
-    height: 50,
+    height: 30,
     width: '100%',
     flexDirection: 'row',
     paddingHorizontal: 10,
     justifyContent: 'space-between',
-    marginTop: 10,
   },
   txtBig: {
     fontSize: getFontXD(52),

@@ -70,13 +70,12 @@ export default connect(mapStateToProps, {})(HeaderFillter);
 
 const styles = StyleSheet.create({
   img: {
-    height: 95,
+    height: 70,
     width: '100%',
     paddingTop: 30,
   },
   headerContainer: {
-    paddingTop: 10,
-    height: 50,
+    height: 30,
     width: '100%',
     alignItems: 'center',
     flexDirection: 'row',

@@ -53,14 +53,14 @@ export default connect(mapStateToProps, {})(HeaderMess);
 
 const styles = StyleSheet.create({
   img: {
-    height: 95,
+    height: 70,
     width: '100%',
     paddingTop: 30,
   },
   headerContainer: {
-    paddingTop: 10,
-    height: 40,
+    height: 30,
     width: '100%',
+    paddingTop: 5,
     alignItems: 'center',
     flexDirection: 'row',
     paddingHorizontal: 20,

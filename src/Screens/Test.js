@@ -9,13 +9,13 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.socket = io('http://10.10.20.33:5000');
-    this.socket.emit('Send_Message');
+    this.socket = io('http://192.168.137.215:8080');
+    this.socket.emit('event');
   }
 
   sendnewMessage() {
     console.log('Send');
-    this.socket.emit('Send_Message');
+    this.socket.emit('event');
   }
 
   render() {

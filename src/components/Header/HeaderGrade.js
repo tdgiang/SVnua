@@ -127,8 +127,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   headerContainer: {
-    paddingTop: 10,
-    height: 50,
+    height: 40,
     width: '100%',
     alignItems: 'center',
     flexDirection: 'row',

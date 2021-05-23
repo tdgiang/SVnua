@@ -33,7 +33,7 @@ const Header = (props) => {
       <View style={styles.headerContainer}>
         <View style={{width: 35, height: 30}} />
         <View style={{flexDirection: 'row'}}>
-          <Text style={styles.txt}>Xin chào,</Text>
+          <Text style={styles.txt}>Xin chào, </Text>
           <Text style={styles.txtBig}>{name}</Text>
         </View>
         <TouchableOpacity
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 10,
     justifyContent: 'space-between',
-    marginTop: 10,
+    paddingTop: 10,
   },
   txtBig: {
     fontSize: getFontXD(52),
