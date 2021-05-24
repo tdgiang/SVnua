@@ -1,6 +1,6 @@
-import React, { Fragment, useRef, useEffect, useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React, {Fragment, useRef, useEffect, useState} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import TabNavigator from './TabNavigation';
 import Login from '../Screens/Authen/Login';
@@ -18,7 +18,7 @@ import ResultGrade from '../Screens/Menu/ResultGrade/ResultGrade';
 import Notificaiton from '../Screens/Menu/Notification/Notification';
 //News
 import Bustle from '../Screens/MenuNews/Bustle/Bustle';
-import Job from '../Screens/MenuNews/Job/Job';
+import Job from '../Screens/MenuNews/Job/JobView';
 import Scholarship from '../Screens/MenuNews/Scholarship/Scholarship';
 import TableNews from '../Screens/MenuNews/TableNews/TableNews';
 
@@ -30,11 +30,11 @@ import Profile from '../Screens/MenuAccount/Profile/Profile';
 import Question from '../Screens/MenuAccount/Question/Question';
 import Setting from '../Screens/MenuAccount/Setting/Setting';
 
-import InterJob from '../Screens/MenuNews/Job/InterJob'
+import InterJob from '../Screens/MenuNews/Job/InterJob';
 import Intership from '../Screens/MenuNews/Job/Intership';
 import JobNow from '../Screens/MenuNews/Job/JobNow';
 import OverTime from '../Screens/MenuNews/Job/OverTime';
-import Recruit from '../Screens/MenuNews/Job/Recruit';
+import Recruit from '../Screens/MenuNews/Job/Recurit/Recruit';
 import Reply from '../Screens/MenuAccount/Question/Reply';
 import DetailMess from '../Screens/Mess/DetailMess';
 import DetailPeriod from '../Screens/Menu/ResultGrade/DetailPeriod';
@@ -57,7 +57,7 @@ import ConfirmOTP from '../Screens/Authen/ConfirmOTP';
 import ConfirmPass from '../Screens/Authen/ConfirmPass';
 
 //Job
-import RecruitDetail from '../Screens/MenuNews/Job/RecruitDetail'
+import RecruitDetail from '../Screens/MenuNews/Job/Recurit/RecruitDetail';
 
 import * as ScreenName from './ScreenNames';
 

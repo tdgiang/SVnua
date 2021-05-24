@@ -41,15 +41,8 @@ const DATA = [
   },
 ];
 const Item = (props) => {
-  const {
-    term,
-    selfRate,
-    teachRate,
-    studyBonus,
-    total,
-    rank,
-    status,
-  } = props.item;
+  const {term, selfRate, teachRate, studyBonus, total, rank, status} =
+    props.item;
   return (
     <View style={styles.container}>
       <View style={styles.title}>

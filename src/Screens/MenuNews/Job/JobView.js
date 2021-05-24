@@ -1,48 +1,63 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import Header from '../../../components/Header/Header';
-import Item from './Item';
 import R from '../../../assets/R';
+import {getFontXD} from '../../../Config/Functions';
 import {
   RECRUIT,
   INTERSHIP,
   JOBNOW,
   OVERTIME,
 } from '../../../routers/ScreenNames';
-
-
-
-
+import {useNavigation} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/AntDesign';
 const listItem = [
   {
     id: '1',
     title: 'Tuyển dụng',
     screen: RECRUIT,
-    icon: R.images.user,
+    icon: R.images.folderjob,
   },
   {
     id: '2',
     title: 'Thực tập sinh',
     screen: INTERSHIP,
-    icon: R.images.page,
+    icon: R.images.intership,
   },
   {
     id: '3',
     title: 'Việc làm thêm',
     screen: OVERTIME,
-    icon: R.images.changePass,
+    icon: R.images.partTime,
   },
   {
     id: '4',
     title: 'Việc làm trong ngày',
     screen: JOBNOW,
-    icon: R.images.changePass,
+    icon: R.images.hotJob,
   },
 ];
 
+const Item = (props) => {
+  const navigation = useNavigation();
+  const {title, icon, id, screen} = props.item;
+  return (
+    <TouchableOpacity
+      onPress={() => navigation.navigate(screen)}
+      key={id}
+      style={styles.container}>
+      <Image style={styles.imgIcon} source={icon} resizeMode={'cover'} />
+      <View style={styles.wrapContent}>
+        <Text style={styles.title}>{title}</Text>
+        <Icon name={'right'} size={16} />
+      </View>
+    </TouchableOpacity>
+  );
+};
+
 const JobView = (props) => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <Header isBack={true} title={'Việc làm'} />
       {listItem.map((item) => (
         <Item key={item.id} item={item} />
@@ -50,5 +65,41 @@ const JobView = (props) => {
     </View>
   );
 };
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: R.colors.white,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    shadowColor: R.colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 1.84,
+    elevation: 2,
+    marginBottom: 1,
+  },
+  imgIcon: {
+    width: 35,
+    height: 35,
+  },
+  wrapContent: {
+    paddingLeft: 15,
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: getFontXD(46),
+  },
+  txt: {
+    fontSize: getFontXD(42),
+    color: R.colors.color777,
+  },
+});
 
 export default JobView;

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import Header from '../../../components/Header/Header';
-import R from '../../../assets/R';
-import images from '../../../assets/images';
+import Header from '../../../../components/Header/Header';
+import R from '../../../../assets/R';
+import images from '../../../../assets/images';
 import {FlatList} from 'react-native';
-import {getFontXD} from '../../../Config/Functions';
+import {getFontXD} from '../../../../Config/Functions';
 import {useNavigation} from '@react-navigation/native';
-import {RECRUITDETAIL} from '../../../routers/ScreenNames';
+import {RECRUITDETAIL} from '../../../../routers/ScreenNames';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -94,6 +94,7 @@ const DATA = [
     expdate: '20/05/2021',
   },
 ];
+
 const Item = (props) => {
   const {image, title, address, recruiter, salary, expdate} = props.item;
   const navigation = useNavigation();
@@ -138,7 +139,7 @@ const Item = (props) => {
     </TouchableOpacity>
   );
 };
-const InterShip = (props) => {
+const Recruit = (props) => {
   return (
     <View style={{flex: 1}}>
       <Header isBack={true} title={'Tuyển dụng'} />
@@ -181,4 +182,4 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
 });
-export default InterShip;
+export default Recruit;

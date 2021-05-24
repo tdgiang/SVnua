@@ -66,6 +66,13 @@ const images = {
   iconWarn: require('./images/iconWarn.png'),
   iconSuccess: require('./images/iconSuccess.png'),
   iconError: require('./images/iconError.png'),
+  bkav: require('./images/bkav.png'),
+  vsmart: require('./images/vsmart.png'),
+
+  folderjob: require('./images/folderjob.png'),
+  hotJob: require('./images/hotJob.png'),
+  intership: require('./images/intership.png'),
+  partTime: require('./images/partTime.png'),
 };
 
 export default images;
