@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import R from '../../../assets/R';
-import Header from '../../../components/Header/Header';
+import Header from '../../../components/Header/HeaderTeam';
 import {getFontXD} from '../../../Config/Functions';
 import {useNavigation} from '@react-navigation/native';
 import {DETAILTEAM} from '../../../routers/ScreenNames';

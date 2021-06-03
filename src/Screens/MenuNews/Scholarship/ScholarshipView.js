@@ -8,41 +8,25 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import {getFontXD} from '../../../Config/Functions';
+import {getFontXD, convertDate, toPriceVnd} from '../../../Config/Functions';
 import Header from '../../../components/Header/Header';
 import R from '../../../assets/R';
-const DATA = [
-  {
-    id: '1',
-    image: R.images.education,
-    time: '22/05/2021',
-    title: 'Chương trình học bổng- 2021',
-    type: 'Học bổng doanh nghiệp',
-    price: '600 USD/suất',
-  },
-  {
-    id: '2',
-    image: R.images.education,
-    time: '22/05/2021',
-    title: 'Chương trình học bổng- 2021',
-    type: 'Học bổng doanh nghiệp',
-    price: '600 USD/suất',
-  },
-];
 
 const Item = (props) => {
-  const {title, image, time, type, price} = props.item;
+  const {title, image, time, type, money} = props.item;
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.containImage}>
-        <Image style={styles.image} source={image} />
+        <Image style={styles.image} source={R.images.education} />
       </View>
       <View style={styles.containContent}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={[styles.detail, {marginVertical: 5}]}>{type}</Text>
+        <Text style={[styles.detail, {marginVertical: 5}]}>
+          Học bổng doanh nghiệp
+        </Text>
         <View style={styles.subdetail}>
-          <Text style={styles.detail}>{time}</Text>
-          <Text style={styles.detail}>{price}</Text>
+          <Text style={styles.detail}>{convertDate(time)}</Text>
+          <Text style={styles.detail}>{toPriceVnd(money)}/suất</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -50,12 +34,16 @@ const Item = (props) => {
 };
 
 const ScholarshipView = (props) => {
+  const {isRefresh, onRefresh, data} = props;
+
   return (
     <View style={{flex: 1}}>
       <Header isBack={true} title={'Hoạt động'} />
       <FlatList
         showsVerticalScrollIndicator={false}
-        data={DATA}
+        data={data}
+        refreshing={isRefresh}
+        onRefresh={onRefresh}
         renderItem={({item}) => <Item item={item} />}
         keyExtractor={(item) => item.id}
       />

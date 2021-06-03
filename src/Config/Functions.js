@@ -10,8 +10,8 @@ import moment from 'moment';
 import _ from 'lodash';
 import I18n from '../helper/i18/i18n';
 import AppText from '../components/AppText';
-
-import {DETAILNEW, NOTIFICATION} from '../routers/ScreenNames';
+import AsyncStorage from '@react-native-community/async-storage';
+import {DETAILNEW, NOTIFICATION, LOGINSCREEN} from '../routers/ScreenNames';
 import R from '../assets/R';
 
 export const convertScreen = (name) => {
@@ -21,6 +21,14 @@ export const convertScreen = (name) => {
     default:
       return DETAILNEW;
   }
+};
+
+export const logout = (navigation) => {
+  AsyncStorage.clear();
+  navigation.reset({
+    index: 1,
+    routes: [{name: LOGINSCREEN}],
+  });
 };
 
 export const requestCameraPermission = async () => {
@@ -353,6 +361,11 @@ export const convertTimeApi = (date) => {
 
 export const convertDate = (date) => {
   const time = moment(date).format('DD/MM/YYYY');
+  return time;
+};
+
+export const convertDateTime = (date) => {
+  const time = moment(date).format('hh:mm DD/MM/YYYY');
   return time;
 };
 

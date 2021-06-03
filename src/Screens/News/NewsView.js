@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
-import Header from '../../components/Header/Header';
+import HeaderDraer from '../../components/Header/HeaderDrawer';
 import Item from './Item';
 import R from '../../assets/R';
 import {getFontXD} from '../../Config/Functions';
@@ -40,7 +40,7 @@ const listItem = [
 const NewsView = (props) => {
   return (
     <View style={{flex: 1}}>
-      <Header title={'Tin tức'} />
+      <HeaderDraer title={'Tin tức'} />
       <View style={styles.container}>
         <FlatList
           data={listItem}

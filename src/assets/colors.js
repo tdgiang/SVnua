@@ -42,7 +42,7 @@ const colors = {
   gray2: '#cccccc',
   gray1: '#bfbfbf',
   gray4: '#e6e6e6',
-  gray5: 'rgba(226,232,235, 1)',
+  gray5: 'rgba(226,232,235, 0.6)',
   orange: '#Fb9736',
   lightBlue: '#1a8cff',
   lightBlue1: '#008ae6',
@@ -52,6 +52,7 @@ const colors = {
   yellow: '#e6e600',
   red: '#E3434F',
   red1: '#FA1E1E',
+  bgMain: '#9EF8C9',
 };
 
 export default colors;

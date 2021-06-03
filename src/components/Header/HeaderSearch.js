@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   ImageBackground,
   TouchableOpacity,
+  TextInput,
 } from 'react-native';
 import R from '../../assets/R';
 import {getFontXD, HEIGHT, WIDTHXD} from '../../Config/Functions';
@@ -15,12 +16,11 @@ import {connect} from 'react-redux';
 import {HEIGHTXD} from '../../Config/Functions';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {SEARCHPEOPLE} from '../../routers/ScreenNames';
 // import SnackBar from '../SnackBar';
 // import AppText from '../AppText';
 
-const HeaderMess = (props) => {
-  const {title} = props;
+const HeaderSearch = (props) => {
+  const {title, isBack, onChangeText} = props;
   const navigate = useNavigation();
   return (
     <ImageBackground
@@ -29,18 +29,24 @@ const HeaderMess = (props) => {
       source={R.images.header}>
       <StatusBar backgroundColor="transparent" translucent={true} />
       <View style={styles.headerContainer}>
-        <TouchableOpacity
-          style={{width: 35, height: 30}}
-          onPress={() => navigate.goBack()}>
-          <Icon color={'white'} name={'left'} size={22} />
-        </TouchableOpacity>
+        {isBack ? (
+          <TouchableOpacity
+            style={{width: 35, height: 30}}
+            onPress={() => navigate.goBack()}>
+            <Icon color={'white'} name={'arrowleft'} size={22} />
+          </TouchableOpacity>
+        ) : (
+          <View style={{width: 35, height: 30}} />
+        )}
 
-        <Text style={styles.txtTitle}>{title}</Text>
-        <TouchableOpacity
-          onPress={() => navigate.navigate(SEARCHPEOPLE)}
-          style={{height: 30}}>
-          <Icon name={'search1'} size={22} color={R.colors.white} />
-        </TouchableOpacity>
+        <View style={styles.wrap}>
+          <TextInput
+            onChangeText={(val) => onChangeText(val)}
+            autoFocus={true}
+            style={styles.wrapInput}
+          />
+          <Icon size={20} color={'white'} name={'search1'} />
+        </View>
       </View>
     </ImageBackground>
   );
@@ -52,7 +58,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(HeaderMess);
+export default connect(mapStateToProps, {})(HeaderSearch);
 
 const styles = StyleSheet.create({
   img: {
@@ -61,9 +67,9 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   headerContainer: {
-    height: 30,
-    width: '100%',
+    height: 40,
     paddingTop: 5,
+    width: '100%',
     alignItems: 'center',
     flexDirection: 'row',
     paddingHorizontal: 20,
@@ -83,5 +89,22 @@ const styles = StyleSheet.create({
     height: '100%',
     width: 300,
     borderRadius: 20,
+  },
+  wrap: {
+    flex: 1,
+    height: 25,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingLeft: 10,
+    borderBottomWidth: 0.6,
+    borderBottomColor: R.colors.white,
+    marginBottom: 10,
+  },
+  wrapInput: {
+    flex: 1,
+    height: 25,
+    color: R.colors.white,
+    fontSize: getFontXD(42),
   },
 });

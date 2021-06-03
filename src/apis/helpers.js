@@ -3,14 +3,14 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-community/async-storage';
 axios.defaults.timeout = 10000;
 export async function GetData(url, data) {
-  const token = await AsyncStorage.getItem(KEY.TOKEN);
+  // const token = await AsyncStorage.getItem(KEY.TOKEN);
   let myRequest = {
     method: 'get',
     url,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + token,
+      // Authorization: 'Bearer ' + token,
     },
     params: {
       ...data,

@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   ImageBackground,
   TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import R from '../../assets/R';
 import {getFontXD, HEIGHT, WIDTHXD} from '../../Config/Functions';
@@ -15,13 +16,20 @@ import {connect} from 'react-redux';
 import {HEIGHTXD} from '../../Config/Functions';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {SEARCHPEOPLE} from '../../routers/ScreenNames';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Modal from 'react-native-modal';
+import Drawer from './Drawer';
 // import SnackBar from '../SnackBar';
 // import AppText from '../AppText';
+import {NOTIFICATION, PROFILE} from '../../routers/ScreenNames';
 
-const HeaderMess = (props) => {
+const Header = (props) => {
   const {title} = props;
+  const [isModalVisible, setModalVisible] = useState(false);
   const navigate = useNavigation();
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
   return (
     <ImageBackground
       imageStyle={{resizeMode: 'stretch'}}
@@ -29,19 +37,40 @@ const HeaderMess = (props) => {
       source={R.images.header}>
       <StatusBar backgroundColor="transparent" translucent={true} />
       <View style={styles.headerContainer}>
+        <TouchableOpacity style={{width: 35, height: 30}} onPress={toggleModal}>
+          <Icon color={'white'} name={'menu-fold'} size={22} />
+        </TouchableOpacity>
+        <Text numberOfLines={1} style={styles.txtTitle}>
+          {title}
+        </Text>
         <TouchableOpacity
           style={{width: 35, height: 30}}
-          onPress={() => navigate.goBack()}>
-          <Icon color={'white'} name={'left'} size={22} />
-        </TouchableOpacity>
-
-        <Text style={styles.txtTitle}>{title}</Text>
-        <TouchableOpacity
-          onPress={() => navigate.navigate(SEARCHPEOPLE)}
-          style={{height: 30}}>
-          <Icon name={'search1'} size={22} color={R.colors.white} />
+          onPress={() => navigate.navigate(NOTIFICATION)}>
+          <Ionicons color={'white'} name={'notifications-outline'} size={22} />
         </TouchableOpacity>
       </View>
+      <Modal
+        animationIn={'fadeInLeft'}
+        animationOut={'fadeOutLeft'}
+        style={{marginLeft: 20}}
+        isVisible={isModalVisible}
+        backdropOpacity={0.5}>
+        <View
+          style={[
+            {flex: 1, flexDirection: 'row'},
+            Platform.OS == 'ios' ? {paddingVertical: 15} : {},
+          ]}>
+          <View style={styles.container}>
+            <Drawer toggleModal={toggleModal} />
+          </View>
+          <TouchableWithoutFeedback onPress={toggleModal}>
+            <View
+              style={{
+                flex: 1,
+              }}></View>
+          </TouchableWithoutFeedback>
+        </View>
+      </Modal>
     </ImageBackground>
   );
 };
@@ -52,7 +81,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(HeaderMess);
+export default connect(mapStateToProps, {})(Header);
 
 const styles = StyleSheet.create({
   img: {
@@ -61,9 +90,9 @@ const styles = StyleSheet.create({
     paddingTop: 30,
   },
   headerContainer: {
-    height: 30,
+    height: 35,
+    paddingTop: 10,
     width: '100%',
-    paddingTop: 5,
     alignItems: 'center',
     flexDirection: 'row',
     paddingHorizontal: 20,

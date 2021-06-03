@@ -284,4 +284,5 @@ export default {
   Count: 'Count',
   Systemmaintenance: 'The system is maintenance',
   WaitUpdateCQG: 'Waiting Update CQG',
+  Rating: 'Rating',
 };

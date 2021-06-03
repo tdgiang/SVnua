@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import R from '../../assets/R';
-import Header from '../../components/Header/Header';
+import HeaderDrawer from '../../components/Header/HeaderDrawer';
 import {getFontXD} from '../../Config/Functions';
 import {useNavigation} from '@react-navigation/native';
 import {DETAILMESS} from '../../routers/ScreenNames';
@@ -24,8 +24,7 @@ const data = [
   {
     id: '2',
     name: 'Lisa Price',
-    mess:
-      "I'm looking forward to it,I'm looking forward to it,I'm looking forward to it",
+    mess: "I'm looking forward to it,I'm looking forward to it,I'm looking forward to it",
     time: '9:27 AM',
     active: true,
   },
@@ -86,7 +85,7 @@ const Item = (props) => {
 const MessView = (props) => {
   return (
     <View style={{flex: 1, backgroundColor: R.colors.white}}>
-      <Header title={'Tin nhắn'} />
+      <HeaderDrawer title={'Tin nhắn'} />
       <FlatList
         style={{flex: 1}}
         data={data}

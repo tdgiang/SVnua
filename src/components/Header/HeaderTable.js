@@ -15,8 +15,9 @@ import {connect} from 'react-redux';
 import {HEIGHTXD} from '../../Config/Functions';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/AntDesign';
-// import SnackBar from '../SnackBar';
-// import AppText from '../AppText';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {TABLEHORIZOLTAL} from '../../routers/ScreenNames';
+
 const week = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
 
 const HeaderTable = (props) => {
@@ -36,7 +37,11 @@ const HeaderTable = (props) => {
           <Icon color={'white'} name={'arrowleft'} size={22} />
         </TouchableOpacity>
         <Text style={styles.txtTitle}>{title}</Text>
-        <View style={{height: 30, width: 35}} />
+        <TouchableOpacity
+          style={{width: 35, height: 30, alignItems: 'flex-end'}}
+          onPress={() => navigate.navigate(TABLEHORIZOLTAL)}>
+          <FontAwesome color={'white'} name={'table'} size={22} />
+        </TouchableOpacity>
       </View>
       <View style={{flex: 1, paddingVertical: 10}}>
         <View style={styles.wrapPicker}>

@@ -73,6 +73,9 @@ const images = {
   hotJob: require('./images/hotJob.png'),
   intership: require('./images/intership.png'),
   partTime: require('./images/partTime.png'),
+  repeat: require('./images/repeat.png'),
+
+  sun: require('./images/sun.png'),
 };
 
 export default images;

@@ -23,7 +23,7 @@ const SettingView = (props) => {
 
   return (
     <View style={{flex: 1}}>
-      <Header isBack={true} title={'Setting'} />
+      <Header isBack={true} title={'Cài đặt'} />
       <View style={{flex: 1, padding: 10, backgroundColor: 'white'}}>
         <View style={styles.row}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>

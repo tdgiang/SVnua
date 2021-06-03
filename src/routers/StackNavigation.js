@@ -55,10 +55,11 @@ import DetailPost from '../Screens/MSTeam/DetailTeam/DetailPost';
 import CofirmEmail from '../Screens/Authen/ConfirmEmail';
 import ConfirmOTP from '../Screens/Authen/ConfirmOTP';
 import ConfirmPass from '../Screens/Authen/ConfirmPass';
+import TableHorizoltal from '../Screens/Menu/TimeTable/TableHorizontal';
 
 //Job
 import RecruitDetail from '../Screens/MenuNews/Job/Recurit/RecruitDetail';
-
+import SearchPeople from '../Screens/Mess/SearchPeople';
 import * as ScreenName from './ScreenNames';
 
 const Stack = createStackNavigator();
@@ -82,12 +83,18 @@ function MyStack(props) {
       <Stack.Screen name={ScreenName.EVALUATEUSER} component={EvaluateUser} />
       <Stack.Screen name={ScreenName.DETAILTEAM} component={DetailTeam} />
       <Stack.Screen
+        name={ScreenName.TABLEHORIZOLTAL}
+        component={TableHorizoltal}
+      />
+      <Stack.Screen
         name={ScreenName.HISTORYTRANSFER}
         component={HistoryTransfer}
       />
       <Stack.Screen name={ScreenName.PAYDEBT} component={PayDebt} />
       <Stack.Screen name={ScreenName.PAYS} component={Pays} />
       <Stack.Screen name={ScreenName.DETAILPOST} component={DetailPost} />
+
+      <Stack.Screen name={ScreenName.SEARCHPEOPLE} component={SearchPeople} />
 
       <Stack.Screen name={ScreenName.CONFIRMEMAIL} component={CofirmEmail} />
       <Stack.Screen name={ScreenName.CONFIRMOTP} component={ConfirmOTP} />

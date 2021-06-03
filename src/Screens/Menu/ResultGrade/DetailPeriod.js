@@ -74,7 +74,7 @@ const data = [
     gradeString: 'B',
   },
   {
-    name: '	Giáo dục quốc phòng 3',
+    name: 'Giáo dục quốc phòng 3',
     id: 'QS01003',
     count: 3,
     gradeCC: 9,

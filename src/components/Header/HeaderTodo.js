@@ -60,36 +60,14 @@ const Header = (props) => {
             />
           </TouchableOpacity>
         </View>
-        <View style={{flex: 1, paddingHorizontal: 20, marginTop: 5}}>
-          <View style={styles.wrapContent}>
-            <View style={styles.container}>
-              <View style={{justifyContent: 'center'}}>
-                <TouchableOpacity onPress={() => navigate.navigate(PROFILE)}>
-                  <Image
-                    rounded
-                    style={styles.imgAvatar}
-                    source={R.images.avatar}
-                  />
-                </TouchableOpacity>
-              </View>
-
-              <View style={styles.wrapRight}>
-                <View style={{flex: 2}}>
-                  <Text style={styles.txtTile}>Mã SV:</Text>
-                  <Text style={styles.txtTile}>Lớp:</Text>
-                  <Text style={styles.txtTile}>Khoa:</Text>
-                  <Text style={styles.txtTile}>Số dư TK:</Text>
-                </View>
-                <View style={{flex: 4}}>
-                  <Text style={styles.txtContent}>{id_St}</Text>
-                  <Text style={styles.txtContent}>
-                    {props.user.class.acronym}
-                  </Text>
-                  <Text style={styles.txtContent}>{department.name}</Text>
-                  <Text style={styles.txtContent}>{toPriceVnd(10000)}</Text>
-                </View>
-              </View>
-            </View>
+        <View style={{flex: 1, paddingHorizontal: 20}}>
+          <View style={styles.row}>
+            <Text style={styles.txtDate}>29 tháng 5</Text>
+            <Image style={styles.icon} source={R.images.sun} />
+          </View>
+          <View style={styles.row}>
+            <Text style={styles.txtWeek}>Thứ 7 tuần 14</Text>
+            <Text style={styles.txtWeek}>Nhiều mây 31° C</Text>
           </View>
         </View>
       </ImageBackground>
@@ -197,5 +175,25 @@ const styles = StyleSheet.create({
     height: '100%',
     width: 300,
     borderRadius: 20,
+  },
+  txtDate: {
+    fontSize: getFontXD(72),
+    color: R.colors.white,
+    fontWeight: '600',
+  },
+  txtWeek: {
+    fontSize: getFontXD(46),
+    color: R.colors.white,
+    fontStyle: 'italic',
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 5,
+  },
+  icon: {
+    width: 40,
+    height: 40,
   },
 });

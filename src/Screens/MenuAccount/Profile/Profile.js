@@ -10,14 +10,31 @@ import {
 import R from '../../../assets/R';
 import Header from '../../../components/Header/Header';
 import {Divider} from 'react-native-elements';
-import {getFontXD, toPriceVnd} from '../../../Config/Functions';
+import {getFontXD, toPriceVnd, convertDate} from '../../../Config/Functions';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import PickerAvatart from '../../../components/Picker/PickerAvatart';
+import {connect} from 'react-redux';
 
 const Profile = (props) => {
   const [general, setGeneral] = useState(true);
   const [bank, setBank] = useState(false);
   const [insurrance, setInsurrance] = useState(false);
+
+  const {
+    id_St,
+    name,
+    department,
+    cmnd,
+    placeCmnd,
+    placeOfBirth,
+    email,
+    address,
+    phone,
+    dateOfBirth,
+    sex,
+    dateCmnd,
+  } = props.user;
+
   return (
     <View style={{flex: 1}}>
       <Header isBack={true} title={'Thông tin cá nhân'} />
@@ -31,7 +48,7 @@ const Profile = (props) => {
             justifyContent: 'center',
           }}>
           <PickerAvatart />
-          <Text style={styles.txtBig}>Trần Đức Giang</Text>
+          <Text style={styles.txtBig}>{name}</Text>
         </View>
         <View style={styles.wrapTop}>
           <View style={styles.row}>
@@ -39,7 +56,7 @@ const Profile = (props) => {
               <Text style={styles.txtTitle}>Mã sinh viên:</Text>
             </View>
             <View style={{flex: 1}}>
-              <Text style={styles.txtBold}>621070</Text>
+              <Text style={styles.txtBold}>{id_St}</Text>
             </View>
           </View>
           <View style={styles.row}>
@@ -47,7 +64,7 @@ const Profile = (props) => {
               <Text style={styles.txtTitle}>Lớp:</Text>
             </View>
             <View style={{flex: 1}}>
-              <Text style={styles.txtBold}>K62CNPM</Text>
+              <Text style={styles.txtBold}>{props.user.class.acronym}</Text>
             </View>
           </View>
           <View style={styles.row}>
@@ -55,7 +72,7 @@ const Profile = (props) => {
               <Text style={styles.txtTitle}>Khoa:</Text>
             </View>
             <View style={{flex: 1}}>
-              <Text style={styles.txtBold}>Công nghệ thông tin</Text>
+              <Text style={styles.txtBold}>{department.name}</Text>
             </View>
           </View>
           <View style={styles.row}>
@@ -63,7 +80,7 @@ const Profile = (props) => {
               <Text style={styles.txtTitle}>Số dự tài khoản</Text>
             </View>
             <View style={{flex: 1}}>
-              <Text style={styles.txtBold}>{toPriceVnd(69000)}</Text>
+              <Text style={styles.txtBold}>{toPriceVnd(10000)}</Text>
             </View>
           </View>
         </View>
@@ -86,48 +103,52 @@ const Profile = (props) => {
               <View>
                 <View style={styles.rowPadding}>
                   <Text style={styles.txtTitle}>Ngày sinh</Text>
-                  <Text style={styles.txtTitle}>10/08/1998</Text>
+                  <Text style={styles.txtTitle}>
+                    {convertDate(dateOfBirth)}
+                  </Text>
                 </View>
                 <Divider />
                 <View style={styles.rowPadding}>
                   <Text style={styles.txtTitle}>Giới tính</Text>
-                  <Text style={styles.txtTitle}>Nam</Text>
+                  <Text style={styles.txtTitle}>{sex == 1 ? 'Nam' : 'Nữ'}</Text>
                 </View>
                 <Divider />
                 <View style={styles.rowPadding}>
                   <Text style={styles.txtTitle}>Nơi sinh</Text>
-                  <Text style={styles.txtTitle}>Hà nam</Text>
+                  <Text style={styles.txtTitle}>{placeOfBirth}</Text>
                 </View>
                 <Divider />
                 <View style={styles.rowPadding}>
                   <Text style={styles.txtTitle}>Số CMND/CCCD</Text>
-                  <Text style={styles.txtTitle}>035098001912</Text>
+                  <Text style={styles.txtTitle}>{cmnd}</Text>
                 </View>
                 <Divider />
                 <View style={styles.rowPadding}>
                   <Text style={styles.txtTitle}>Ngày cấp</Text>
-                  <Text style={styles.txtTitle}>30/12/2018</Text>
+                  <Text style={styles.txtTitle}>{convertDate(dateCmnd)}</Text>
                 </View>
                 <Divider />
                 <View style={styles.rowPadding}>
                   <Text style={styles.txtTitle}>Nơi cấp</Text>
-                  <Text style={styles.txtTitle}>Hà Nam</Text>
+                  <Text style={styles.txtTitle}>{placeCmnd}</Text>
                 </View>
                 <Divider />
                 <View style={styles.rowPadding}>
                   <Text style={styles.txtTitle}>Số điện thoại</Text>
-                  <Text style={styles.txtTitle}>0866912436</Text>
+                  <Text style={styles.txtTitle}>{phone}</Text>
                 </View>
                 <Divider />
                 <View style={styles.rowPadding}>
                   <Text style={styles.txtTitle}>Email</Text>
-                  <Text style={styles.txtTitle}>tdgiangdev@gmail.com</Text>
+                  <Text style={styles.txtTitle}>{email}</Text>
                 </View>
                 <Divider />
                 <View style={styles.rowPadding}>
-                  <Text style={styles.txtTitle}>Địa chỉ</Text>
-                  <Text style={styles.txtTitle}>
-                    Xã Xuân Khê-Huyện Lý Nhân-Hà Nam
+                  <Text style={[styles.txtTitle, {marginRight: 10}]}>
+                    Địa chỉ
+                  </Text>
+                  <Text numberOfLines={1} style={styles.txtTitle}>
+                    {address}
                   </Text>
                 </View>
                 <Divider />
@@ -282,4 +303,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer,
+  };
+};
+
+export default connect(mapStateToProps, {})(Profile);

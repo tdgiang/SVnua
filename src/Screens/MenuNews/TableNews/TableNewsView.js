@@ -9,51 +9,21 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import {getFontXD} from '../../../Config/Functions';
+import {getFontXD, convertDateTime} from '../../../Config/Functions';
 import Header from '../../../components/Header/Header';
-import image from '../../../assets/images';
 import Icon from 'react-native-vector-icons/AntDesign';
 import R from '../../../assets/R';
-const DATA = [
-  {
-    id: '1',
-    image: image.notice,
-    time: '22/05/21',
-    title: 'Thông báo thay đổi hình thức dạy học từ trực tiếp sang online.',
-    viewcount: '36',
-  },
-  {
-    id: '2',
-    image: image.notice,
-    time: '22/05/21',
-    title: 'Thông báo thay đổi hình thức dạy học từ trực tiếp sang online.',
-    viewcount: '36',
-  },
-  {
-    id: '3',
-    image: image.notice,
-    time: '22/05/21',
-    title: 'Thông báo thay đổi hình thức dạy học từ trực tiếp sang online.',
-    viewcount: '36',
-  },
-  {
-    id: '4',
-    image: image.notice,
-    time: '22/05/21',
-    title: 'Thông báo thay đổi hình thức dạy học từ trực tiếp sang online.',
-    viewcount: '36',
-  },
-];
+
 const Item = (props) => {
   const {title, image, time, viewcount} = props.item;
   return (
     <TouchableOpacity style={styles.container}>
-      <Image style={styles.image} source={image} />
+      <Image style={styles.image} source={R.images.notice} />
 
       <View style={styles.containContent}>
         <Text style={styles.title}>{title}</Text>
         <View style={styles.subdetail}>
-          <Text style={styles.detail}>{time}</Text>
+          <Text style={styles.detail}>{convertDateTime(time)}</Text>
           <View
             style={{
               flexDirection: 'row',
@@ -73,15 +43,18 @@ const Item = (props) => {
   );
 };
 const TableNewsView = (props) => {
+  const {isRefresh, onRefresh, data} = props;
   return (
     <View style={{flex: 1}}>
       <Header isBack={true} title={'Bảng tin'} />
       <FlatList
         style={{marginTop: 5}}
+        refreshing={isRefresh}
+        onRefresh={onRefresh}
         showsVerticalScrollIndicator={false}
-        data={DATA}
+        data={data}
         renderItem={({item}) => <Item item={item} />}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item._id}
       />
     </View>
   );

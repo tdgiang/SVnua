@@ -280,4 +280,5 @@ export default {
   Count: 'Số lượng',
   Systemmaintenance: 'Hệ thống đang bảo trì',
   WaitUpdateCQG: 'Chờ cập nhật CQG',
+  Rating: 'Đánh giá',
 };

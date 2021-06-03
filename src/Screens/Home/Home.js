@@ -54,17 +54,18 @@ const listItem = [
     icon: R.images.notes,
   },
   {
-    id: '7',
-    title: 'Chương trình đào tạo',
-    screen: CURRICULUM,
-    icon: R.images.company,
-  },
-  {
     id: '8',
     title: 'Khảo sát',
     screen: SERVEY,
     icon: R.images.satisfaction,
   },
+  {
+    id: '7',
+    title: 'Chương trình đào tạo',
+    screen: CURRICULUM,
+    icon: R.images.company,
+  },
+
   {
     id: '9',
     title: 'Tốt nghiệp',

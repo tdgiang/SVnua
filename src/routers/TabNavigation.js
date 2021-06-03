@@ -16,6 +16,7 @@ import Home from '../Screens/Home/Home';
 import Mess from '../Screens/Mess/Mess';
 import News from '../Screens/News/News';
 import Account from '../Screens/Account/Account';
+import Todo from '../Screens/ToDo/Todo';
 
 const Tab = createBottomTabNavigator();
 const PayScreenComponent = () => {
@@ -26,11 +27,11 @@ const TabNavigator = (props) => {
   return (
     <View style={{flex: 1}}>
       <Tab.Navigator
-        initialRouteName="Screen1"
+        initialRouteName="Screen5"
         tabBarOptions={{activeTintColor: R.colors.main}}>
         <Tab.Screen
-          name="Screen1"
-          component={Home}
+          name="Screen5"
+          component={Todo}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({color, size}) => (
@@ -38,14 +39,13 @@ const TabNavigator = (props) => {
             ),
           }}
         />
-
         <Tab.Screen
-          name="Screen2"
-          component={Mess}
+          name="Screen1"
+          component={Home}
           options={{
-            tabBarLabel: 'Tin nhắn',
+            tabBarLabel: 'Đào tạo',
             tabBarIcon: ({color, size}) => (
-              <Icon name="message1" size={size} color={color} />
+              <Ionicons name="school-outline" size={size} color={color} />
             ),
           }}
         />
@@ -59,22 +59,22 @@ const TabNavigator = (props) => {
         />
 
         <Tab.Screen
+          name="Screen2"
+          component={Mess}
+          options={{
+            tabBarLabel: 'Tin nhắn',
+            tabBarIcon: ({color, size}) => (
+              <Icon name="message1" size={size} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
           name="Screen3"
           component={News}
           options={{
             tabBarLabel: 'Tin tức',
             tabBarIcon: ({color, size}) => (
               <Ionicons name="newspaper-outline" size={size} color={color} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Screen4"
-          component={Account}
-          options={{
-            tabBarLabel: 'Tài khoản',
-            tabBarIcon: ({color, size}) => (
-              <FontAwesome name="user-o" size={size} color={color} />
             ),
           }}
         />
