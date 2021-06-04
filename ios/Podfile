@@ -4,7 +4,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 def add_flipper_pods!(versions = {})
   versions['Flipper'] ||= '~> 0.33.1'
   versions['DoubleConversion'] ||= '1.1.7'
-  versions['Flipper-Folly'] ||= '~> 2.1'
+  # versions['Flipper-Folly'] ||= '~> 2.3'
   versions['Flipper-Glog'] ||= '0.3.6'
   versions['Flipper-PeerTalk'] ||= '~> 0.0.4'
   versions['Flipper-RSocket'] ||= '~> 1.0'
@@ -19,7 +19,7 @@ def add_flipper_pods!(versions = {})
   # to avoid them being linked in Release builds
   pod 'Flipper', versions['Flipper'], :configuration => 'Debug'
   pod 'Flipper-DoubleConversion', versions['DoubleConversion'], :configuration => 'Debug'
-  pod 'Flipper-Folly', versions['Flipper-Folly'], :configuration => 'Debug'
+  # pod 'Flipper-Folly', versions['Flipper-Folly'], :configuration => 'Debug'
   pod 'Flipper-Glog', versions['Flipper-Glog'], :configuration => 'Debug'
   pod 'Flipper-PeerTalk', versions['Flipper-PeerTalk'], :configuration => 'Debug'
   pod 'Flipper-RSocket', versions['Flipper-RSocket'], :configuration => 'Debug'
@@ -82,6 +82,10 @@ target 'SVnua' do
 
   pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
+  pod 'react-native-alarm-notification', :path => '../node_modules/react-native-alarm-notification'
+
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
   target 'SVnuaTests' do
     inherit! :complete
     # Pods for testing
@@ -93,12 +97,12 @@ target 'SVnua' do
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable these next few lines.
-  add_flipper_pods!
-  post_install do |installer|
-    ## Fix for XCode 12.5 beta
-    find_and_replace("../node_modules/react-native/React/CxxBridge/RCTCxxBridge.mm",
-    "_initializeModules:(NSArray<id<RCTBridgeModule>> *)modules", "_initializeModules:(NSArray<Class> *)modules")
-end
+#   add_flipper_pods!
+#   post_install do |installer|
+#     ## Fix for XCode 12.5 beta
+#     find_and_replace("../node_modules/react-native/React/CxxBridge/RCTCxxBridge.mm",
+#     "_initializeModules:(NSArray<id<RCTBridgeModule>> *)modules", "_initializeModules:(NSArray<Class> *)modules")
+# end
 end
 
 target 'SVnua-tvOS' do

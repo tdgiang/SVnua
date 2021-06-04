@@ -56,6 +56,7 @@ import CofirmEmail from '../Screens/Authen/ConfirmEmail';
 import ConfirmOTP from '../Screens/Authen/ConfirmOTP';
 import ConfirmPass from '../Screens/Authen/ConfirmPass';
 import TableHorizoltal from '../Screens/Menu/TimeTable/TableHorizontal';
+import Webview from '../Screens/Webview/index';
 
 //Job
 import RecruitDetail from '../Screens/MenuNews/Job/Recurit/RecruitDetail';
@@ -76,6 +77,7 @@ function MyStack(props) {
         name={ScreenName.EVALUATERESULT}
         component={EvaluateResult}
       />
+      <Stack.Screen name={ScreenName.WEBVIEW} component={Webview} />
       <Stack.Screen
         name={ScreenName.EVALUATETEACHER}
         component={EvaluateTeacher}
@@ -93,19 +95,15 @@ function MyStack(props) {
       <Stack.Screen name={ScreenName.PAYDEBT} component={PayDebt} />
       <Stack.Screen name={ScreenName.PAYS} component={Pays} />
       <Stack.Screen name={ScreenName.DETAILPOST} component={DetailPost} />
-
       <Stack.Screen name={ScreenName.SEARCHPEOPLE} component={SearchPeople} />
-
       <Stack.Screen name={ScreenName.CONFIRMEMAIL} component={CofirmEmail} />
       <Stack.Screen name={ScreenName.CONFIRMOTP} component={ConfirmOTP} />
       <Stack.Screen name={ScreenName.CONFIRMPASS} component={ConfirmPass} />
-
       <Stack.Screen
         name={ScreenName.QUESTIONSERVEY}
         component={QuestionServey}
       />
       <Stack.Screen name={ScreenName.DETAILSERVEY} component={DetailServey} />
-
       <Stack.Screen name={ScreenName.LOGINSCREEN} component={Login} />
       <Stack.Screen name={ScreenName.REPLY} component={Reply} />
       <Stack.Screen name={ScreenName.TABBAR} component={TabNavigator} />
@@ -128,13 +126,11 @@ function MyStack(props) {
       <Stack.Screen name={ScreenName.JOB} component={Job} />
       <Stack.Screen name={ScreenName.SCHOLARSHIP} component={Scholarship} />
       <Stack.Screen name={ScreenName.TABLENEWS} component={TableNews} />
-
       <Stack.Screen name={ScreenName.INTERJOB} component={InterJob} />
       <Stack.Screen name={ScreenName.INTERSHIP} component={Intership} />
       <Stack.Screen name={ScreenName.JOBNOW} component={JobNow} />
       <Stack.Screen name={ScreenName.OVERTIME} component={OverTime} />
       <Stack.Screen name={ScreenName.RECRUIT} component={Recruit} />
-
       <Stack.Screen
         name={ScreenName.CHANGEPASSWORD}
         component={ChangePassword}
@@ -145,7 +141,6 @@ function MyStack(props) {
       <Stack.Screen name={ScreenName.QUESTION} component={Question} />
       <Stack.Screen name={ScreenName.SETTING} component={Setting} />
       <Stack.Screen name={ScreenName.HOMETEAM} component={HomeTeam} />
-
       <Stack.Screen name={ScreenName.RECRUITDETAIL} component={RecruitDetail} />
     </Stack.Navigator>
   );

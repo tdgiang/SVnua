@@ -19,7 +19,13 @@ const HomeView = (props) => {
   return (
     <View style={{flex: 1}}>
       <HeaderHome />
-      <View style={{marginTop: 30, flex: 1, paddingHorizontal: 10}}>
+      <View
+        style={{
+          marginTop: 30,
+          flex: 1,
+          paddingHorizontal: 10,
+          backgroundColor: R.colors.white,
+        }}>
         <FlatList
           data={listItem}
           horizontal={false}

@@ -13,15 +13,23 @@ import {getFontXD, convertDateTime} from '../../../Config/Functions';
 import Header from '../../../components/Header/Header';
 import Icon from 'react-native-vector-icons/AntDesign';
 import R from '../../../assets/R';
+import {WEBVIEW} from '../../../routers/ScreenNames';
+import {useNavigation} from '@react-navigation/native';
 
 const Item = (props) => {
-  const {title, image, time, viewcount} = props.item;
+  const navigation = useNavigation();
+
+  const {title, image, link, time, count} = props.item;
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate(WEBVIEW, {link})}
+      style={styles.container}>
       <Image style={styles.image} source={R.images.notice} />
 
       <View style={styles.containContent}>
-        <Text style={styles.title}>{title}</Text>
+        <Text numberOfLines={2} style={styles.title}>
+          {title}
+        </Text>
         <View style={styles.subdetail}>
           <Text style={styles.detail}>{convertDateTime(time)}</Text>
           <View
@@ -35,7 +43,7 @@ const Item = (props) => {
               size={18}
               color={R.colors.color777}
             />
-            <Text style={styles.detail}>{viewcount}</Text>
+            <Text style={styles.detail}>{count}</Text>
           </View>
         </View>
       </View>

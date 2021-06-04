@@ -12,15 +12,24 @@ import {getFontXD, convertDate, toPriceVnd} from '../../../Config/Functions';
 import Header from '../../../components/Header/Header';
 import R from '../../../assets/R';
 
+import {WEBVIEW} from '../../../routers/ScreenNames';
+import {useNavigation} from '@react-navigation/native';
+
 const Item = (props) => {
-  const {title, image, time, type, money} = props.item;
+  const navigation = useNavigation();
+
+  const {title, image, time, link, type, money} = props.item;
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate(WEBVIEW, {link})}
+      style={styles.container}>
       <View style={styles.containImage}>
         <Image style={styles.image} source={R.images.education} />
       </View>
       <View style={styles.containContent}>
-        <Text style={styles.title}>{title}</Text>
+        <Text numberOfLines={2} style={styles.title}>
+          {title}
+        </Text>
         <Text style={[styles.detail, {marginVertical: 5}]}>
           Học bổng doanh nghiệp
         </Text>
@@ -37,7 +46,7 @@ const ScholarshipView = (props) => {
   const {isRefresh, onRefresh, data} = props;
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: R.colors.white}}>
       <Header isBack={true} title={'Hoạt động'} />
       <FlatList
         showsVerticalScrollIndicator={false}
@@ -56,7 +65,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'black',
-    fontWeight: 'bold',
+    fontWeight: '600',
     fontSize: getFontXD(42),
   },
   detail: {
