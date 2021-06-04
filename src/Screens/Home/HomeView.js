@@ -24,7 +24,6 @@ const HomeView = (props) => {
           marginTop: 30,
           flex: 1,
           paddingHorizontal: 10,
-          backgroundColor: R.colors.white,
         }}>
         <FlatList
           data={listItem}

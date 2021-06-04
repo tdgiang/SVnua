@@ -6,7 +6,6 @@ import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
-import com.emekalites.react.alarm.notification.ANPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.github.wuxudong.rncharts.MPAndroidChartPackage;
@@ -20,8 +19,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import org.wonday.orientation.OrientationActivityLifecycle;
-
-import com.emekalites.react.alarm.notification.ANPackage;
 
 
 public class MainApplication extends Application implements ReactApplication {
@@ -41,7 +38,7 @@ public class MainApplication extends Application implements ReactApplication {
                     // packages.add(new MyReactNativePackage());
 
                     // packages.add(new MainReactPackage(),
-            new RNCWebViewPackage(),
+            new RNCWebViewPackage();
 
                     packages.add(new ANPackage());
                     return packages;

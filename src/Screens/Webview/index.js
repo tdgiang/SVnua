@@ -6,8 +6,6 @@ import {WebView} from 'react-native-webview';
 import {showLoading, hideLoading} from '../../actions/loadingAction';
 
 const Webview = (props) => {
-  console.log(props.route.params.link);
-
   useEffect(() => {
     props.showLoading();
     setTimeout(() => {
@@ -19,6 +17,7 @@ const Webview = (props) => {
     <View style={{flex: 1}}>
       <Header isBack={true} title={'Chi tiết'} />
       <WebView
+        cacheEnabled={true}
         androidHardwareAccelerationDisabled={true}
         source={{
           uri: props.route.params.link,

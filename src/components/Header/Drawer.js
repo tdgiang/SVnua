@@ -125,6 +125,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    backgroundColor: R.colors.white,
+    borderRadius: 20,
   },
   header: {
     paddingVertical: 10,

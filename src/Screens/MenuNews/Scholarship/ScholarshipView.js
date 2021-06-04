@@ -47,14 +47,14 @@ const ScholarshipView = (props) => {
 
   return (
     <View style={{flex: 1, backgroundColor: R.colors.white}}>
-      <Header isBack={true} title={'Hoạt động'} />
+      <Header isBack={true} title={'Học bổng'} />
       <FlatList
         showsVerticalScrollIndicator={false}
         data={data}
         refreshing={isRefresh}
         onRefresh={onRefresh}
         renderItem={({item}) => <Item item={item} />}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item._id}
       />
     </View>
   );

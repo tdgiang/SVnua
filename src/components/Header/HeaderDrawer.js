@@ -108,9 +108,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   container: {
-    backgroundColor: 'white',
     height: '100%',
-    width: 300,
+    width: 280,
     borderRadius: 20,
   },
 });

@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   containerModal: {
     backgroundColor: 'white',
     height: '100%',
-    width: 300,
+    width: 280,
     borderRadius: 20,
   },
   txtDate: {

@@ -99,7 +99,7 @@ const Todo = (props) => {
     }
   };
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: R.colors.white}}>
       <HeaderTodo />
       <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1}}>
         <View style={styles.container}>
@@ -129,6 +129,7 @@ const Todo = (props) => {
             ))}
           </View>
         </View>
+        <View style={{marginBottom: 10}} />
       </ScrollView>
 
       <Modal isVisible={isOpen}>
