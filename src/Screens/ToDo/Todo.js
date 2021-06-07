@@ -1,19 +1,58 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Platform,
+  NativeEventEmitter,
+  NativeModules,
 } from 'react-native';
 import R from '../../assets/R';
 import Icon from 'react-native-vector-icons/AntDesign';
-
+import AsyncStorage from '@react-native-community/async-storage';
 import HeaderTodo from '../../components/Header/HeaderTodo';
 import {getFontXD, convertDateTime} from '../../Config/Functions';
 import ItemPlan from './ItemPlan';
 import Modal from 'react-native-modal';
 import AddPlan from './AddPlan';
+import KEY from '../../assets/AsynStorage';
+import ReactNativeAN from 'react-native-alarm-notification';
+import {showAlert, TYPE} from '../../components/DropdownAlert';
+
+import {SwipeListView} from 'react-native-swipe-list-view';
+import HideItem from './HideItem';
+
+const {RNAlarmNotification} = NativeModules;
+const RNEmitter = new NativeEventEmitter(RNAlarmNotification);
+
+const alarmNotifData = {
+  title: 'Nhắc nhở',
+  message: 'Stand up',
+  vibrate: true,
+  play_sound: true,
+  schedule_type: 'once',
+  sound_name: 'sound_name.mp3',
+  channel: 'wakeup',
+  data: {content: 'Thông báo'},
+  loop_sound: true,
+  has_button: true,
+};
+
+const repeatAlarmNotifData = {
+  title: 'Alarm',
+  message: 'Stand up',
+  vibrate: true,
+  play_sound: true,
+  sound_name: 'sound_name.mp3',
+  channel: 'wakeup',
+  data: {content: 'my notification id is 22'},
+  loop_sound: true,
+  schedule_type: 'repeat',
+  repeat_interval: 'minutely',
+  interval_value: 5, // repeat after 5 minutes
+};
 
 const dataCalendar = [
   {
@@ -27,37 +66,6 @@ const dataCalendar = [
     title: 'Lập trình hướng đối tượng',
     time: 'Tiết 9,10',
     address: 'B102',
-  },
-];
-
-const dataTodo = [
-  {
-    id: '1',
-    title: 'Thức dậy',
-    time: '5:20',
-    done: true,
-    important: false,
-  },
-  {
-    id: '2',
-    title: 'Chạy bộ',
-    time: null,
-    done: true,
-    important: false,
-  },
-  {
-    id: '3',
-    title: 'Uống thuốc',
-    time: '07:00',
-    done: true,
-    important: true,
-  },
-  {
-    id: '4',
-    title: 'Học tiếng anh',
-    time: '20:00',
-    done: false,
-    important: true,
   },
 ];
 
@@ -79,25 +87,118 @@ const ItemCalendar = (props) => {
 
 const Todo = (props) => {
   const [isOpen, setOpen] = useState(false);
-  const [listToDo, setListToDo] = useState(dataTodo);
+  const [listToDo, setListToDo] = useState([]);
 
   const onClose = () => setOpen(false);
+  useEffect(() => {
+    getListToDo();
+  }, []);
 
-  const addWork = (work) => {
-    onClose();
-    if (work.time) {
-      setListToDo(
-        listToDo.concat({
-          ...work,
-          time: convertDateTime(work.time).substring(0, 5),
-          important: false,
-          done: false,
-        }),
-      );
-    } else {
-      setListToDo(listToDo.concat({...work, important: false, done: false}));
+  const storeData = async (value) => {
+    try {
+      const jsonValue = JSON.stringify(value);
+      await AsyncStorage.setItem(KEY.TODOLIST, jsonValue);
+    } catch (e) {
+      console.log('Looi', e);
     }
   };
+
+  const getListToDo = async () => {
+    const list = await getData();
+    if (list) {
+      console.log(list);
+      setListToDo(list);
+    } else {
+      showAlert(TYPE.WARN, 'Thông báo!', 'Không có nhiệu vụ nào!');
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem(KEY.TODOLIST);
+      return jsonValue != null ? JSON.parse(jsonValue) : null;
+    } catch (e) {
+      // error reading value
+      console.log('Looi', e);
+      return null;
+    }
+  };
+
+  const addWork = async (work) => {
+    onClose();
+    if (work.time) {
+      let details;
+      if (work.selected == 'once')
+        details = {
+          ...alarmNotifData,
+          fire_date: ReactNativeAN.parseDate(work.time),
+          message: work.title,
+        };
+      else {
+        details = {
+          ...repeatAlarmNotifData,
+          fire_date: ReactNativeAN.parseDate(work.time),
+          message: work.title,
+          repeat_interval: work.selected,
+        };
+      }
+      try {
+        const alarm = await ReactNativeAN.scheduleAlarm(details);
+        if (alarm) {
+          const newList = listToDo.concat({
+            ...work,
+            time: convertDateTime(work.time).substring(0, 5),
+            important: false,
+            done: false,
+            alarm,
+            id: `${listToDo.length}abc`,
+          });
+          setListToDo(newList);
+          storeData(newList);
+        }
+      } catch (e) {
+        showAlert(TYPE.WARN, 'Thông báo!', 'Thời gian không hợp lệ!');
+      }
+    } else {
+      const newList = listToDo.concat({
+        ...work,
+        important: false,
+        done: false,
+        alarm: null,
+      });
+      setListToDo(newList);
+      storeData(newList);
+    }
+  };
+
+  const deleteRow = (id, alarm) => {
+    const newList = listToDo.filter((e) => e.id != id);
+    setListToDo(newList);
+    storeData(newList);
+    if (alarm) {
+      const id = parseInt(alarm.id, 10);
+      ReactNativeAN.deleteAlarm(id);
+    }
+  };
+
+  const onDoneTask = (id) => {
+    const newList = listToDo.map((e) => {
+      if (e.id != id) return e;
+      return {...e, done: !e.done};
+    });
+    setListToDo(newList);
+    storeData(newList);
+  };
+
+  const onImportantTask = (id) => {
+    const newList = listToDo.map((e) => {
+      if (e.id != id) return e;
+      return {...e, important: !e.important};
+    });
+    setListToDo(newList);
+    storeData(newList);
+  };
+
   return (
     <View style={{flex: 1, backgroundColor: R.colors.white}}>
       <HeaderTodo />
@@ -124,9 +225,28 @@ const Todo = (props) => {
             </TouchableOpacity>
           </View>
           <View style={styles.wrapContent}>
-            {listToDo.map((item, index) => (
-              <ItemPlan item={item} isEnd={index == listToDo.length - 1} />
-            ))}
+            <SwipeListView
+              data={listToDo}
+              renderItem={(data, rowMap) => (
+                <ItemPlan
+                  isEnd={data.index == listToDo.length - 1}
+                  item={data.item}
+                  onDoneTask={onDoneTask}
+                  onImportantTask={onImportantTask}
+                />
+              )}
+              renderHiddenItem={(data, rowMap) => (
+                <HideItem
+                  isEnd={data.index == listToDo.length - 1}
+                  data={data}
+                  deleteRow={deleteRow}
+                  rowMap={rowMap}
+                />
+              )}
+              keyExtractor={(item) => item.id}
+              leftOpenValue={0}
+              rightOpenValue={-75}
+            />
           </View>
         </View>
         <View style={{marginBottom: 10}} />
@@ -206,6 +326,7 @@ const styles = StyleSheet.create({
     fontSize: getFontXD(36),
     color: R.colors.color777,
   },
+  rowBack: {},
 });
 
 export default Todo;

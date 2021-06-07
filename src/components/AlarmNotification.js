@@ -16,14 +16,14 @@ const {RNAlarmNotification} = NativeModules;
 const RNEmitter = new NativeEventEmitter(RNAlarmNotification);
 
 const alarmNotifData = {
-  title: 'Alarm',
+  title: 'Nhắc nhở',
   message: 'Stand up',
   vibrate: true,
   play_sound: true,
   schedule_type: 'once',
   sound_name: 'sound_name.mp3',
   channel: 'wakeup',
-  data: {content: 'my notification id is 22'},
+  data: {content: 'Thông báo'},
   loop_sound: true,
   has_button: true,
 };

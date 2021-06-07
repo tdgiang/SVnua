@@ -2,7 +2,6 @@
   package="com.svnua">
 
     <uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -14,7 +13,7 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme">
   <receiver
-            android:name="com.emekalites.react.alarm.notification.AlarmReceiver"
+            android:name="com.svnua.AlarmReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -24,12 +23,12 @@
         </receiver>
 
         <receiver
-            android:name="com.emekalites.react.alarm.notification.AlarmDismissReceiver"
+            android:name="com.svnua.AlarmDismissReceiver"
             android:enabled="true"
             android:exported="true" />
 
         <receiver
-            android:name="com.emekalites.react.alarm.notification.AlarmBootReceiver"
+            android:name="com.svnua.AlarmBootReceiver"
             android:directBootAware="true"
             android:enabled="false"
             android:exported="true">

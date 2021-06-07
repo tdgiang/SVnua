@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   },
   imgIcon: {
     width: WIDTHXD(62),
-    height: HEIGHTXD(52),
+    height: HEIGHTXD(62),
     resizeMode: 'contain',
   },
   txtTitle: {

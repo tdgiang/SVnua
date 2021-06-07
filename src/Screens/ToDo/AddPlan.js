@@ -20,16 +20,16 @@ const list = [
     title: 'Một lần',
   },
   {
-    id: 'day',
+    id: 'hourly',
+    title: 'Mỗi giờ',
+  },
+  {
+    id: 'daily',
     title: 'Hàng ngày',
   },
   {
-    id: 'week',
+    id: 'weekly',
     title: 'Hàng tuần',
-  },
-  {
-    id: 'month',
-    title: 'Hàng tháng',
   },
 ];
 
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   txtInput: {
-    height: HEIGHTXD(120),
+    height: HEIGHTXD(150),
     marginHorizontal: 10,
     backgroundColor: R.colors.gray5,
     fontSize: getFontXD(42),

@@ -7,18 +7,18 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const ItemPlan = (props) => {
+  console.log('Props', props);
   const {id, time, title, done, important} = props.item;
+  const {onDoneTask, onImportantTask} = props;
 
-  const [isDone, setDone] = useState(done);
-  const [isImportant, setImportant] = useState(important);
   return (
     <View>
       <View
         key={id}
         style={[
           styles.container,
-          isDone
-            ? {backgroundColor: 'rgba(256,256,256,0.1)'}
+          done
+            ? {backgroundColor: R.colors.main}
             : {backgroundColor: R.colors.white},
           props.isEnd
             ? {
@@ -27,10 +27,10 @@ const ItemPlan = (props) => {
               }
             : {},
         ]}>
-        <TouchableOpacity onPress={() => setDone(!isDone)}>
+        <TouchableOpacity onPress={() => onDoneTask(id)}>
           <Feather
-            name={isDone ? 'check-circle' : 'circle'}
-            color={isDone ? R.colors.main : R.colors.black}
+            name={done ? 'check-circle' : 'circle'}
+            color={done ? R.colors.white : R.colors.black}
             size={30}
           />
         </TouchableOpacity>
@@ -38,25 +38,30 @@ const ItemPlan = (props) => {
           <Text
             style={[
               styles.txtTitle,
-              isDone ? {textDecorationLine: 'line-through'} : {},
+              done
+                ? {textDecorationLine: 'line-through', color: R.colors.white}
+                : {},
             ]}>
             {title}
           </Text>
           {time ? (
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Text style={styles.txtTime}>{time}</Text>
+              <Text
+                style={[styles.txtTime, done ? {color: R.colors.white} : {}]}>
+                {time}
+              </Text>
               <Ionicons
                 name={'notifications'}
                 size={getFontXD(42)}
-                color={R.colors.color777}
+                color={done ? R.colors.white : R.colors.color777}
               />
             </View>
           ) : null}
         </View>
-        <TouchableOpacity onPress={() => setImportant(!isImportant)}>
+        <TouchableOpacity onPress={() => onImportantTask(id)}>
           <FontAwesome
-            name={isImportant ? 'star' : 'star-o'}
-            color={isImportant ? R.colors.orange : R.colors.black}
+            name={important ? 'star' : 'star-o'}
+            color={important ? R.colors.orange : R.colors.black}
             size={30}
           />
         </TouchableOpacity>
