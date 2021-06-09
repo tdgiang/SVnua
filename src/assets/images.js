@@ -76,6 +76,10 @@ const images = {
   repeat: require('./images/repeat.png'),
 
   sun: require('./images/sun.png'),
+  night: require('./images/night.png'),
+  rain: require('./images/raining.png'),
+  cloud: require('./images/clouds.png'),
+  cool: require('./images/cloudy.png'),
 };
 
 export default images;
