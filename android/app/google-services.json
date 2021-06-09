@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "936357925102",
+    "project_id": "fir-training-be735",
+    "storage_bucket": "fir-training-be735.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936357925102:android:fd754ce5f33466ead063ff",
+        "android_client_info": {
+          "package_name": "com.svnua"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936357925102-l3vcub93k2lc61skmdoaqv69e6asv4is.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svnua",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "936357925102-rg4vr4be3irnghk5tcn64l1v4sps2p65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCShwGezoUi2UwXRS6WMQt0tFg8BMApZBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936357925102-rg4vr4be3irnghk5tcn64l1v4sps2p65.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

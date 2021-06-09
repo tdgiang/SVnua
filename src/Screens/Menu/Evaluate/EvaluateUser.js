@@ -7,35 +7,41 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  ScrollView,
 } from 'react-native';
 import R from '../../../assets/R';
 import Header from '../../../components/Header/Header';
 import Icon from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {getFontXD} from '../../../Config/Functions';
+import {getFontXD, WIDTHXD} from '../../../Config/Functions';
 import {Slider, Divider} from 'react-native-elements';
+import RadioForm from 'react-native-simple-radio-button';
+import DATA from './DATA';
+import Button from '../../../components/Button';
 
-const DATA = [
-  {
-    id: '1',
-    title: '1.Đánh giá về ý thức, thái độ',
-    data: [
-      '1.Sinh viên có ý thức và thái độ trong học tập',
-      '2.Sinh viên có tinh thần vượt khó phấn đấu vươn lên trong học tập',
-    ],
-  },
-  {
-    id: '2',
-    title: '2.Đánh giá về ý thức, thái độ',
-    data: [
-      '1.Sinh viên có ý thức và thái độ trong học tập',
-      '2.Sinh viên có tinh thần vượt khó phấn đấu vươn lên trong học tập',
-    ],
-  },
-];
+const RowItem = (props) => {
+  const {item} = props;
+  return (
+    <View style={styles.wrapContent}>
+      <Text style={styles.txtTitle}>{item.title}</Text>
+      <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 10}}>
+        <RadioForm
+          style={{justifyContent: 'space-between', flex: 1}}
+          radio_props={item.list}
+          buttonColor={R.colors.main}
+          buttonInnerColor={R.colors.main}
+          buttonSize={12}
+          onPress={(value) => console.log(value)}
+        />
+      </View>
+    </View>
+  );
+};
+
 const Item = (props) => {
   const {title, data} = props.item;
-  const [isDetal, setIsDetal] = useState(false);
+  const [isDetal, setIsDetal] = useState(true);
+
   return (
     <View style={styles.containerItem}>
       <View style={styles.rowHeader}>
@@ -52,25 +58,7 @@ const Item = (props) => {
         <View style={{marginTop: 10}}>
           <Divider />
           {data.map((item) => (
-            <View style={styles.wrapContent}>
-              <Text style={styles.txtTitle}>{item}</Text>
-              <Slider
-                style={styles.slide}
-                minimumValue={0}
-                maximumValue={4}
-                thumbStyle={{
-                  height: 20,
-                  width: 20,
-                  backgroundColor: R.colors.txtMain,
-                }}
-                step={1}
-                onValueChange={(value) => {
-                  console.log(value);
-                }}
-                minimumTrackTintColor={R.colors.main}
-                maximumTrackTintColor={R.colors.borderGray}
-              />
-            </View>
+            <RowItem item={item} />
           ))}
         </View>
       ) : null}
@@ -82,7 +70,28 @@ const EvaluteUser = (props) => {
   return (
     <View style={{flex: 1, backgroundColor: R.colors.white}}>
       <Header isBack={true} title={'Tự đánh giá'} />
-      <FlatList data={DATA} renderItem={({item}) => <Item item={item} />} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {DATA.map((item) => (
+          <Item item={item} />
+        ))}
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginVertical: 20,
+          }}>
+          <Button
+            containerStyle={{
+              width: 200,
+              height: 40,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: 10,
+            }}
+            title={'Gửi đánh giá'}
+          />
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -110,6 +119,7 @@ const styles = StyleSheet.create({
   },
   slide: {
     marginHorizontal: 10,
+    flex: 1,
   },
   containerItem: {
     marginVertical: 5,
@@ -132,7 +142,8 @@ const styles = StyleSheet.create({
   },
   txtTitle: {
     fontSize: getFontXD(42),
-    color: R.colors.color777,
+    color: R.colors.black,
+    fontWeight: '600',
   },
   wrapContent: {
     marginVertical: 10,

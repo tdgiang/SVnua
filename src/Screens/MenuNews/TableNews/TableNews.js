@@ -16,7 +16,6 @@ const TableNews = (props) => {
     setisRefresh(false);
     if ((res.data.code = 200 && res.data.data)) {
       setData(res.data.data);
-      console.log(res.data.data);
     } else {
       showAlert(TYPE.ERROR, I18n.t('Notification'), res.data.message);
     }
