@@ -7,7 +7,6 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const ItemPlan = (props) => {
-  console.log('Props', props);
   const {id, time, title, done, important} = props.item;
   const {onDoneTask, onImportantTask} = props;
 

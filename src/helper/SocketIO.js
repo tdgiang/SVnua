@@ -17,6 +17,7 @@ class SocketIO extends Component {
     this.socket = io('http://192.168.0.103:9000');
     this.state = {
       isRegistor: true,
+      room: '',
       text: '',
       listUser: [],
       name: '',
@@ -74,6 +75,11 @@ class SocketIO extends Component {
     console.log('Bat dau');
   };
 
+  onInitRoom = () => {
+    console.log('room', this.state.room);
+    this.socket.emit('create-room', this.state.room);
+  };
+
   render() {
     const {isRegistor, listUser, user, ListMessage} = this.state;
     if (isRegistor)
@@ -84,6 +90,32 @@ class SocketIO extends Component {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
+          <TextInput
+            autoCapitalize={'none'}
+            style={{
+              width: 200,
+              height: 50,
+              borderWidth: 0.6,
+              borderRadius: 10,
+              paddingHorizontal: 10,
+              fontSize: 20,
+            }}
+            onChangeText={(val) => this.setState({room: val})}
+          />
+          <TouchableOpacity
+            onPress={() => this.onInitRoom()}
+            style={{
+              paddingHorizontal: 20,
+              paddingVertical: 10,
+              borderRadius: 5,
+              backgroundColor: 'pink',
+              marginTop: 20,
+            }}>
+            <Text>Tạo room</Text>
+          </TouchableOpacity>
+
+          <View style={{height: 100}} />
+
           <TextInput
             autoCapitalize={'none'}
             style={{

@@ -13,6 +13,7 @@ import AppText from '../components/AppText';
 import AsyncStorage from '@react-native-community/async-storage';
 import {DETAILNEW, NOTIFICATION, LOGINSCREEN} from '../routers/ScreenNames';
 import R from '../assets/R';
+import KEY from '../assets/AsynStorage';
 
 export const convertScreen = (name) => {
   switch (name) {
@@ -24,7 +25,7 @@ export const convertScreen = (name) => {
 };
 
 export const logout = (navigation) => {
-  AsyncStorage.clear();
+  AsyncStorage.removeItem(KEY.ACCOUNT);
   navigation.reset({
     index: 1,
     routes: [{name: LOGINSCREEN}],

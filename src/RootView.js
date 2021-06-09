@@ -8,6 +8,7 @@ import R from './assets/R';
 import {WIDTHXD, HEIGHTXD} from './Config/Functions';
 import {SkypeIndicator} from 'react-native-indicators';
 import Modal from 'react-native-modal';
+import FirebaseNotification from './helper/FirebaseNotification';
 
 const RootView = (props) => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const RootView = (props) => {
 
   return (
     <>
+      <FirebaseNotification />
       <StackNavigation />
       <Modal isVisible={props.loadingModal.isVisible}>
         <SkypeIndicator color={'white'} />

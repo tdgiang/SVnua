@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import {
   TextInput,
   View,
@@ -29,12 +29,28 @@ import {loginApi} from '../../apis/Functions/users';
 import {showLoading, hideLoading} from '../../actions/loadingAction';
 import {saveUserToRedux} from '../../actions/users';
 import {connect} from 'react-redux';
+import KEY from '../../assets/AsynStorage';
+import AsyncStorage from '@react-native-community/async-storage';
+
 const Login = (props) => {
   const navigation = useNavigation();
   const [id_St, setIDSt] = useState();
   const [password, setPassword] = useState();
 
-  const onClickLogin = async () => {
+  useEffect(() => {
+    getAccount();
+  }, []);
+
+  const getAccount = async () => {
+    const jsonValue = await AsyncStorage.getItem(KEY.ACCOUNT);
+    const account = JSON.parse(jsonValue);
+    console.log('SSS', account);
+    if (account) {
+      onClickLogin(account.id_St, account.password);
+    }
+  };
+
+  const onClickLogin = async (id_St, password) => {
     const titles = ['mã sinh viên', 'mật khẩu'];
     const index = checkFormatArray([id_St, password]);
 
@@ -45,9 +61,11 @@ const Login = (props) => {
         password,
       });
       props.hideLoading();
-      console.log(res.data);
       if (res.data.code == 200 && res.data.data) {
         props.saveUserToRedux(res.data.data);
+        const jsonValue = JSON.stringify({id_St, password});
+        AsyncStorage.setItem(KEY.ACCOUNT, jsonValue);
+
         navigation.reset({
           index: 1,
           routes: [{name: TABBAR}],
@@ -124,7 +142,7 @@ const Login = (props) => {
 
                 <Button
                   title={'Đăng nhập'}
-                  onClick={onClickLogin}
+                  onClick={() => onClickLogin(id_St, password)}
                   containerStyle={{
                     borderRadius: 20,
 
