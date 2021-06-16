@@ -370,6 +370,11 @@ export const convertDateTime = (date) => {
   return time;
 };
 
+export const convertDateTimeNow = () => {
+  const time = moment().format('hh:mm DD/MM/YYYY');
+  return time;
+};
+
 export const convertTime = (date) => {
   const temp = new Date(moment(date, 'DD/MM/YYYY'));
   const time = moment(temp).format('YYYY-MM-DD');

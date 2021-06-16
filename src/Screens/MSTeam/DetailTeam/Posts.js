@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import R from '../../../assets/R';
-import {getFontXD} from '../../../Config/Functions';
+import {getFontXD, convertDateTimeNow} from '../../../Config/Functions';
 import {DATA} from './DataFake';
 import {Tooltip, Divider} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -118,6 +118,32 @@ const Item = (props) => {
 
 const Posts = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState(DATA);
+
+  const createPost = (text) => {
+    const newItem = {
+      id: '432dhjsjad',
+      poster: {
+        id: '1',
+        name: 'Đỗ Thị Nhâm',
+        avatart: R.images.avatar1,
+      },
+      time: convertDateTimeNow(),
+      content: {
+        image: null,
+        text,
+        file: null,
+      },
+      reply: [],
+      feedback: {
+        like: 0,
+        heart: 0,
+        sad: 0,
+      },
+    };
+
+    setData([newItem].concat(data));
+  };
 
   const onClose = () => setIsOpen(false);
   return (
@@ -125,7 +151,7 @@ const Posts = (props) => {
       <FlatList
         showsVerticalScrollIndicator={false}
         keyExtractor={(item) => item.id}
-        data={DATA}
+        data={data}
         renderItem={({item}) => <Item item={item} />}
       />
       <View style={styles.wrapWrite}>
@@ -136,7 +162,7 @@ const Posts = (props) => {
         </TouchableOpacity>
       </View>
       <Modal isVisible={isOpen}>
-        <WirtePost onClose={onClose} />
+        <WirtePost createPost={createPost} onClose={onClose} />
       </Modal>
     </View>
   );

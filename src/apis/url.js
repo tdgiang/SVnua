@@ -4,4 +4,6 @@ export default {
   urlListNews: root + 'api/news',
   urlListScholarships: root + 'api/scholarships',
   urlListBustle: root + 'api/hoatdongs',
+  urlListUsers: root + 'api/users/get-list-users',
+  urlListMessage: root + 'api/messages',
 };

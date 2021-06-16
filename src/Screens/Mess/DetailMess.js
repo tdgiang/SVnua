@@ -8,16 +8,17 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import R from '../../assets/R';
-import HeaderMess from '../../components/Header/HeaderMess';
+import Header from '../../components/Header/HeaderChat';
 import {getFontXD} from '../../Config/Functions';
 import Chat from './Chat';
-
 const DetailMess = (props) => {
+  const toUser = props.route.params;
+
   return (
     <View style={{flex: 1, backgroundColor: R.colors.white}}>
-      <HeaderMess title={'Lisa Price'} />
+      <Header isBack={true} title={toUser.name} />
       <View style={{flex: 1}}>
-        <Chat />
+        <Chat toUser={toUser} />
       </View>
     </View>
   );

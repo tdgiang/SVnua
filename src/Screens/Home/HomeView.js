@@ -11,7 +11,7 @@ import R from '../../assets/R';
 import HeaderHome from '../../components/Header/HeaderHome';
 import {getFontXD} from '../../Config/Functions';
 import {useNavigation} from '@react-navigation/native';
-
+import {TypingAnimation} from 'react-native-typing-animation';
 const HomeView = (props) => {
   const navigation = useNavigation();
 

@@ -16,7 +16,7 @@ import Button from '../../../components/Button';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 const WritePost = (props) => {
-  const {onClose} = props;
+  const {onClose, createPost} = props;
   const [text, setText] = useState('');
   return (
     <View style={styles.container}>
@@ -51,7 +51,14 @@ const WritePost = (props) => {
           </View>
         </View>
       </View>
-      <Button onClick={onClose} containerStyle={styles.btn} title={'Đăng'} />
+      <Button
+        onClick={() => {
+          onClose();
+          createPost(text);
+        }}
+        containerStyle={styles.btn}
+        title={'Đăng'}
+      />
     </View>
   );
 };

@@ -13,52 +13,14 @@ import {getFontXD} from '../../Config/Functions';
 import {useNavigation} from '@react-navigation/native';
 import {DETAILMESS} from '../../routers/ScreenNames';
 
-const data = [
-  {
-    id: '1',
-    name: 'Lisa Price',
-    mess: "I'm looking forward to it",
-    time: '9:27 AM',
-    active: true,
-  },
-  {
-    id: '2',
-    name: 'Lisa Price',
-    mess: "I'm looking forward to it,I'm looking forward to it,I'm looking forward to it",
-    time: '9:27 AM',
-    active: true,
-  },
-  {
-    id: '3',
-    name: 'Lisa Price',
-    mess: "I'm looking forward to it",
-    time: '9:27 AM',
-    active: false,
-  },
-  {
-    id: '4',
-    name: 'Lisa Price',
-    mess: "I'm looking forward to it",
-    time: '9:27 AM',
-    active: false,
-  },
-  {
-    id: '5',
-    name: 'Lisa Price',
-    mess: "I'm looking forward to it",
-    time: '9:27 AM',
-    active: false,
-  },
-];
-
 const Item = (props) => {
   const navigation = useNavigation();
-  const {name, mess, time, active} = props.item;
+  const {name, mess, time, active, id_St, avatart} = props.item;
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate(DETAILMESS)}
+      onPress={() => navigation.navigate(DETAILMESS, {id_St, name, avatart})}
       style={styles.container}>
-      <Image style={styles.img} source={R.images.avatar1} />
+      <Image style={styles.img} source={{uri: avatart}} />
       <View style={styles.containerContent}>
         <View
           style={{
@@ -70,12 +32,12 @@ const Item = (props) => {
           <Text style={[styles.txtTitle, active ? {fontWeight: 'bold'} : null]}>
             {name}
           </Text>
-          <Text style={styles.txt}>{time}</Text>
+          <Text style={styles.txt}>9:27 AM</Text>
         </View>
         <Text
           numberOfLines={1}
           style={[styles.txt, active ? {color: R.colors.black} : null]}>
-          {mess}
+          I'm looking forward to it
         </Text>
       </View>
     </TouchableOpacity>
@@ -83,6 +45,8 @@ const Item = (props) => {
 };
 
 const MessView = (props) => {
+  const {data} = props;
+
   return (
     <View style={{flex: 1, backgroundColor: R.colors.white}}>
       <HeaderDrawer title={'Tin nhắn'} />

@@ -47,6 +47,11 @@ const DATA = [
   },
   {
     id: '2',
+    title: '2. Cở sở vật chất',
+    data: ['1.Phòng học', '2.Các thiết bị phụ trợ'],
+  },
+  {
+    id: '2',
     title: '3. Chương trình giảng dạy',
     data: [
       '1. Nội dung bài giảng',
@@ -60,11 +65,6 @@ const DATA = [
       '9. Môi trường học viên của khóa học (trình độ, mức độ tham gia…)',
       '10. Khung cảnh giảng dạy (phòng ốc, trang thiết bị, ăn uống…)',
     ],
-  },
-  {
-    id: '2',
-    title: '2. Cở sở vật chất',
-    data: ['1.Phòng học', '2.Các thiết bị phụ trợ'],
   },
 ];
 const Item = (props) => {

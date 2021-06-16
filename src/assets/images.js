@@ -80,6 +80,7 @@ const images = {
   rain: require('./images/raining.png'),
   cloud: require('./images/clouds.png'),
   cool: require('./images/cloudy.png'),
+  thunderstorm: require('./images/thunderstorm.png'),
 };
 
 export default images;
