@@ -37,7 +37,7 @@ const Item = (props) => {
         <Text
           numberOfLines={1}
           style={[styles.txt, active ? {color: R.colors.black} : null]}>
-          I'm looking forward to it
+          Hello!
         </Text>
       </View>
     </TouchableOpacity>

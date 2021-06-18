@@ -15,18 +15,23 @@ import {
 } from 'react-native';
 import Header from '../../../components/Header/Header';
 import Button from '../../../components/Button';
-
+import {connect} from 'react-redux';
 import PickerImg from '../../../components/Picker/PickerImg';
 import {HEIGHTXD, WIDTHXD, getFontXD} from '../../../Config/Functions';
 import R from '../../../assets/R';
 import I18n from '../../../helper/i18/i18n';
 import AppText from '../../../components/AppText';
 import {Rating, AirbnbRating} from 'react-native-ratings';
+import {showAlert, TYPE} from '../../../components/DropdownAlert';
+import {showLoading, hideLoading} from '../../../actions/loadingAction';
+import {useNavigation} from '@react-navigation/native';
 
 const FeedbackView = (props) => {
   const [isSelected, setIsSelected] = useState('');
   const [txtInput, setTxtInput] = useState('');
   const [imageAdd, setImageAdd] = useState([]);
+
+  const navigation = useNavigation();
 
   const onPress = (value) => {
     setIsSelected(value);
@@ -126,7 +131,18 @@ const FeedbackView = (props) => {
                 alignItems: 'center',
                 borderRadius: 5,
               }}
-              onClick={() => console.log('hello')}
+              onClick={() => {
+                props.showLoading();
+                setTimeout(() => {
+                  showAlert(
+                    TYPE.SUCCESS,
+                    'Thông báo!',
+                    'Gửi phản hồi thành công!',
+                  );
+                  props.hideLoading();
+                  navigation.goBack();
+                }, 1500);
+              }}
               title={'Gửi'}
             />
           </View>
@@ -174,4 +190,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FeedbackView;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+export default connect(mapStateToProps, {showLoading, hideLoading})(
+  FeedbackView,
+);

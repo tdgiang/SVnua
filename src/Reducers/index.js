@@ -11,6 +11,7 @@ const rootReducer = combineReducers({
   SnackReducer,
   ScreenInitReducer,
   languageReducer,
+  
 });
 
 export default rootReducer;

@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,9 @@ import {
 import R from '../../assets/R';
 import HeaderSearch from '../../components/Header/HeaderSearch';
 import {getFontXD} from '../../Config/Functions';
+import {connect} from 'react-redux';
+import {getListNews} from '../../apis/Functions/users';
+import {showLoading, hideLoading} from '../../actions/loadingAction';
 
 const DATA = [
   {
@@ -90,10 +93,10 @@ const DATA = [
 ];
 
 const Item = (props) => {
-  const {id, name, avatart} = props.item;
+  const {id_St, name, avatart} = props.item;
   return (
     <TouchableOpacity style={styles.containerItem}>
-      <Image source={avatart} style={styles.imgAvatart} />
+      <Image source={{uri: avatart}} style={styles.imgAvatart} />
       <View
         style={{
           flex: 1,
@@ -104,18 +107,38 @@ const Item = (props) => {
           justifyContent: 'center',
         }}>
         <Text style={styles.txtTitle}>{name}</Text>
-        <Text style={styles.txt}>{id}</Text>
+        <Text style={styles.txt}>{id_St}</Text>
       </View>
     </TouchableOpacity>
   );
 };
 
 const SearchPeople = (props) => {
-  const [listData, setListData] = useState(DATA);
+  const [data, setData] = useState([]);
+  const [listData, setListData] = useState(data);
+
+  useEffect(() => {
+    setListData(data);
+  }, [data]);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    props.showLoading();
+    const res = await getListNews({id: props.user.id_St});
+    props.hideLoading();
+    if ((res.data.code = 200 && res.data.data)) {
+      setData(res.data.data);
+    } else {
+      showAlert(TYPE.ERROR, I18n.t('Notification'), 'Không có dữ liệu');
+    }
+  };
 
   const onChangeText = (val) => {
-    if (val) {
-      const newList = DATA.filter((e) => e.name.includes(val));
+    if (val != '') {
+      const newList = data.filter((e) => e.name.includes(val));
       setListData(newList);
     } else {
       setListData(DATA);
@@ -134,7 +157,15 @@ const SearchPeople = (props) => {
   );
 };
 
-export default SearchPeople;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer,
+  };
+};
+
+export default connect(mapStateToProps, {showLoading, hideLoading})(
+  SearchPeople,
+);
 
 const styles = StyleSheet.create({
   containerItem: {
