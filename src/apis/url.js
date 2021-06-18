@@ -6,4 +6,5 @@ export default {
   urlListBustle: root + 'api/hoatdongs',
   urlListUsers: root + 'api/users/get-list-users',
   urlListMessage: root + 'api/messages',
+  urlChangePassword: root + 'api/users/change-password',
 };

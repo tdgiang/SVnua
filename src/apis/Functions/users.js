@@ -11,3 +11,8 @@ export const getListNews = async (body) =>
   GetData(url.urlListUsers, body)
     .then((res) => res)
     .catch((err) => err);
+
+export const changePassword = async (body) =>
+  PostData(url.urlChangePassword, body)
+    .then((res) => res)
+    .catch((err) => err);

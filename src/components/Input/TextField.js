@@ -4,7 +4,15 @@ import {HEIGHTXD, WIDTHXD, getFontXD} from '../../Config/Functions';
 import R from '../../assets/R';
 
 const TextField = (props) => {
-  const {title, onChangeText, maxLength, isNumber, value, editable} = props;
+  const {
+    title,
+    onChangeText,
+    isPassword,
+    maxLength,
+    isNumber,
+    value,
+    editable,
+  } = props;
 
   return (
     <View style={{marginVertical: 5, marginHorizontal: 10}}>
@@ -20,6 +28,7 @@ const TextField = (props) => {
         maxLength={maxLength ? maxLength : 256}
         placeholderTextColor={R.colors.placeHolder}
         editable={editable != null ? editable : true}
+        secureTextEntry={isPassword}
         autoCapitalize="none"
         value={value}
         keyboardType={isNumber ? 'number-pad' : 'default'}
