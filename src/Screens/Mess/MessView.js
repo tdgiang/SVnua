@@ -9,13 +9,15 @@ import {
 } from 'react-native';
 import R from '../../assets/R';
 import HeaderDrawer from '../../components/Header/HeaderDrawer';
-import {getFontXD} from '../../Config/Functions';
+import {getFontXD, convertDateTime} from '../../Config/Functions';
 import {useNavigation} from '@react-navigation/native';
 import {DETAILMESS} from '../../routers/ScreenNames';
+import {connect} from 'react-redux';
 
 const Item = (props) => {
   const navigation = useNavigation();
-  const {name, mess, time, active, id_St, avatart} = props.item;
+  const {name, message, time, active, id_St, avatart} = props.item;
+
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate(DETAILMESS, {id_St, name, avatart})}
@@ -32,12 +34,13 @@ const Item = (props) => {
           <Text style={[styles.txtTitle, active ? {fontWeight: 'bold'} : null]}>
             {name}
           </Text>
-          <Text style={styles.txt}>9:27 AM</Text>
+          <Text style={styles.txt}>{convertDateTime(message.createdAt)}</Text>
         </View>
         <Text
           numberOfLines={1}
           style={[styles.txt, active ? {color: R.colors.black} : null]}>
-          Hello!
+          {message.user._id == props.userID ? 'Bạn: ' : ''}
+          {message.text}
         </Text>
       </View>
     </TouchableOpacity>
@@ -52,8 +55,9 @@ const MessView = (props) => {
       <HeaderDrawer title={'Tin nhắn'} />
       <FlatList
         style={{flex: 1}}
+        showsVerticalScrollIndicator={false}
         data={data}
-        renderItem={({item}) => <Item item={item} />}
+        renderItem={({item}) => <Item item={item} userID={props.user.id_St} />}
       />
     </View>
   );
@@ -82,4 +86,11 @@ const styles = StyleSheet.create({
     color: R.colors.color777,
   },
 });
-export default MessView;
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer,
+  };
+};
+
+export default connect(mapStateToProps, {})(MessView);

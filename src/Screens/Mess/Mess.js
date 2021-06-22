@@ -4,12 +4,19 @@ import MessView from './MessView';
 import {connect} from 'react-redux';
 import {getListNews} from '../../apis/Functions/users';
 import {showLoading, hideLoading} from '../../actions/loadingAction';
+import {useNavigation} from '@react-navigation/native';
 const Mess = (props) => {
   const [data, setData] = useState([]);
 
+  const navigation = useNavigation();
+
   useEffect(() => {
-    getData();
-  }, []);
+    const unsubscribe = navigation.addListener('focus', () => {
+      getData();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
 
   const getData = async () => {
     props.showLoading();
