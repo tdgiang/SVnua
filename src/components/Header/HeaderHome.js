@@ -68,7 +68,7 @@ const Header = (props) => {
                   <Image
                     rounded
                     style={styles.imgAvatar}
-                    source={R.images.avatar}
+                    source={{uri: props.user.avatart}}
                   />
                 </TouchableOpacity>
               </View>

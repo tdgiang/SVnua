@@ -81,6 +81,8 @@ const images = {
   cloud: require('./images/clouds.png'),
   cool: require('./images/cloudy.png'),
   thunderstorm: require('./images/thunderstorm.png'),
+  liststudent: require('./images/liststudent.png'),
+  iconEmpty: require('./images/iconEmpty.png'),
 };
 
 export default images;

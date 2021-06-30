@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     shadowRadius: 1.84,
     elevation: 2,
     marginVertical: 10,
+    marginHorizontal: 10,
   },
   imgIcon: {
     width: 70,

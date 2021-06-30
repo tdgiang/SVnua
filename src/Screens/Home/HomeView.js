@@ -23,11 +23,11 @@ const HomeView = (props) => {
         style={{
           marginTop: 30,
           flex: 1,
-          paddingHorizontal: 10,
         }}>
         <FlatList
           data={listItem}
           horizontal={false}
+          style={{marginHorizontal: 10}}
           numColumns={3}
           columnWrapperStyle={{
             flexDirection: 'row',

@@ -20,20 +20,11 @@ const Item = (props) => {
   } = props.item;
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      onPress={() => setDetal(!detail)}
+      style={styles.container}>
       <View style={styles.row}>
         <Text style={styles.txtName}>{name}</Text>
-        {detail ? (
-          <TouchableOpacity
-            onPress={() => setDetal(false)}
-            style={{padding: 5}}>
-            <Icon name={'up'} size={18} color={R.colors.color777} />
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity onPress={() => setDetal(true)} style={{padding: 5}}>
-            <Icon name={'down'} size={18} color={R.colors.color777} />
-          </TouchableOpacity>
-        )}
       </View>
       {detail ? (
         <View>
@@ -88,8 +79,23 @@ const Item = (props) => {
             </View>
           </View>
         </View>
-      ) : null}
-    </View>
+      ) : (
+        <View style={styles.wrapGrade}>
+          <View style={styles.wrap}>
+            <Text style={styles.txtTitle}>Điểm 10</Text>
+            <Text style={styles.txtGrade}>{grade10}</Text>
+          </View>
+          <View style={styles.wrap}>
+            <Text style={styles.txtTitle}>Điểm 4</Text>
+            <Text style={styles.txtGrade}>{grade4}</Text>
+          </View>
+          <View style={styles.wrap}>
+            <Text style={styles.txtTitle}>Điểm chữ</Text>
+            <Text style={styles.txtGrade}>{gradeString}</Text>
+          </View>
+        </View>
+      )}
+    </TouchableOpacity>
   );
 };
 
@@ -105,7 +111,7 @@ const styles = StyleSheet.create({
   },
   txtGrade: {
     fontSize: getFontXD(42),
-    color: R.colors.red,
+    color: R.colors.red1,
     fontWeight: '600',
   },
   container: {

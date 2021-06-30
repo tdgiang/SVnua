@@ -1,99 +1,74 @@
 import React, {Component, useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+  Image,
+} from 'react-native';
 import R from '../../../assets/R';
 import HeaderDetail from '../../../components/Header/HeadeDetail';
 import {getFontXD} from '../../../Config/Functions';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Item from './Item';
 
-const data = [
+import ListData from './ListData';
+
+const DataHeader = [
   {
-    name: 'Phân tích & thiết kế hệ thống',
-    id: 'TH02037',
-    count: 3,
-    gradeCC: 9,
-    gradeGK: 8,
-    gradeCK: 7.5,
-    grade10: 7.5,
-    grade4: 3,
-    gradeString: 'B',
+    tin: 18,
+    grade10: '7.45',
+    grade4: '2.96',
+    gardeString: 'Khá',
   },
   {
-    name: 'Cấu trúc dữ liệu và giải thuật',
-    id: 'TH02016',
-    count: 3,
-    gradeCC: 9,
-    gradeGK: 8,
-    gradeCK: 7.5,
-    grade10: 7.5,
-    grade4: 3,
-    gradeString: 'B',
+    tin: 22,
+    grade10: '7.45',
+    grade4: '2.96',
+    gardeString: 'Khá',
   },
   {
-    name: 'Những NLCB của CN Mác-Lênin 2',
-    id: 'ML01002',
-    count: 3,
-    gradeCC: 9,
-    gradeGK: 8,
-    gradeCK: 7.5,
-    grade10: 7.5,
-    grade4: 3,
-    gradeString: 'B',
+    tin: 20,
+    grade10: '7.45',
+    grade4: '2.96',
+    gardeString: 'Khá',
   },
   {
-    name: 'TH cấu trúc DL&giải thuật',
-    id: 'TH02035',
-    count: 3,
-    gradeCC: 9,
-    gradeGK: 8,
-    gradeCK: 7.5,
-    grade10: 7.5,
-    grade4: 3,
-    gradeString: 'B',
+    tin: 18,
+    grade10: '7.45',
+    grade4: '2.96',
+    gardeString: 'Khá',
   },
   {
-    name: 'Phát triển ứng dụng Web',
-    id: 'TH03012',
-    count: 3,
-    gradeCC: 9,
-    gradeGK: 8,
-    gradeCK: 7.5,
-    grade10: 7.5,
-    grade4: 3,
-    gradeString: 'B',
+    tin: 22,
+    grade10: '7.45',
+    grade4: '2.96',
+    gardeString: 'Khá',
   },
   {
-    name: 'Kỹ năng làm việc nhóm',
-    id: 'KN01005',
-    count: 3,
-    gradeCC: 9,
-    gradeGK: 8,
-    gradeCK: 7.5,
-    grade10: 7.5,
-    grade4: 3,
-    gradeString: 'B',
+    tin: 16,
+    grade10: '7.62',
+    grade4: '3.21',
+    gardeString: 'Giỏi',
   },
   {
-    name: 'Giáo dục quốc phòng 3',
-    id: 'QS01003',
-    count: 3,
-    gradeCC: 9,
-    gradeGK: 8,
-    gradeCK: 7.5,
-    grade10: 7.5,
-    grade4: 3,
-    gradeString: 'B',
+    tin: 20,
+    grade10: '7.25',
+    grade4: '2.65',
+    gardeString: 'Khá',
   },
   {
-    name: 'Tư tưởng Hồ Chí Minh',
-    id: 'CML01005	',
-    count: 3,
-    gradeCC: 9,
-    gradeGK: 8,
-    gradeCK: 7.5,
-    grade10: 7.5,
-    grade4: 3,
-    gradeString: 'B',
+    tin: 17,
+    grade10: '7.45',
+    grade4: '2.96',
+    gardeString: 'Khá',
+  },
+  {
+    tin: 0,
+    grade10: '',
+    grade4: '',
+    gardeString: '',
   },
 ];
 
@@ -125,30 +100,50 @@ const DetailPeriod = (props) => {
         </View>
         <View style={styles.wrapRow1}>
           <Text style={styles.txtTitle}>Số tín chỉ:</Text>
-          <Text style={styles.txtTitle}>18</Text>
+          <Text style={[styles.txtTitle, {fontSize: getFontXD(52)}]}>
+            {DataHeader[period].tin}
+          </Text>
         </View>
         <View style={styles.wrapGrade}>
           <View style={styles.wrap}>
             <Text style={styles.txtTitle}>Điểm 10</Text>
-            <Text style={styles.txtGrade}>10</Text>
+            <Text style={styles.txtGrade}> {DataHeader[period].grade10}</Text>
           </View>
           <View style={styles.wrap}>
             <Text style={styles.txtTitle}>Điểm 4</Text>
-            <Text style={styles.txtGrade}>4</Text>
+            <Text style={styles.txtGrade}> {DataHeader[period].grade4}</Text>
           </View>
           <View style={styles.wrap}>
             <Text style={styles.txtTitle}>Xếp loại</Text>
-            <Text style={styles.txtGrade}>Khá</Text>
+            <Text style={styles.txtGrade}>
+              {' '}
+              {DataHeader[period].gardeString}
+            </Text>
           </View>
         </View>
       </HeaderDetail>
-
       <View style={{flex: 1}}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={data}
-          renderItem={({item}) => <Item item={item} />}
-        />
+        {ListData[period].length > 0 ? (
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={ListData[period]}
+            renderItem={({item}) => <Item item={item} />}
+          />
+        ) : (
+          <View
+            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <Image
+              resizeMode={'contain'}
+              source={R.images.iconEmpty}
+              style={{
+                width: 80,
+                height: 80,
+                marginBottom: 10,
+              }}
+            />
+            <Text>Không có dữ liệu</Text>
+          </View>
+        )}
       </View>
     </View>
   );
@@ -156,15 +151,15 @@ const DetailPeriod = (props) => {
 
 const styles = StyleSheet.create({
   txtGrade: {
-    fontSize: getFontXD(42),
-    color: R.colors.red,
+    fontSize: getFontXD(52),
+    color: R.colors.red1,
     fontWeight: '600',
   },
   wrapGrade: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 5,
+    marginTop: 10,
     paddingHorizontal: 30,
   },
   wrap: {

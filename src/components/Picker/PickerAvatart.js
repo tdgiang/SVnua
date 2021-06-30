@@ -59,7 +59,10 @@ const PickerImg = (props) => {
         {imgAvatart ? (
           <Image source={{uri: imgAvatart}} style={styles.imgAvatar} />
         ) : (
-          <Image source={R.images.avatar} style={styles.imgAvatar} />
+          <Image
+            source={{uri: props.avatartDefault}}
+            style={styles.imgAvatar}
+          />
         )}
         <View style={styles.iconPicker}>
           <Image style={{width: 25, height: 25}} source={R.images.iconCamera} />

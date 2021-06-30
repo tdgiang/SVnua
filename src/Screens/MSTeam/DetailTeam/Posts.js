@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
     maxHeight: 100,
   },
   imgContent: {
-    height: 100,
+    height: 200,
     width: '100%',
     borderRadius: 5,
     marginVertical: 5,

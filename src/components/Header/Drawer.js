@@ -87,7 +87,7 @@ const Drawer = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Image source={R.images.avatar} style={styles.imgAvatar} />
+        <Image source={{uri: props.user.avatart}} style={styles.imgAvatar} />
         <TouchableOpacity
           style={{flex: 1, marginLeft: 10}}
           onPress={() => {

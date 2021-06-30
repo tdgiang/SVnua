@@ -33,6 +33,7 @@ const Profile = (props) => {
     dateOfBirth,
     sex,
     dateCmnd,
+    avatart,
   } = props.user;
 
   return (
@@ -47,7 +48,7 @@ const Profile = (props) => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <PickerAvatart />
+          <PickerAvatart avatartDefault={avatart} />
           <Text style={styles.txtBig}>{name}</Text>
         </View>
         <View style={styles.wrapTop}>

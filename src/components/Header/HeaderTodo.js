@@ -93,7 +93,15 @@ const Header = (props) => {
     let d = new Date();
     let stringday = d + '';
     let month = d.getUTCMonth() + 1;
-    let days = ['Chủ Nhật', '2', '3', '4', '5', '6', '7'];
+    let days = [
+      'Chủ Nhật',
+      'Thứ 2',
+      'Thứ 3',
+      'Thứ 4',
+      'Thứ 5',
+      'Thứ 6',
+      'Thứ 7',
+    ];
     let time = [month, days[d.getDay()], stringday.slice(8, 10), week];
     return time;
   };
@@ -143,7 +151,7 @@ const Header = (props) => {
           </View>
           <View style={styles.row}>
             <Text style={styles.txtWeek}>
-              Thứ {getTime()[1]} tuần {getTime()[3]}
+              {getTime()[1]} tuần {getTime()[3]}
             </Text>
             <Text style={styles.txtWeek}>
               {weather} {temp}°C
