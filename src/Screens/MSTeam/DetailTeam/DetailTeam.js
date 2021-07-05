@@ -5,6 +5,7 @@ import Header from '../../../components/Header/Header';
 import Posts from './Posts';
 import Files from './Files';
 import Assignment from './Assignment';
+import Videos from './Videos';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import R from '../../../assets/R';
@@ -24,6 +25,7 @@ const GraduationView = (props) => {
         }}>
         <Tab.Screen name="Bảng tin" component={Posts} />
         <Tab.Screen name="Bài tập" component={Assignment} />
+        <Tab.Screen name="Videos" component={Videos} />
         <Tab.Screen name="Files" component={Files} />
       </Tab.Navigator>
     </View>

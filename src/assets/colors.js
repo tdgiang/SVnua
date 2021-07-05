@@ -31,6 +31,7 @@ const colors = {
   bgActive: '#DDEEFF',
   contentComment: '#DAE9FF',
 
+  colorBg: '#E8E8E8',
   accent: '#A60014',
   primary: '#0AC4BA',
   secondary: '#00b33c',

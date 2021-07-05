@@ -83,6 +83,9 @@ PODS:
     - Folly (= 2018.10.22.00)
     - RCTRequired (= 0.62.2)
     - React-Core (= 0.62.2)
+  - RCTYouTube (2.0.2):
+    - React
+    - YoutubePlayer-in-WKWebView (~> 0.3.1)
   - React (0.62.2):
     - React-Core (= 0.62.2)
     - React-Core/DevSupport (= 0.62.2)
@@ -375,6 +378,7 @@ PODS:
   - SwiftyJSON (5.0.0)
   - TOCropViewController (2.6.0)
   - Yoga (1.14.0)
+  - YoutubePlayer-in-WKWebView (0.3.5)
 
 DEPENDENCIES:
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
@@ -385,6 +389,7 @@ DEPENDENCIES:
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
+  - RCTYouTube (from `../node_modules/react-native-youtube`)
   - React (from `../node_modules/react-native/`)
   - React-Core (from `../node_modules/react-native/`)
   - React-Core/DevSupport (from `../node_modules/react-native/`)
@@ -439,6 +444,7 @@ SPEC REPOS:
     - PromisesObjC
     - SwiftyJSON
     - TOCropViewController
+    - YoutubePlayer-in-WKWebView
 
 EXTERNAL SOURCES:
   BVLinearGradient:
@@ -457,6 +463,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/RCTRequired"
   RCTTypeSafety:
     :path: "../node_modules/react-native/Libraries/TypeSafety"
+  RCTYouTube:
+    :path: "../node_modules/react-native-youtube"
   React:
     :path: "../node_modules/react-native/"
   React-Core:
@@ -548,6 +556,7 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   RCTRequired: cec6a34b3ac8a9915c37e7e4ad3aa74726ce4035
   RCTTypeSafety: 93006131180074cffa227a1075802c89a49dd4ce
+  RCTYouTube: a8bb45705622a6fc9decf64be04128d3658ed411
   React: 29a8b1a02bd764fb7644ef04019270849b9a7ac3
   React-Core: b12bffb3f567fdf99510acb716ef1abd426e0e05
   React-CoreModules: 4a9b87bbe669d6c3173c0132c3328e3b000783d0
@@ -585,7 +594,8 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
+  YoutubePlayer-in-WKWebView: cfbf46da51d7370662a695a8f351e5fa1d3e1008
 
-PODFILE CHECKSUM: 0b2ba56c80b22e339a384a75751306d133971ef4
+PODFILE CHECKSUM: 8af0c0ca01402e7aa47b34ee34345d3a0581000d
 
 COCOAPODS: 1.10.1
