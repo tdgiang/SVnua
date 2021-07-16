@@ -63,6 +63,22 @@ const images = {
   gallery: require('./images/gallery.png'),
   pdf: require('./images/pdf.png'),
   assignment: require('./images/assignment.png'),
+
+  icon_visa: require('./images/icon_visa.png'),
+  icon_mastercard: require('./images/icon_mastercard.png'),
+  icon_DongA_Bank: require('./images/icon_dongabank.png'),
+  icon_BIDV: require('./images/icon_bidv.png'),
+  icon_SaComBank: require('./images/icon_sacombank.png'),
+  icon_SaiGon_Bank: require('./images/icon_saigonbank.png'),
+  icon_MB_Bank: require('./images/icon_mbbank.png'),
+  icon_VIB_Bank: require('./images/icon_vib.png'),
+  icon_VietTin_Bank: require('./images/icon_viettinbank.png'),
+  icon_TP_Bank: require('./images/icon_tpbank.png'),
+  icon_TechCom_Bank: require('./images/icon_techcombank.png'),
+  icon_MoMo: require('./images/icon_momo.png'),
+  icon_ViettelPay: require('./images/icon_viettelpay.png'),
+  icon_PayYoo: require('./images/icon_payooh.png'),
+  icon_pay_success: require('./images/icon_pay_success.png'),
 };
 
 export default images;

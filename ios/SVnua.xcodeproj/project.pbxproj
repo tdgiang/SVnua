@@ -18,6 +18,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* SVnuaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SVnuaTests.m */; };
 		2F6C8082241A3E45ED83C02E /* libPods-SVnua-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 012931B92AE43EB945A3AD42 /* libPods-SVnua-tvOSTests.a */; };
 		3B558868B2B33AB3C0A30CDC /* libPods-SVnua-SVnuaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E6714E885731C369387DAE /* libPods-SVnua-SVnuaTests.a */; };
+		846B470A269FCE6A004B8E84 /* Pods-SVnua.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C5638D71EF39D7E5D629D7D6 /* Pods-SVnua.debug.xcconfig */; };
 		8986813A30EEF48DB6262B70 /* libPods-SVnua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6BA40FABE066F8675AEF9F7 /* libPods-SVnua.a */; };
 		99A4D1E20FE4EF03CA7EBD5A /* libPods-SVnua-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E11D2A89361CA740C63B82DC /* libPods-SVnua-tvOS.a */; };
 /* End PBXBuildFile section */
@@ -383,6 +384,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				846B470A269FCE6A004B8E84 /* Pods-SVnua.debug.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

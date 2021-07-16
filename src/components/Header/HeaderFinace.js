@@ -58,8 +58,8 @@ const Header = (props) => {
           </Text>
         </View>
         <View style={{alignItems: 'center'}}>
-          <TouchableOpacity style={styles.wrapBtn}>
-            <Text style={styles.txtBtn}>Nạp tiền vào tài khoản</Text>
+          <TouchableOpacity onPress={() => {}} style={styles.wrapBtn}>
+            <Text style={styles.txtBtn}>Nạp tiền vào tài khoản </Text>
           </TouchableOpacity>
         </View>
       </View>
