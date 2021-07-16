@@ -15,6 +15,7 @@ import images from '../../assets/images';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {wrap} from 'lodash';
+import Button from '../../components/Button';
 
 const InternationalCard = [
   {
@@ -109,23 +110,30 @@ const PayIn = ({params}) => {
         }}>
         <View style={{height: 165, borderRadius: 5, marginTop: 10}}>
           <View style={styles.bill}>
-            <Text style={{colors: R.colors.white}}>Thông tin phí</Text>
+            <Text
+              style={{
+                color: R.colors.white,
+                fontWeight: 'bold',
+                fontSize: getFontXD(42),
+              }}>
+              Thông tin phí
+            </Text>
           </View>
           <View style={styles.contentBill}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Text style={styles.txt}>Kỳ 1</Text>
+              <Text style={styles.txt}>Học phí</Text>
               <View style={styles.row} />
-              <Text style={styles.txt}>600,000 đ</Text>
+              <Text style={styles.txt}>7,269,000 đ</Text>
             </View>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Text style={styles.txt}>Kỳ 2</Text>
+              <Text style={styles.txt}>Dịch vụ</Text>
               <View style={styles.row} />
-              <Text style={styles.txt}>600,000 đ</Text>
+              <Text style={styles.txt}>10,000 đ</Text>
             </View>
           </View>
           <View style={styles.payment}>
             <Text style={{fontSize: getFontXD(42), color: R.colors.lightBlue1}}>
-              Số tiền thanh toán
+              Tổng tiền thanh toán
             </Text>
             <Text
               style={{
@@ -133,7 +141,7 @@ const PayIn = ({params}) => {
                 color: R.colors.lightBlue,
                 fontWeight: '700',
               }}>
-              1,200,000
+              7,279,000 đ
             </Text>
           </View>
         </View>
@@ -157,6 +165,7 @@ const PayIn = ({params}) => {
               color={payMethod ? 'white' : 'gray'}
             />
           </TouchableOpacity>
+          <View style={{width: 10}} />
           <TouchableOpacity
             onPress={() => setPayMethod(false)}
             style={payMethod ? styles.payMethod2 : styles.payMethod1}>
@@ -227,9 +236,11 @@ const PayIn = ({params}) => {
               <TouchableOpacity onPress={() => {}} style={styles.card}>
                 <Image source={images.icon_MoMo} />
               </TouchableOpacity>
+              <View style={{width: 10}} />
               <TouchableOpacity onPress={() => {}} style={styles.card}>
                 <Image source={images.icon_ViettelPay} />
               </TouchableOpacity>
+              <View style={{width: 10}} />
               <TouchableOpacity onPress={() => {}} style={styles.card}>
                 <Image source={images.icon_PayYoo} />
               </TouchableOpacity>
@@ -237,18 +248,11 @@ const PayIn = ({params}) => {
           </View>
         )}
         <View style={styles.containBtn}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('PAYIN2')}
-            style={styles.btnNext}>
-            <Text
-              style={{
-                fontSize: getFontXD(42),
-                color: R.colors.white,
-                fontWeight: '700',
-              }}>
-              Tiếp theo
-            </Text>
-          </TouchableOpacity>
+          <Button
+            onClick={() => navigation.navigate('PAYIN2')}
+            containerStyle={styles.btnPay}
+            title={'Tiếp theo'}
+          />
         </View>
       </ScrollView>
     </View>
@@ -267,6 +271,14 @@ const styles = StyleSheet.create({
     backgroundColor: R.colors.white,
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
   },
   itemBankSelect: {
     flex: 1,
@@ -277,6 +289,14 @@ const styles = StyleSheet.create({
     backgroundColor: R.colors.main,
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
   },
   bill: {
     height: 30,
@@ -299,6 +319,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: R.colors.white,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
   },
   cardSelect: {
     flex: 1,
@@ -307,6 +335,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: R.colors.main,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
   },
   payMethod1: {
     flex: 1,
@@ -316,7 +352,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: R.colors.main,
-    marginRight: 5,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
   },
   payMethod2: {
     flex: 1,
@@ -326,7 +369,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: R.colors.white,
-    marginLeft: 5,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
   },
   txtPayMethod2: {
     color: R.colors.colorNhap,
@@ -377,7 +427,7 @@ const styles = StyleSheet.create({
   },
   containBtn: {
     height: 40,
-    marginTop: 10,
+    marginTop: 20,
     marginBottom: 40,
     flexDirection: 'row',
     justifyContent: 'flex-end',
@@ -387,6 +437,13 @@ const styles = StyleSheet.create({
     width: 132,
     borderRadius: 20,
     backgroundColor: R.colors.main,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btnPay: {
+    height: 40,
+    borderRadius: 5,
+    width: 132,
     justifyContent: 'center',
     alignItems: 'center',
   },

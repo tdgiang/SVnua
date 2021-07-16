@@ -4,6 +4,8 @@ import {getFontXD, HEIGHT, toPriceVnd, WIDTHXD} from '../../Config/Functions';
 import Header from '../../components/Header/HeaderPayIn';
 import R from '../../assets/R';
 import {useNavigation} from '@react-navigation/native';
+import Button from '../../components/Button';
+
 const PayIn2 = ({params}) => {
   const navigation = useNavigation();
   return (
@@ -26,26 +28,6 @@ const PayIn2 = ({params}) => {
             <Text style={styles.txtLable}>Mã hóa đơn</Text>
             <Text style={styles.txtInfor}>SSHD01</Text>
           </View>
-
-          <View style={styles.containTitle2}>
-            <Text style={styles.txtTitle}>Thông tin phí</Text>
-          </View>
-          <View style={styles.row2}>
-            <Text style={styles.txtLable}>Kỳ 1</Text>
-            <View style={styles.stroke} />
-            <Text style={styles.txtInfor}>600,000 đ</Text>
-          </View>
-          <View style={styles.row2}>
-            <Text style={styles.txtLable}>Kỳ 2</Text>
-            <View style={styles.stroke} />
-            <Text style={styles.txtInfor}>600,000 đ</Text>
-          </View>
-          <View style={styles.row2}>
-            <Text style={styles.txtLable}>Kỳ 3</Text>
-            <View style={styles.stroke} />
-            <Text style={styles.txtInfor}>miễn phí</Text>
-          </View>
-
           <View style={styles.row3}>
             <Text style={{color: '#015198', fontSize: getFontXD(42)}}>
               Số tiền thanh toán
@@ -66,11 +48,11 @@ const PayIn2 = ({params}) => {
         </View>
       </View>
       <View style={styles.containBtn}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('PAYIN3')}
-          style={styles.btnNext}>
-          <Text style={styles.txtBtn}>Tiếp theo</Text>
-        </TouchableOpacity>
+        <Button
+          onClick={() => navigation.navigate('PAYIN3')}
+          containerStyle={styles.btnPay}
+          title={'Tiếp theo'}
+        />
       </View>
     </View>
   );
@@ -106,9 +88,17 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     marginTop: 20,
     marginHorizontal: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
   },
   containTitle: {
-    backgroundColor: R.colors.orange,
+    backgroundColor: R.colors.main,
     paddingVertical: 5,
     paddingLeft: 10,
     borderTopLeftRadius: 5,
@@ -158,7 +148,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   row3: {
-    marginTop: 30,
+    marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -168,6 +158,13 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: 'black',
     marginHorizontal: 10,
+  },
+  btnPay: {
+    height: 40,
+    borderRadius: 5,
+    width: 132,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 export default PayIn2;

@@ -94,11 +94,7 @@ const Header = (props) => {
           stepCount={3}
           customStyles={secondIndicatorStyles}
           currentPosition={currentPage}
-          labels={[
-            'Chọn phương thức thanh toán',
-            'Xác nhận thanh toán',
-            'Thành công',
-          ]}
+          labels={['Chọn phương thức', 'Xác nhận', 'Thành công']}
           renderLabel={renderLabel}
           onPress={onStepPress}
         />
@@ -157,9 +153,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stepLabel: {
-    fontSize: getFontXD(36),
+    fontSize: getFontXD(42),
     textAlign: 'center',
-    fontWeight: '500',
     color: '#FFF',
   },
   stepLabelSelected: {

@@ -3,7 +3,6 @@ import {
   Text,
   View,
   StyleSheet,
-  ScrollView,
   FlatList,
   Image,
   TouchableOpacity,
@@ -14,12 +13,13 @@ import {useNavigation} from '@react-navigation/native';
 import R from '../../assets/R';
 import images from '../../assets/images';
 import Icon from 'react-native-vector-icons/AntDesign';
+import Button from '../../components/Button';
 const PayIn3 = ({params}) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Header step={2} />
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <View>
         <View style={styles.messageLogo}>
           <Icon name="check" size={50} color="#886327" />
         </View>
@@ -42,14 +42,6 @@ const PayIn3 = ({params}) => {
             <Text style={styles.txtInfor}>SSHD01</Text>
           </View>
           <View style={styles.row}>
-            <Text style={styles.txtLable}>Kỳ 1</Text>
-            <Text style={styles.txtInfor}>600,000 đ</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.txtLable}>Kỳ 2</Text>
-            <Text style={styles.txtInfor}>600,000 đ</Text>
-          </View>
-          <View style={styles.row}>
             <Text style={styles.txtLable}>Phí giao dịch</Text>
             <Text style={styles.txtInfor}>miễn phí</Text>
           </View>
@@ -63,35 +55,23 @@ const PayIn3 = ({params}) => {
                 fontSize: getFontXD(42),
                 fontWeight: 'bold',
               }}>
-              1,200,000 đ
+              7,279,000 đ
             </Text>
           </View>
         </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('PAYIN')}
-          style={styles.btn}>
-          <Text
-            style={{
-              fontSize: getFontXD(42),
-              color: R.colors.white,
-              fontWeight: '700',
-            }}>
-            Tiếp tục nạp tiền
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('TABBAR')}
-          style={styles.btn}>
-          <Text
-            style={{
-              fontSize: getFontXD(42),
-              color: R.colors.white,
-              fontWeight: '700',
-            }}>
-            Quay lại màn hình chính
-          </Text>
-        </TouchableOpacity>
-      </ScrollView>
+        <View style={styles.containBtn}>
+          <Button
+            onClick={() => navigation.navigate('PAYIN3')}
+            containerStyle={styles.btnPay}
+            title={'Tiếp tục nap tiền'}
+          />
+          <Button
+            onClick={() => navigation.navigate('PAYIN3')}
+            containerStyle={styles.btnPay}
+            title={'Quay lại trang chủ'}
+          />
+        </View>
+      </View>
     </View>
   );
 };
@@ -151,8 +131,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   messageLogo: {
-    height: 100,
-    width: 100,
+    height: 80,
+    width: 80,
     borderRadius: 100,
     marginTop: 20,
     alignSelf: 'center',
@@ -173,6 +153,28 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     padding: 15,
     marginHorizontal: 15,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
+  },
+  containBtn: {
+    height: 100,
+    marginTop: 10,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  btnPay: {
+    height: 40,
+    borderRadius: 5,
+    width: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 export default PayIn3;
