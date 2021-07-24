@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from 'react';
+import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import R from '../../assets/R';
 import HomeView from './HomeView';

@@ -7,12 +7,13 @@ import {getFontXD, toPriceVnd} from '../../Config/Functions';
 import {Divider} from 'react-native-elements';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Button from '../../components/Button';
+import {useNavigation} from '@react-navigation/native';
 
 const PayDebt = (props) => {
   const [money, setMoney] = useState(69000);
   const [fee, setFee] = useState(7269000);
   const [service, setService] = useState(10000);
-
+  const navigation = useNavigation();
   return (
     <View style={{flex: 1}}>
       <Header isBack={true} title={'Thanh toán công nợ'} />
@@ -51,7 +52,9 @@ const PayDebt = (props) => {
           </View>
 
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <TouchableOpacity style={styles.btn}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('PAYIN')}
+              style={styles.btn}>
               <Text style={styles.txtBtn}>Nạp tiền vào tài khoản</Text>
             </TouchableOpacity>
           </View>

@@ -49,6 +49,9 @@ import DetailServey from '../Screens/Menu/Servey/DetailServey';
 import HistoryTransfer from '../Screens/FinaceChildren/HistoryTransfer';
 import PayDebt from '../Screens/FinaceChildren/PayDebt';
 import Pays from '../Screens/FinaceChildren/Pays';
+import PayIn from '../Screens/FinaceChildren/PayIn';
+import PayIn2 from '../Screens/FinaceChildren/PayIn2';
+import PayIn3 from '../Screens/FinaceChildren/PayIn3';
 import HomeTeam from '../Screens/MSTeam/Home/HomeTeam';
 import DetailTeam from '../Screens/MSTeam/DetailTeam/DetailTeam';
 import DetailPost from '../Screens/MSTeam/DetailTeam/DetailPost';
@@ -61,6 +64,7 @@ import Webview from '../Screens/Webview/index';
 //Job
 import RecruitDetail from '../Screens/MenuNews/Job/Recurit/RecruitDetail';
 import SearchPeople from '../Screens/Mess/SearchPeople';
+
 import * as ScreenName from './ScreenNames';
 
 const Stack = createStackNavigator();
@@ -94,6 +98,9 @@ function MyStack(props) {
       />
       <Stack.Screen name={ScreenName.PAYDEBT} component={PayDebt} />
       <Stack.Screen name={ScreenName.PAYS} component={Pays} />
+      <Stack.Screen name={ScreenName.PAYIN} component={PayIn} />
+      <Stack.Screen name={ScreenName.PAYIN2} component={PayIn2} />
+      <Stack.Screen name={ScreenName.PAYIN3} component={PayIn3} />
       <Stack.Screen name={ScreenName.DETAILPOST} component={DetailPost} />
       <Stack.Screen name={ScreenName.SEARCHPEOPLE} component={SearchPeople} />
       <Stack.Screen name={ScreenName.CONFIRMEMAIL} component={CofirmEmail} />

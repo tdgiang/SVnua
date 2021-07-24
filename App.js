@@ -20,11 +20,13 @@ const sagaMiddleware = createSagaMiddleware();
 let store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(rootSaga);
 
+import Test from './TestView';
 const App = () => {
   return (
     <Provider store={store}>
       
       <RootView />
+      {/* <Test /> */}
     </Provider>
   );
 };

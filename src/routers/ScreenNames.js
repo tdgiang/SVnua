@@ -53,6 +53,9 @@ export const QUESTIONSERVEY = 'QUESTIONSERVEY';
 export const HISTORYTRANSFER = 'HISTORYTRANSFER';
 export const PAYDEBT = 'PAYDEBT';
 export const PAYS = 'PAY';
+export const PAYIN = 'PAYIN';
+export const PAYIN2 = 'PAYIN2';
+export const PAYIN3 = 'PAYIN3';
 
 export const HOMETEAM = 'HOMETEAM';
 
