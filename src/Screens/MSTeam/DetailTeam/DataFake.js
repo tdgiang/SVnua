@@ -5,13 +5,13 @@ export const DATA = [
     id: '1',
     poster: {
       id: '1',
-      name: 'Đỗ Thị Nhâm',
+      name: 'Trần Trung Hiếu',
       avatart: R.images.avatar1,
     },
     time: '15/05/21, 09:15',
     content: {
       image: R.images.liststudent,
-      text: 'K62CNPM, Chào các em, hôm nay Học viện gửi về danh sách sv đã tham gia đánh giá về chất lượng dịch vụ, cơ sở vật chất và môi trường của Nhà trường, lớp mình mới có rất ít bạn tham gia đánh giá. Vậy cô yêu cầu thêm một lần nữa các bạn bắt buộc phải tham gia đánh giá (việc này mất một chút thời gian thôi, không chiếm mất quỹ thời gian hẹn hò, tà tữa lắm đâu ) Nếu bạn nào trong tuần này vẫn không tham gia đánh giá sẽ bị Nhà trường trừ điểm rèn luyện (trừ rất nặng nhé - Cô không dọa đâu nhé).',
+      text: 'Gửi các e thông báo: "Tuần sau (tuần 8 ) dạy online các lớp lý thuyết, các lớp thực hành nghỉ (học bù sau) các bạn nhé. Gửi các bạn thông báo của Học viện: "Do những diễn biến phức tập của đại dịch Covid-19, thực hiện chỉ đạo của BGĐ, từ 4/5 đến hết 9/5 toàn bộ các lớp lý thuyết, lớp học Giáo dục quốc phòng, Giáo dục thể chất chuyển sang dạy và học online; lớp thực hành nghỉ học và sẽ học bù sau. SV làm thực tập tốt nghiệp tại Học viện chấp hành nghiêm các biện pháp phòng dịch theo quy định của Học viện và của Nhà nước. Học viên cao học nhập học và thí sinh xác nhận nhập học cập nhật theo thông báo sau của Học viện"',
       file: null,
     },
     reply: [
@@ -19,13 +19,13 @@ export const DATA = [
         id: '11',
         user: {
           id: '1',
-          name: 'Đỗ Thị Nhâm',
+          name: 'Trần Trung Hiếu',
           avatart: R.images.avatar,
         },
         time: '15/05,9:30 AM',
         content: {
           image: R.images.barchart,
-          text: 'K62CNPM, Chào các em, hôm nay Học viện gửi về danh sách sv đã tham gia đánh giá về chất lượng dịch vụ, cơ sở vật chất và môi trường của Nhà trường, lớp mình mới có rất ít bạn tham gia đánh giá. Vậy cô yêu cầu thêm một lần nữa các bạn bắt buộc phải tham gia đánh giá (việc này mất một chút thời gian thôi, không chiếm mất quỹ thời gian hẹn hò, tà tữa lắm đâu ) Nếu bạn nào trong tuần này vẫn không tham gia đánh giá sẽ bị Nhà trường trừ điểm rèn luyện (trừ rất nặng nhé - Cô không dọa đâu nhé).',
+          text: ' ề chất lượng dịch vụ, cơ sở vật chất và môi trường của Nhà trường, lớp mình mới có rất ít bạn tham gia đánh giá. Vậy cô yêu cầu thêm một lần nữa các bạn bắt buộc phải tham gia đánh giá (việc này mất một chút thời gian thôi, không chiếm mất quỹ thời gian hẹn hò, tà tữa lắm đâu ) Nếu bạn nào trong tuần này vẫn không tham gia đánh giá sẽ bị Nhà trường trừ điểm rèn luyện (trừ rất nặng nhé - Cô không dọa đâu nhé).',
           file: null,
         },
         feedback: {
@@ -59,7 +59,7 @@ export const DATA = [
         id: '11',
         user: {
           id: '1',
-          name: 'Đỗ Thị Nhâm',
+          name: 'Trần Trung Hiếu',
           avatart: R.images.avatar,
         },
         time: '15/05,9:30 AM',
@@ -85,16 +85,16 @@ export const DATA = [
     id: '3',
     poster: {
       id: '1',
-      name: 'Đỗ Thị Nhâm',
+      name: 'Trần Trung Hiếu',
       avatart: R.images.avatar1,
     },
     time: '15/05/21, 09:15',
     content: {
       image: null,
-      text: 'K62CNPM Cô gửi cả lớp bản tổng hợp điểm rèn luyện nhé, các em xem và có thắc mắc gì thì nhắn qua Teams luôn nhé (thời hạn trước 17h ngày mai (29/10)) Sau thời gian này cô sẽ gửi cho Khoa.',
+      text: 'Lịch thực hành bù của các em vào tuần sau (tuần 10), tuần này (tuần 9) các em tự thực hành ở nhà nhé.',
       file: {
         icon: R.images.excel,
-        name: 'Phieu Tonghop_Diem_Ren_Luyen_2020.xls',
+        name: 'LICHTH.xls',
       },
     },
     reply: [
@@ -102,7 +102,7 @@ export const DATA = [
         id: '11',
         user: {
           id: '1',
-          name: 'Đỗ Thị Nhâm',
+          name: 'Trần Trung Hiếu',
           avatart: R.images.avatar,
         },
         time: '15/05,9:30 AM',
@@ -121,7 +121,7 @@ export const DATA = [
         id: '12',
         user: {
           id: '1',
-          name: 'Đỗ Thị Nhâm',
+          name: 'Trần Trung Hiếu',
           avatart: R.images.avatar,
         },
         time: '15/05,9:30 AM',
@@ -140,7 +140,7 @@ export const DATA = [
         id: '13',
         user: {
           id: '1',
-          name: 'Đỗ Thị Nhâm',
+          name: 'Trần Trung Hiếu',
           avatart: R.images.avatar,
         },
         time: '15/05,9:30 AM',
@@ -159,7 +159,7 @@ export const DATA = [
         id: '14',
         user: {
           id: '1',
-          name: 'Đỗ Thị Nhâm',
+          name: 'Trần Trung Hiếu',
           avatart: R.images.avatar,
         },
         time: '15/05,9:30 AM',
@@ -185,7 +185,7 @@ export const DATA = [
     id: '4',
     poster: {
       id: '1',
-      name: 'Đỗ Thị Nhâm',
+      name: 'Trần Trung Hiếu',
       avatart: R.images.avatar1,
     },
     time: '15/05/21, 09:15',
@@ -199,7 +199,7 @@ export const DATA = [
         id: '11',
         user: {
           id: '1',
-          name: 'Đỗ Thị Nhâm',
+          name: 'Trần Trung Hiếu',
           avatart: R.images.avatar,
         },
         time: '15/05,9:30 AM',
@@ -228,42 +228,42 @@ export const DATAFILE = [
     id: '1',
     icon: R.images.excel,
     name: 'DS_K62CNPM.xlsx',
-    poster: 'Đỗ Thị Nhâm',
+    poster: 'Trần Trung Hiếu',
     time: '15/05/2021',
   },
   {
     id: '2',
     icon: R.images.pdf,
     name: '14062021_TB-HVN.pdf',
-    poster: 'Đỗ Thị Nhâm',
+    poster: 'Trần Trung Hiếu',
     time: '15/05/2021',
   },
   {
     id: '3',
     icon: R.images.excel,
     name: 'Khoa CNTT danh sach sv duoc HB.xlsx',
-    poster: 'Đỗ Thị Nhâm',
+    poster: 'Trần Trung Hiếu',
     time: '13/05/2021',
   },
   {
     id: '4',
     icon: R.images.excel,
     name: 'DRL sv tu danh gia_Khoa_CNTT',
-    poster: 'Đỗ Thị Nhâm',
+    poster: 'Trần Trung Hiếu',
     time: '15/05/2021',
   },
   {
     id: '5',
     icon: R.images.excel,
     name: 'Phieu danh gia_Diem_Ren_Luyen_2020',
-    poster: 'Đỗ Thị Nhâm',
+    poster: 'Trần Trung Hiếu',
     time: '15/05/2021',
   },
   {
     id: '6',
     icon: R.images.excel,
     name: 'DS_SV vang mat.xlsx',
-    poster: 'Đỗ Thị Nhâm',
+    poster: 'Trần Trung Hiếu',
     time: '15/05/2021',
   },
 ];

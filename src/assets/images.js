@@ -83,6 +83,7 @@ const images = {
   thunderstorm: require('./images/thunderstorm.png'),
   liststudent: require('./images/liststudent.png'),
   iconEmpty: require('./images/iconEmpty.png'),
+  iconjava: require('./images/java1.png'),
 };
 
 export default images;

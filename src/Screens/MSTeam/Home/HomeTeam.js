@@ -16,6 +16,11 @@ import {DETAILTEAM} from '../../../routers/ScreenNames';
 
 const DATA = [
   {
+    id: '8',
+    name: 'Lập trình Java_K64ATTT',
+    icon: R.images.iconjava,
+  },
+  {
     id: '1',
     name: 'K62CNPM',
     icon: R.images.education,
@@ -50,11 +55,7 @@ const DATA = [
     name: 'Xây dựng và phát triển phần mềm',
     icon: R.images.company,
   },
-  {
-    id: '8',
-    name: 'Lập trình Java_K64ATTT',
-    icon: R.images.addEvent,
-  },
+
   {
     id: '9',
     name: 'LTHDT_TH03106_02_2020',
@@ -75,7 +76,7 @@ const Item = (props) => {
     <TouchableOpacity
       onPress={() => navigation.navigate(DETAILTEAM, {data: props.item})}
       style={styles.container}>
-      <Image source={icon} style={styles.imgLogo} />
+      <Image source={icon} resizeMode={'contain'} style={styles.imgLogo} />
       <View style={{flex: 1, justifyContent: 'center'}}>
         <Text numberOfLines={1} style={styles.txtTitle}>
           {name}
