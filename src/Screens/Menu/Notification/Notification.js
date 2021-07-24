@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {
   SafeAreaView,
   View,
@@ -19,39 +19,104 @@ const DATA = [
     id: '1',
     image: image.notice,
     time: 'khoảng 1 giờ trước',
-    title: 'Thông báo thay đổi hình thức dạy học từ trực tiếp sang online.',
+    title: 'Thông báo đăng ký học phần học kỳ 1 năm học 2021 - 2022',
     viewcount: '36',
+    isRead: false,
   },
   {
     id: '2',
     image: image.notice,
     time: '2 giờ trước',
-    title: 'Thông báo thay đổi hình thức dạy học từ trực tiếp sang online.',
+    title:
+      'Thông báo về việc xét và công nhận tốt nghiệp Đại học, Cao đẳng hệ chính quy đợt  25/07/2021',
     viewcount: '2 giờ trước',
+    isRead: false,
   },
   {
     id: '3',
     image: image.notice,
     time: '02:12 - 23/05/2021',
-    title: 'Thông báo thay đổi hình thức dạy học từ trực tiếp sang online.',
+    title:
+      'Thông báo kết quả thi thử chứng chỉ tiếng Anh quốc tế mô phỏng PET, FCE Cambridge đợt thi tháng 4 năm 2021',
     viewcount: '36',
+    isRead: true,
   },
   {
     id: '4',
     image: image.notice,
     time: '22:30-22/05/2021',
-    title: 'Thông báo thay đổi hình thức dạy học từ trực tiếp sang online.',
+    title:
+      'Thông báo gia hạn lịch thu tiền học phí sinh viên Học kỳ II năm học 2020 - 2021 cho sinh viên chưa hoàn thành học phí',
     viewcount: '36',
+    isRead: true,
+  },
+  {
+    id: '5',
+    image: image.notice,
+    time: '22:30-22/05/2021',
+    title: 'Thông báo tham gia bảo hiểm y tế sinh viên đợt tháng 6 năm 2021',
+    viewcount: '36',
+    isRead: true,
+  },
+  {
+    id: '6',
+    image: image.notice,
+    time: '22:30-22/05/2021',
+    title:
+      'Thông báo trả bằng cho sinh viên/học viên tốt nghiệp Đại học, Cao đẳng và thạc sĩ',
+    viewcount: '36',
+    isRead: true,
+  },
+  {
+    id: '7',
+    image: image.notice,
+    time: '22:30-22/05/2021',
+    title:
+      'Thông báo về việc mở lớp đặc biệt online học kỳ 2 năm học 2020 - 2021',
+    viewcount: '36',
+    isRead: true,
+  },
+  {
+    id: '9',
+    image: image.notice,
+    time: '22:30-22/05/2021',
+    title:
+      'Thông báo danh sách dự thi và kế hoạch thi tiếng Anh đầu ra đại học và cao học đợt thi tháng 4 năm 2021',
+    viewcount: '36',
+    isRead: true,
+  },
+  {
+    id: '17',
+    image: image.notice,
+    time: '22:30-22/05/2021',
+    title:
+      'Thông báo về việc mở lớp đặc biệt online học kỳ 2 năm học 2020 - 2021',
+    viewcount: '36',
+    isRead: true,
+  },
+  {
+    id: '19',
+    image: image.notice,
+    time: '22:30-22/05/2021',
+    title:
+      'Thông báo danh sách dự thi và kế hoạch thi tiếng Anh đầu ra đại học và cao học đợt thi tháng 4 năm 2021',
+    viewcount: '36',
+    isRead: true,
   },
 ];
 const Item = (props) => {
-  const {title, image, time, viewcount} = props.item;
+  const {title, image, time, viewcount, isRead} = props.item;
+  const [read, setRead] = useState(isRead);
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      onPress={() => setRead(true)}
+      style={[styles.container, read ? {} : {backgroundColor: '#DDDDDD'}]}>
       <Image style={styles.image} source={image} />
 
       <View style={styles.containContent}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title} numberOfLines={2}>
+          {title}
+        </Text>
         <View style={styles.subdetail}>
           <Text style={styles.detail}>{time}</Text>
           {/* <View
@@ -69,7 +134,7 @@ const Item = (props) => {
           </View> */}
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 const Notification = (props) => {

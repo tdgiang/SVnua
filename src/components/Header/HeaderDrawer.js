@@ -46,7 +46,34 @@ const Header = (props) => {
         <TouchableOpacity
           style={{width: 35, height: 30}}
           onPress={() => navigate.navigate(NOTIFICATION)}>
-          <Ionicons color={'white'} name={'notifications-outline'} size={22} />
+          <View>
+            <View
+              style={{
+                width: 20,
+                height: 20,
+                backgroundColor: R.colors.red1,
+                borderRadius: 20,
+                position: 'absolute',
+                right: 2,
+                top: -5,
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 2,
+              }}>
+              <Text
+                style={{
+                  color: R.colors.white,
+                }}>
+                2
+              </Text>
+            </View>
+
+            <Ionicons
+              color={'white'}
+              name={'notifications-outline'}
+              size={22}
+            />
+          </View>
         </TouchableOpacity>
       </View>
       <Modal

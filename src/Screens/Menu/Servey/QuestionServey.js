@@ -30,6 +30,33 @@ const ListQuestion = [
   },
   {
     id: '1',
+    question:
+      'Trong 14 ngày qua bạn có tiếp xúc với người bị nhiễm hoặc nghi ngờ nhiễm COVID-19 không?',
+    listSelect: [
+      {
+        id: '1',
+        content: 'Người bệnh hoặc nghi ngờ mắc bệnh Covid 19',
+        selected: false,
+      },
+      {
+        id: '2',
+        content: 'Người có biểu hiện(sốt,ho,khó thở,viêm phổi)',
+        selected: false,
+      },
+      {id: '3', content: 'Không', selected: false},
+    ],
+  },
+  {
+    id: '3',
+    question:
+      'Brong 14 ngày qua bạn có di chuyển sang tỉnh,thành phố nào(Có thể di chuyển qua nhiều nơi) khác nơi ở  hiện tại?',
+    listSelect: [
+      {id: '1', content: 'Có', selected: false},
+      {id: '2', content: 'Không', selected: false},
+    ],
+  },
+  {
+    id: '1',
     question: 'Bạn và người thân có tiếp xúc với ?',
     listSelect: [
       {
@@ -52,43 +79,7 @@ const ListQuestion = [
       {id: '1', content: 'Sốt', selected: false},
       {id: '2', content: 'Ho', selected: false},
       {id: '3', content: 'Nôn,buồn nôn', selected: false},
-      {id: '4', content: 'Khó thở', selected: false},
-      {id: '5', content: 'Đau họng', selected: false},
-      {id: '6', content: 'Tiêu chảy', selected: false},
-      {id: '7', content: 'Xuất huyết ngoài da', selected: false},
-      {id: '8', content: 'Nổi bạn ngoài da', selected: false},
-      {id: '9', content: 'Không', selected: false},
-    ],
-  },
-  {
-    id: '1',
-    question: 'Bạn và người thân có tiếp xúc với ?',
-    listSelect: [
-      {
-        id: '1',
-        content: 'Người bệnh hoặc nghi ngờ mắc bệnh Covid 19',
-        selected: false,
-      },
-      {
-        id: '2',
-        content: 'Người có biểu hiện(sốt,ho,khó thở,viêm phổi)',
-        selected: false,
-      },
-      {id: '3', content: 'Không', selected: false},
-    ],
-  },
-  {
-    id: '1',
-    question: 'Bạn có thấy xuất hiện dấu hiệu sau đây không?',
-    listSelect: [
-      {id: '1', content: 'Sốt', selected: false},
-      {id: '2', content: 'Ho', selected: false},
-      {id: '3', content: 'Nôn,buồn nôn', selected: false},
-      {id: '4', content: 'Khó thở', selected: false},
-      {id: '5', content: 'Đau họng', selected: false},
-      {id: '6', content: 'Tiêu chảy', selected: false},
-      {id: '7', content: 'Xuất huyết ngoài da', selected: false},
-      {id: '8', content: 'Nổi bạn ngoài da', selected: false},
+
       {id: '9', content: 'Không', selected: false},
     ],
   },
