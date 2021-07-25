@@ -7,15 +7,15 @@ export const NotificationAlert = (string) => {
 
 export const confirmAlert = (content, callback) => {
   Alert.alert(
-    I18n.t('Notification'),
+    'Thông báo',
     content,
     [
       {
-        text: I18n.t('Cancel'),
+        text: 'Từ chối',
         style: 'cancel',
       },
       {
-        text: I18n.t('Ok'),
+        text: 'Đồng ý',
         onPress: () => {
           callback();
         },

@@ -3,6 +3,8 @@ export const UPDATE_USER_DATA = 'UPDATE_USER_DATA';
 export const LOGIN = 'LOGIN';
 export const UPDATE_INFOR = 'UPDATE_INFOR';
 
+export const UPDATE_SERVEY = 'UPDATE_SERVEY';
+
 export const SHOWLOADING = 'SHOWLOADING';
 export const HIDELOADING = 'HIDELOADING';
 

@@ -144,6 +144,7 @@ const Todo = (props) => {
       }
       try {
         const alarm = await ReactNativeAN.scheduleAlarm(details);
+        console.log('Hello', alarm);
         if (alarm) {
           const newList = listToDo.concat({
             ...work,

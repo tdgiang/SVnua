@@ -49,7 +49,7 @@ const ListQuestion = [
   {
     id: '3',
     question:
-      'Brong 14 ngày qua bạn có di chuyển sang tỉnh,thành phố nào(Có thể di chuyển qua nhiều nơi) khác nơi ở  hiện tại?',
+      'Trong 14 ngày qua bạn có di chuyển sang tỉnh,thành phố nào(Có thể di chuyển qua nhiều nơi) khác nơi ở  hiện tại?',
     listSelect: [
       {id: '1', content: 'Có', selected: false},
       {id: '2', content: 'Không', selected: false},
@@ -74,12 +74,9 @@ const ListQuestion = [
   },
   {
     id: '1',
-    question: 'Bạn có thấy xuất hiện dấu hiệu sau đây không?',
+    question: 'Chỗ ở của bạn có người nhiễm Covid chưa?',
     listSelect: [
-      {id: '1', content: 'Sốt', selected: false},
-      {id: '2', content: 'Ho', selected: false},
-      {id: '3', content: 'Nôn,buồn nôn', selected: false},
-
+      {id: '1', content: 'Có', selected: false},
       {id: '9', content: 'Không', selected: false},
     ],
   },

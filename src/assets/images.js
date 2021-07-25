@@ -79,6 +79,11 @@ const images = {
   icon_ViettelPay: require('./images/icon_viettelpay.png'),
   icon_PayYoo: require('./images/icon_payooh.png'),
   icon_pay_success: require('./images/icon_pay_success.png'),
+  sun: require('./images/sun.png'),
+  night: require('./images/night.png'),
+  rain: require('./images/raining.png'),
+  cloud: require('./images/cloudy.png'),
+  cool: require('./images/clouds.png'),
 };
 
 export default images;

@@ -1,8 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import {View, Text} from 'react-native';
 import R from '../../assets/R';
 import HomeView from './HomeView';
 import {showAlert, TYPE} from '../../components/DropdownAlert/index';
+import {confirmAlert} from '../../components/Aleart';
+import {useNavigation} from '@react-navigation/native';
+import {connect} from 'react-redux';
+import {toDoServey} from '../../actions/users';
+
 import {
   TIMETABLE,
   RESULTGRADE,
@@ -75,7 +80,26 @@ const listItem = [
 ];
 
 const Home = (props) => {
+  const navigate = useNavigation();
+
+  useEffect(() => {
+    if (!props.user.servey)
+      confirmAlert(
+        'Có một cuộc khảo sát cần lấy ý kiến từ bạn.Tiền hành khảo sát!',
+        () => {
+          navigate.navigate(SERVEY);
+          toDoServey();
+        },
+      );
+  });
+
   return <HomeView listItem={listItem} />;
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer,
+  };
+};
+
+export default connect(mapStateToProps, {toDoServey})(Home);
