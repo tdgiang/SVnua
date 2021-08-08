@@ -10,7 +10,7 @@ const Webview = (props) => {
     props.showLoading();
     setTimeout(() => {
       props.hideLoading();
-    }, 2000);
+    }, 3000);
   }, []);
 
   return (

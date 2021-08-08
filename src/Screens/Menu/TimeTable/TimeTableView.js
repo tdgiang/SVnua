@@ -34,7 +34,7 @@ const Item = (props) => {
 };
 
 const TimeTableView = (props) => {
-  const [index, setIndex] = useState(3);
+  const [index, setIndex] = useState(4);
   const [indexWeek, setIndexWeek] = useState(1);
 
   const onClickLeft = () => {

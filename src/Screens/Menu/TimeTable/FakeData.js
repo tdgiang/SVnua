@@ -357,29 +357,9 @@ export const DATAWEEK = [
           },
         ],
       },
+
       {
         date: '13/08/2021',
-        list: [
-          {
-            id: '1100',
-            name: '[TH0014]Tiếng anh chuyên ngày',
-            address: 'ND106',
-            time: '7:00-09:45',
-            weeks: '1,2,3,4,5,6',
-            teacher: 'Nguyễn Thị Lan',
-          },
-          {
-            id: '11123',
-            name: '[TH0113]Lập trình hướng đối tượng',
-            address: 'ND106',
-            time: '12:45-15:30',
-            weeks: '1,2,3,4,5,6',
-            teacher: 'Ngô Công Thắng',
-          },
-        ],
-      },
-      {
-        date: '14/08/2021',
         list: [
           {
             id: '1',
@@ -404,6 +384,27 @@ export const DATAWEEK = [
             time: '12:45-15:30',
             weeks: '1,2,3,4,5,6',
             teacher: 'Hoàng Thị Hà',
+          },
+        ],
+      },
+      {
+        date: '14/08/2021',
+        list: [
+          {
+            id: '1100',
+            name: '[TH0014]Tiếng anh chuyên ngày',
+            address: 'ND106',
+            time: '7:00-09:45',
+            weeks: '1,2,3,4,5,6',
+            teacher: 'Nguyễn Thị Lan',
+          },
+          {
+            id: '11123',
+            name: '[TH0113]Lập trình hướng đối tượng',
+            address: 'ND106',
+            time: '12:45-15:30',
+            weeks: '1,2,3,4,5,6',
+            teacher: 'Ngô Công Thắng',
           },
         ],
       },

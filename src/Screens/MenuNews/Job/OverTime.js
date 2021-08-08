@@ -19,7 +19,7 @@ const DATA = [
   {
     id: '1',
     name: 'Trần Thị Thu Phương',
-    image: image.avatar,
+    image: image.avatar6,
     time: '2 giờ',
     title: 'TUYỂN 10 NV TRẢ LỜI TIN NHẮN KHÁCH HÀNG THEO FORM MẪU ',
     content:
@@ -28,7 +28,7 @@ const DATA = [
   {
     id: '2',
     name: 'Trần Đăng Hải',
-    image: image.avatar,
+    image: image.avatar5,
     time: '4 giờ',
     title: 'Tuyển nhân viên lắp đặt thiết bị ',
     content:
@@ -37,7 +37,7 @@ const DATA = [
   {
     id: '3',
     name: 'Tuyết Minh',
-    image: image.avatar,
+    image: image.avatar3,
     time: '6 giờ trước',
     title: 'Cần gấp 5 bạn telesales làm việc tại Vinhomes Ocean Park',
     content:
@@ -46,7 +46,7 @@ const DATA = [
   {
     id: '4',
     name: 'Hoàng Xuân',
-    image: image.avatar,
+    image: image.avatar4,
     time: '4 giờ',
     title: 'Tuyển nhân viên bán hàng',
     content:
@@ -55,7 +55,7 @@ const DATA = [
   {
     id: '5',
     name: 'Trần Thị Thu Phương',
-    image: image.avatar,
+    image: image.avatar5,
     time: '4 giờ',
     title: 'TUYỂN 10 NV TRẢ LỜI TIN NHẮN KHÁCH HÀNG THEO FORM MẪU ',
     content:
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 50,
     width: 50,
+    borderRadius: 25,
   },
   subdetail: {
     justifyContent: 'space-between',

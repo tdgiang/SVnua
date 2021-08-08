@@ -33,7 +33,6 @@ const alarmNotifData = {
   vibrate: true,
   play_sound: true,
   schedule_type: 'once',
-  sound_name: 'sound_name.mp3',
   channel: 'wakeup',
   data: {content: 'Thông báo'},
   loop_sound: true,
@@ -45,9 +44,8 @@ const repeatAlarmNotifData = {
   message: 'Stand up',
   vibrate: true,
   play_sound: true,
-  sound_name: 'sound_name.mp3',
   channel: 'wakeup',
-  data: {content: 'my notification id is 22'},
+  data: {content: 'Thông báo'},
   loop_sound: true,
   schedule_type: 'repeat',
   repeat_interval: 'minutely',
@@ -136,7 +134,7 @@ const Todo = (props) => {
         };
       else {
         details = {
-          ...repeatAlarmNotifData,
+          ...alarmNotifData,
           fire_date: ReactNativeAN.parseDate(work.time),
           message: work.title,
           repeat_interval: work.selected,

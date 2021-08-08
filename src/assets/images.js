@@ -63,6 +63,33 @@ const images = {
   gallery: require('./images/gallery.png'),
   pdf: require('./images/pdf.png'),
   assignment: require('./images/assignment.png'),
+  iconWarn: require('./images/iconWarn.png'),
+  iconSuccess: require('./images/iconSuccess.png'),
+  iconError: require('./images/iconError.png'),
+  bkav: require('./images/bkav.png'),
+  vsmart: require('./images/vsmart.png'),
+
+  folderjob: require('./images/folderjob.png'),
+  hotJob: require('./images/hotJob.png'),
+  intership: require('./images/intership.png'),
+  partTime: require('./images/partTime.png'),
+  repeat: require('./images/repeat.png'),
+
+  sun: require('./images/sun.png'),
+  night: require('./images/night.png'),
+  rain: require('./images/raining.png'),
+  cloud: require('./images/clouds.png'),
+  cool: require('./images/cloudy.png'),
+  thunderstorm: require('./images/thunderstorm.png'),
+  liststudent: require('./images/liststudent.png'),
+  iconEmpty: require('./images/iconEmpty.png'),
+
+  avatar2: require('./images/avatar2.jpeg'),
+  avatar3: require('./images/avatar3.jpeg'),
+  avatar4: require('./images/avatar4.jpeg'),
+  avatar5: require('./images/avatar5.jpeg'),
+  avatar6: require('./images/avatar6.jpeg'),
+  java: require('./images/java22.png'),
 
   icon_visa: require('./images/icon_visa.png'),
   icon_mastercard: require('./images/icon_mastercard.png'),
@@ -79,11 +106,6 @@ const images = {
   icon_ViettelPay: require('./images/icon_viettelpay.png'),
   icon_PayYoo: require('./images/icon_payooh.png'),
   icon_pay_success: require('./images/icon_pay_success.png'),
-  sun: require('./images/sun.png'),
-  night: require('./images/night.png'),
-  rain: require('./images/raining.png'),
-  cloud: require('./images/cloudy.png'),
-  cool: require('./images/clouds.png'),
 };
 
 export default images;

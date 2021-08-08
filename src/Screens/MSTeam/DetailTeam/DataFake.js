@@ -6,7 +6,7 @@ export const DATA = [
     poster: {
       id: '1',
       name: 'Trần Trung Hiếu',
-      avatart: R.images.avatar1,
+      avatart: R.images.avatar5,
     },
     time: '15/05/21, 09:15',
     content: {
@@ -20,7 +20,7 @@ export const DATA = [
         user: {
           id: '1',
           name: 'Trần Trung Hiếu',
-          avatart: R.images.avatar,
+          avatart: R.images.avatar5,
         },
         time: '15/05,9:30 AM',
         content: {
@@ -60,7 +60,7 @@ export const DATA = [
         user: {
           id: '1',
           name: 'Trần Trung Hiếu',
-          avatart: R.images.avatar,
+          avatart: R.images.avatar5,
         },
         time: '15/05,9:30 AM',
         content: {
@@ -86,7 +86,7 @@ export const DATA = [
     poster: {
       id: '1',
       name: 'Trần Trung Hiếu',
-      avatart: R.images.avatar1,
+      avatart: R.images.avatar5,
     },
     time: '15/05/21, 09:15',
     content: {
@@ -103,7 +103,7 @@ export const DATA = [
         user: {
           id: '1',
           name: 'Trần Trung Hiếu',
-          avatart: R.images.avatar,
+          avatart: R.images.avatar5,
         },
         time: '15/05,9:30 AM',
         content: {
@@ -122,7 +122,7 @@ export const DATA = [
         user: {
           id: '1',
           name: 'Trần Trung Hiếu',
-          avatart: R.images.avatar,
+          avatart: R.images.avatar5,
         },
         time: '15/05,9:30 AM',
         content: {
@@ -141,7 +141,7 @@ export const DATA = [
         user: {
           id: '1',
           name: 'Trần Trung Hiếu',
-          avatart: R.images.avatar,
+          avatart: R.images.avatar5,
         },
         time: '15/05,9:30 AM',
         content: {
@@ -160,7 +160,7 @@ export const DATA = [
         user: {
           id: '1',
           name: 'Trần Trung Hiếu',
-          avatart: R.images.avatar,
+          avatart: R.images.avatar5,
         },
         time: '15/05,9:30 AM',
         content: {
@@ -186,7 +186,7 @@ export const DATA = [
     poster: {
       id: '1',
       name: 'Trần Trung Hiếu',
-      avatart: R.images.avatar1,
+      avatart: R.images.avatar5,
     },
     time: '15/05/21, 09:15',
     content: {
@@ -200,7 +200,7 @@ export const DATA = [
         user: {
           id: '1',
           name: 'Trần Trung Hiếu',
-          avatart: R.images.avatar,
+          avatart: R.images.avatar5,
         },
         time: '15/05,9:30 AM',
         content: {

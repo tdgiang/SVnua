@@ -18,7 +18,7 @@ const DATA = [
   {
     id: '8',
     name: 'Lập trình Java_K64ATTT',
-    icon: R.images.iconjava,
+    icon: R.images.java,
   },
   {
     id: '1',

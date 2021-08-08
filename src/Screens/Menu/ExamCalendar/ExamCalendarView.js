@@ -15,7 +15,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 const DATA = [
   {
     id: '11',
-    date: '10/02/2021',
+    date: '10/07/2021',
     subject: 'Lập trình JAVA',
     timebegin: '08:00',
     timefinish: '10:00',
@@ -24,7 +24,7 @@ const DATA = [
   },
   {
     id: '12',
-    date: '17/02/2021',
+    date: '17/07/2021',
     subject: 'Tiếng anh 1',
     timebegin: '14:30',
     timefinish: '16:00',
@@ -33,7 +33,7 @@ const DATA = [
   },
   {
     id: '1',
-    date: '20/02/2021',
+    date: '20/07/2021',
     subject: 'Lập trình hướng đối tượng.',
     timebegin: '12:45',
     timefinish: '15:30',
@@ -42,7 +42,7 @@ const DATA = [
   },
   {
     id: '2',
-    date: '22/02/2021',
+    date: '22/07/2021',
     subject: 'Phân tích thiết kế hệ thống',
     timebegin: '12:45',
     timefinish: '15:30',
@@ -51,7 +51,7 @@ const DATA = [
   },
   {
     id: '3',
-    date: '28/02/2021',
+    date: '28/07/2021',
     subject: 'Cơ sở dữ liệu',
     timebegin: '12:45',
     timefinish: '15:30',
@@ -60,7 +60,7 @@ const DATA = [
   },
   {
     id: '4',
-    date: '03/03/2021',
+    date: '03/08/2021',
     subject: 'Mạng máy tính',
     timebegin: '12:45',
     timefinish: '15:30',
@@ -107,7 +107,7 @@ const ExamCalendarView = (props) => {
         <View style={styles.wrapPicker}>
           <View style={styles.wrapRow}>
             <Icon name={'calendar'} color={R.colors.white} size={20} />
-            <Text style={styles.txtDate}>Kỳ 1 2020-2021</Text>
+            <Text style={styles.txtDate}>Kỳ 2 2020-2021</Text>
           </View>
         </View>
         <FlatList

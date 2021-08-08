@@ -19,10 +19,7 @@ const list = [
     id: 'once',
     title: 'Một lần',
   },
-  {
-    id: 'hourly',
-    title: 'Mỗi giờ',
-  },
+
   {
     id: 'daily',
     title: 'Hàng ngày',

@@ -12,7 +12,7 @@ import {TypingAnimation} from 'react-native-typing-animation';
 class SocketIO extends Component {
   constructor(props) {
     super(props);
-    this.socket = io('http://10.10.20.28:9000');
+    this.socket = io('http://10.10.20.29:9000');
     this.state = {
       ListMessage: [],
       isTyping: false,

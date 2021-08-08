@@ -110,7 +110,7 @@ const Item = (props) => {
   return (
     <TouchableOpacity
       onPress={() => setRead(true)}
-      style={[styles.container, read ? {} : {backgroundColor: '#DDDDDD'}]}>
+      style={[styles.container, read ? {} : {backgroundColor: '#EEEEEE'}]}>
       <Image style={styles.image} source={image} />
 
       <View style={styles.containContent}>

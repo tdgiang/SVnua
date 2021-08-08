@@ -31,7 +31,7 @@ const Item = (props) => {
           {title}
         </Text>
         <View style={styles.subdetail}>
-          <Text style={styles.detail}>{convertDateTime(time)}</Text>
+          <Text style={styles.detail}>{time}</Text>
           <View
             style={{
               flexDirection: 'row',
